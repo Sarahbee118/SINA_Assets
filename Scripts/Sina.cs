@@ -26,6 +26,12 @@ public class Sina : MonoBehaviour
     public int ammo; //ammo count
     public TMP_Text healthText; //text in health bar
     public TMP_Text ammoText; //text in ammo count
+
+    //SFX Shield Up
+    //SFX Shield Down
+    //SFX Shrink
+    //SFX Grow
+    //SFX Punch
    
     void Start()
     {
@@ -108,6 +114,7 @@ public class Sina : MonoBehaviour
 
         switch(Mathf.RoundToInt(moveDirection.x)) //whether to flip sprite
         {
+            //SFX Footsteps
             case 0:
                 //srend.flipX = false;
                 break;
@@ -138,6 +145,7 @@ public class Sina : MonoBehaviour
             ammoText.text = "Ammo x" + ammo;
             Debug.Log(ammo);
             // StopCoroutine(Firing());
+            //SFX Gun Shot
             animator.SetBool("Firing", true);
             GameObject bullet = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);
 
@@ -186,6 +194,7 @@ public class Sina : MonoBehaviour
             yield return null; //next frame
         }
         fire.Enable(); //enable firing again
+        //SFX Reload Clip
         animator.SetBool("Firing", false);
 
 
@@ -230,6 +239,7 @@ public class Sina : MonoBehaviour
 
     private void Dash(InputAction.CallbackContext context)
     {
+        //SFX Dash
         Debug.Log("Dash");
     }
 
