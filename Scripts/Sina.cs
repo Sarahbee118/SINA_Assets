@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Transform = UnityEngine.Transform;
 using TMPro;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
@@ -248,11 +249,19 @@ public class Sina : MonoBehaviour
         if (TextBox.activeSelf == true)
         {
             trigger.NextDialogue();
+            if (TextBox.activeSelf == false)
+            {
+                moveLock = false;
+
+            }
+
         }
         else
         {
+            moveLock = true;
             TextBox.SetActive(true);
             trigger.TriggerDialogue();
+            
         }
         
     }
@@ -402,6 +411,7 @@ public class Sina : MonoBehaviour
         //else
         punch.Disable();
         animator.Play("Sina_PunchF");
+        animator.SetBool("Punching", true);
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
@@ -431,6 +441,7 @@ public class Sina : MonoBehaviour
             animator.SetInteger("YSpeed", 0);
             yield return null; //next frame
         }
+        animator.SetBool("Punching", false);
         punch.Enable(); //enable punching again
 
     }
