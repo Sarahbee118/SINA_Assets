@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Transform = UnityEngine.Transform;
 using TMPro;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Sina : MonoBehaviour
 {
@@ -17,6 +19,7 @@ public class Sina : MonoBehaviour
     private InputAction fire; // fire actions
     private InputAction interact; //interact
     private InputAction dash; // dash action
+    private InputAction shrink; // shrink action
     public txt_trigger trigger; //trigger text box
     public GameObject TextBox; //the textbox itself
     public Animator animator; //Sina's animatior
@@ -26,13 +29,23 @@ public class Sina : MonoBehaviour
     public int ammo; //ammo count
     public TMP_Text healthText; //text in health bar
     public TMP_Text ammoText; //text in ammo count
+    private float shrunk = 0f;
+    public bool moveLock = false;
+    private InputAction punch; // punch action
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+    public int attackDamage = 20;
+    //
+    public AudioClip shoot; //shoot sfx
+    public AudioClip reload; //reload sfx
 
     //SFX Shield Up
     //SFX Shield Down
     //SFX Shrink
     //SFX Grow
     //SFX Punch
-   
+
     void Start()
     {
         
@@ -44,7 +57,11 @@ public class Sina : MonoBehaviour
         ProcessInputs();
         if (TextBox.activeSelf == false)
         {
-            Move(); //So movement is fixed
+            if (moveLock == false)
+            {
+                Move(); //So movement is fixed
+            }    
+            
         }
         else
         {
@@ -56,7 +73,7 @@ public class Sina : MonoBehaviour
 
     void FixedUpdate() //fixed
     {
-        
+        Debug.Log(Rigidbody.velocity);
        
     }
 
@@ -109,7 +126,7 @@ public class Sina : MonoBehaviour
     {
      
 
-        Rigidbody.velocity = new Vector2(moveDirection.x *moveSpeed, moveDirection.y *moveSpeed); //Math on moving player char
+        Rigidbody.velocity = new Vector2(moveDirection.x *(moveSpeed-(shrunk*.5f)), moveDirection.y *(moveSpeed - (shrunk * .5f))); //Math on moving player char
         //Debug.Log(Rigidbody.velocity.ToString());
 
         switch(Mathf.RoundToInt(moveDirection.x)) //whether to flip sprite
@@ -141,6 +158,8 @@ public class Sina : MonoBehaviour
         if (ammo > 0)
         {
             fire.Disable();
+            moveLock = true;
+            AudioSource.PlayClipAtPoint(shoot, transform.position);
             ammo--;
             ammoText.text = "Ammo x" + ammo;
             Debug.Log(ammo);
@@ -186,7 +205,7 @@ public class Sina : MonoBehaviour
 
     IEnumerator Firing() //while firing
     {
-        for (int firingtime = 0; firingtime <= 25; firingtime++) //gives 25 frames of relaoad time 
+        for (int firingtime = 0; firingtime <= 25; firingtime++) //gives 25 frames of reload time 
         {
             Rigidbody.velocity = new Vector2(0f, 0f); //stop movment
             animator.SetInteger("XSpeed", 0); 
@@ -195,7 +214,9 @@ public class Sina : MonoBehaviour
         }
         fire.Enable(); //enable firing again
         //SFX Reload Clip
+        moveLock = false;
         animator.SetBool("Firing", false);
+        AudioSource.PlayClipAtPoint(reload, transform.position);
 
 
         /*switch (faceDirection)
@@ -228,20 +249,204 @@ public class Sina : MonoBehaviour
         if (TextBox.activeSelf == true)
         {
             trigger.NextDialogue();
+            if (TextBox.activeSelf == false)
+            {
+                moveLock = false;
+
+            }
+
         }
         else
         {
+            moveLock = true;
             TextBox.SetActive(true);
             trigger.TriggerDialogue();
+            
         }
         
     }
-
     private void Dash(InputAction.CallbackContext context)
     {
-        //SFX Dash
-        Debug.Log("Dash");
+        if (Rigidbody.velocity.x != 0 | Rigidbody.velocity.y != 0 )
+        {
+            moveLock = true;
+            dash.Disable();
+            StartCoroutine(Dashing());
+            //Debug.Log("Dash");
+        }
+
     }
+
+    IEnumerator Dashing()
+    {
+        //SFX Dash
+       // Rigidbody.velocity.x = Mathf.Round(TimeTaken * 100)) / 100.0
+        switch (Mathf.Round(Rigidbody.velocity.x * 100f) / 100.0f)
+        {
+            case 4f:
+                Rigidbody.velocity = new Vector2(20f, 0f);
+                break;
+            case -4f:
+                Rigidbody.velocity = new Vector2(-20f, 0f);
+                break;
+            case 2.83f:
+                Debug.Log("AAAAAAA");
+                switch (Mathf.Round(Rigidbody.velocity.y * 100f) / 100.0f)
+                {
+                    case 2.83f:
+                        Rigidbody.velocity = new Vector2(14.14f, 14.14f);
+                        Debug.Log("A");
+                        break;
+                    case -2.83f:
+                        Rigidbody.velocity = new Vector2(14.14f, -14.14f);
+                        Debug.Log("A");
+                        break;
+
+                }
+                break;
+            case -2.83f:
+                switch (Mathf.Round(Rigidbody.velocity.y * 100f) / 100.0f)
+                {
+                    case 2.83f:
+                        Rigidbody.velocity = new Vector2(-14.14f, 14.14f);
+                        break;
+                    case -2.83f:
+                        Rigidbody.velocity = new Vector2(-14.14f, -14.14f);
+                        break;
+
+                }
+                break;
+            default:
+                switch (Mathf.Round(Rigidbody.velocity.y * 100f) / 100.0f)
+                {
+                    case 4f:
+                        Rigidbody.velocity = new Vector2(0f, 20f);
+                        break;
+                    case -4f:
+                        Rigidbody.velocity = new Vector2(0f,-20f);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+
+
+        }
+        for (int dashTime  = 0; dashTime <= 6; dashTime++)
+        {
+            yield return null;
+        }
+        dash.Enable();
+        moveLock = false;
+        
+    }
+
+    private void Shrink(InputAction.CallbackContext context)
+    {
+        //SFX Dash
+        shrink.Disable();
+        moveLock = true;
+        Debug.Log("Shrink");
+        StartCoroutine(Shrinking());
+        // animator.SetBool("Shrinking", true);
+        //  faceDirection = 3;
+        // animator.Play("Sina_DeafaultF", 0, 0.0f);
+        // transform.localScale = new Vector2(3f, 3f);
+    }
+
+    IEnumerator Shrinking()
+    {
+        switch (shrunk)
+        {
+            case 0f:
+                shrunk = 1f;
+                for (float shrinktime = 6; shrinktime >= 3; shrinktime--) //gives 25 frames of relaoad time 
+                {
+                    Rigidbody.velocity = new Vector2(0f, 0f); //stop movment
+                    animator.SetInteger("XSpeed", 0);
+                    animator.SetInteger("YSpeed", 0);
+                    transform.localScale = new Vector2(shrinktime, shrinktime);
+                    Vector3 shrinkPos = new Vector3(0f, -.08f, 0f);
+                    transform.localPosition += shrinkPos;
+                    yield return null; //next frame
+                }
+                break;
+
+            case 1f:
+                shrunk = 0f;
+                for (float shrinktime = 3; shrinktime <= 6; shrinktime++) //gives 25 frames of relaoad time 
+                {
+                    Rigidbody.velocity = new Vector2(0f, 0f); //stop movment
+                    animator.SetInteger("XSpeed", 0);
+                    animator.SetInteger("YSpeed", 0);
+                    transform.localScale = new Vector2(shrinktime, shrinktime);
+                    Vector3 shrinkPos = new Vector3(0f, .08f, 0f);
+                    transform.localPosition += shrinkPos;
+                    yield return null; //next frame
+                }
+                break;
+        }
+       
+        shrink.Enable();
+        moveLock = false;
+    }
+
+    private void Punch(InputAction.CallbackContext context)
+    {
+        //SFX Punch
+        Debug.Log("Punch");
+        //if player has hulk power-up ... use hulk smash
+        // hpunch.Disable();
+        // animator.Play("Sina_HPunchF");
+
+        // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange + 20, enemyLayers);
+        // foreach(Collider2D enemy in hitEnemies)
+        // {
+        //     enemy.GetComponent<enemy>().TakeDamage(attackDamage+15);
+        //     Debug.Log("hulk smask " + enemy.name);
+        // }
+
+        // StartCoroutine(Punching());
+
+        //else
+        punch.Disable();
+        animator.Play("Sina_PunchF");
+        animator.SetBool("Punching", true);
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+            Debug.Log("We hit " + enemy.name);
+        }
+
+        StartCoroutine(Punching());
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    IEnumerator Punching() //while punching
+    {
+        for (int punchingtime = 0; punchingtime <= 25; punchingtime++) //gives 25 frames of relaoad time 
+        {
+            Rigidbody.velocity = new Vector2(0f, 0f); //stop movment
+            animator.SetInteger("XSpeed", 0);
+            animator.SetInteger("YSpeed", 0);
+            yield return null; //next frame
+        }
+        animator.SetBool("Punching", false);
+        punch.Enable(); //enable punching again
+
+    }
+
+
 
     private void OnEnable() //Required for new input system
     {
@@ -257,7 +462,13 @@ public class Sina : MonoBehaviour
         dash = playerControls.Player.Dash;
         dash.Enable();
         dash.performed += Dash;
-       
+        shrink = playerControls.Player.Shrink;
+        shrink.Enable();
+        shrink.performed += Shrink;
+        punch = playerControls.Player.Punch;
+        punch.Enable();
+        punch.performed += Punch;
+
     }
 
 
@@ -268,5 +479,7 @@ public class Sina : MonoBehaviour
         fire.Disable();
         interact.Disable();
         dash.Disable();
+        shrink.Disable();
+        punch.Disable();
     }
 }
