@@ -36,6 +36,8 @@ public class Sina : MonoBehaviour
     public LayerMask enemyLayers;
     public int attackDamage = 20;
     //
+    public AudioClip shoot; //shoot sfx
+    public AudioClip reload; //reload sfx
 
     //SFX Shield Up
     //SFX Shield Down
@@ -156,6 +158,7 @@ public class Sina : MonoBehaviour
         {
             fire.Disable();
             moveLock = true;
+            AudioSource.PlayClipAtPoint(shoot, transform.position);
             ammo--;
             ammoText.text = "Ammo x" + ammo;
             Debug.Log(ammo);
@@ -212,6 +215,7 @@ public class Sina : MonoBehaviour
         //SFX Reload Clip
         moveLock = false;
         animator.SetBool("Firing", false);
+        AudioSource.PlayClipAtPoint(reload, transform.position);
 
 
         /*switch (faceDirection)
