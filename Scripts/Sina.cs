@@ -30,13 +30,19 @@ public class Sina : MonoBehaviour
     public TMP_Text ammoText; //text in ammo count
     private float shrunk = 0f;
     public bool moveLock = false;
+    private InputAction punch; // punch action
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+    public int attackDamage = 20;
+    //
 
     //SFX Shield Up
     //SFX Shield Down
     //SFX Shrink
     //SFX Grow
     //SFX Punch
-   
+
     void Start()
     {
         
@@ -372,6 +378,59 @@ public class Sina : MonoBehaviour
         moveLock = false;
     }
 
+    private void Punch(InputAction.CallbackContext context)
+    {
+        //SFX Punch
+        Debug.Log("Punch");
+        //if player has hulk power-up ... use hulk smash
+        // hpunch.Disable();
+        // animator.Play("Sina_HPunchF");
+
+        // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange + 20, enemyLayers);
+        // foreach(Collider2D enemy in hitEnemies)
+        // {
+        //     enemy.GetComponent<enemy>().TakeDamage(attackDamage+15);
+        //     Debug.Log("hulk smask " + enemy.name);
+        // }
+
+        // StartCoroutine(Punching());
+
+        //else
+        punch.Disable();
+        animator.Play("Sina_PunchF");
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
+            Debug.Log("We hit " + enemy.name);
+        }
+
+        StartCoroutine(Punching());
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    IEnumerator Punching() //while punching
+    {
+        for (int punchingtime = 0; punchingtime <= 25; punchingtime++) //gives 25 frames of relaoad time 
+        {
+            Rigidbody.velocity = new Vector2(0f, 0f); //stop movment
+            animator.SetInteger("XSpeed", 0);
+            animator.SetInteger("YSpeed", 0);
+            yield return null; //next frame
+        }
+        punch.Enable(); //enable punching again
+
+    }
+
 
 
     private void OnEnable() //Required for new input system
@@ -391,6 +450,9 @@ public class Sina : MonoBehaviour
         shrink = playerControls.Player.Shrink;
         shrink.Enable();
         shrink.performed += Shrink;
+        punch = playerControls.Player.Punch;
+        punch.Enable();
+        punch.performed += Punch;
 
     }
 
@@ -403,5 +465,6 @@ public class Sina : MonoBehaviour
         interact.Disable();
         dash.Disable();
         shrink.Disable();
+        punch.Disable();
     }
 }
