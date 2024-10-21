@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Transform = UnityEngine.Transform;
 using TMPro;
-using static UnityEngine.RuleTile.TilingRuleOutput;
+//sing static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Sina : MonoBehaviour
 {
@@ -162,7 +162,7 @@ public class Sina : MonoBehaviour
             AudioSource.PlayClipAtPoint(shoot, transform.position);
             ammo--;
             ammoText.text = "Ammo x" + ammo;
-            Debug.Log(ammo);
+            //Debug.Log(ammo);
             // StopCoroutine(Firing());
             //SFX Gun Shot
             animator.SetBool("Firing", true);

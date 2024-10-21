@@ -1,0 +1,39 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "exportAsImage.drawTileGrid": true,
+    "exportAsImage.includeBackgroundColor": true,
+    "fileStates": {
+        "D:/Downloads/Tiny Tales_2D_Overworld_2.0.1/Tiled/Set_A_Hills1.tsx": {
+            "scaleInDock": 1
+        },
+        "testTestMap.tmx": {
+            "scale": 3.107291666666667,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 192.289641300704,
+                "y": 96.06436473348977
+            }
+        }
+    },
+    "last.worldFilePath": "C:/Users/paulb/iCloudDrive/COM217/SINA - The Game/Assets/Tiled",
+    "loadedWorlds": [
+        "C:/Users/paulb/iCloudDrive/COM217/SINA - The Game/Assets/Tiled/TestWorld.world"
+    ],
+    "map.height": 11,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 20,
+    "map.tileWidth": 20,
+    "map.width": 19,
+    "openFiles": [
+    ],
+    "project": "template.tiled-project",
+    "recentFiles": [
+        "testTestMap.tmx"
+    ]
+}
