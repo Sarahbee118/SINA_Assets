@@ -23,7 +23,7 @@ public class txtmanager : MonoBehaviour
     {
         sentences = new Queue<string>();
         Debug.Log ("start coversation with " + dialogue.name);
-        nameText.text = dialogue.name;
+        nameText.text = dialogue.name + ":";
 
         sentences.Clear();
 
@@ -51,6 +51,17 @@ public class txtmanager : MonoBehaviour
             dialogueText.text = string.Empty;
 
             sentence = sentences.Dequeue();
+            
+            if (sentence.Length > 8)
+            {
+                //Debug.Log(sentence.Substring(0, 8));
+                //Debug.Log(sentence.Substring(8));
+                if (sentence.Substring(0, 8) == "newName:")
+                {
+                    nameText.text = sentence.Substring(8) + ":";
+                    sentence = sentences.Dequeue();
+                }
+            }
             StartCoroutine(TypeLine(sentence));
         }
         else

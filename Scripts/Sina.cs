@@ -73,7 +73,7 @@ public class Sina : MonoBehaviour
 
     void FixedUpdate() //fixed
     {
-        Debug.Log(Rigidbody.velocity);
+       // Debug.Log(Rigidbody.velocity);
        
     }
 
@@ -290,7 +290,7 @@ public class Sina : MonoBehaviour
                 Rigidbody.velocity = new Vector2(-20f, 0f);
                 break;
             case 2.83f:
-                Debug.Log("AAAAAAA");
+               // Debug.Log("AAAAAAA");
                 switch (Mathf.Round(Rigidbody.velocity.y * 100f) / 100.0f)
                 {
                     case 2.83f:

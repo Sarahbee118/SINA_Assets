@@ -24,4 +24,28 @@ public class MainMenu : MonoBehaviour
         //SFX Confirmation Beep
         SceneManager.LoadScene("AlphaMainMenu");
     }
+
+    public void fullScreenOn()
+    {
+        Screen.fullScreen = true;
+    }
+
+    public void fullScreenOff()
+    {
+        Screen.fullScreen = false;
+    }
+
+    public void SevenTwentyP() {
+        Screen.SetResolution(1280, 720, Screen.fullScreen);
+    }
+
+    public void TenEightyP()
+    {
+        Screen.SetResolution(1920, 1080, Screen.fullScreen);
+    }
+
+    public void FourK()
+    {
+        Screen.SetResolution(3840, 2160, Screen.fullScreen);
+    }
 }
