@@ -16,9 +16,7 @@ public class enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
         //hurt animation
-
         if (currentHealth <= 0)
         {
             Die();

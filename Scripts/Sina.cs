@@ -15,27 +15,37 @@ public class Sina : MonoBehaviour
     private Vector2 moveDirection;
     public PlayerInputs playerControls; // Calling Input Actions see tutorial for more details
     //Tutorial: www.youtube.com/watch?v=HmXU4dZbaMw
+    //input action
     private InputAction move; //move actions
     private InputAction fire; // fire actions
     private InputAction interact; //interact
     private InputAction dash; // dash action
     private InputAction shrink; // shrink action
+    //text
     public txt_trigger trigger; //trigger text box
     public GameObject TextBox; //the textbox itself
+    public Transform interactPoint; //npc sphere
+    public float interactRange = 0.5f; //range to interact
+    //animation
     public Animator animator; //Sina's animatior
     public SpriteRenderer srend; //sprite renderer, her own
     public int faceDirection; // Left = 0, Up = 1, Right = 2, Down = 3
+    //gun
     public GameObject bulletfab; //bullet prefab
     public int ammo; //ammo count
     public TMP_Text healthText; //text in health bar
     public TMP_Text ammoText; //text in ammo count
+    //shrink
     private float shrunk = 0f;
     public bool moveLock = false;
+    //punch
     private InputAction punch; // punch action
     public Transform attackPoint;
-    public float attackRange = 0.5f;
+    public float attackRange = 0.7f;
     public LayerMask enemyLayers;
-    public int attackDamage = 20;
+    public int attackDamage = 10;
+    public GameObject punchfab;
+    public bool punchPower = false;
     //
     public AudioClip shoot; //shoot sfx
     public AudioClip reload; //reload sfx
@@ -73,7 +83,7 @@ public class Sina : MonoBehaviour
 
     void FixedUpdate() //fixed
     {
-        Debug.Log(Rigidbody.velocity);
+        //Debug.Log(Rigidbody.velocity);
        
     }
 
@@ -239,10 +249,6 @@ public class Sina : MonoBehaviour
         */
     }
 
-
-
-
-
     private void Interaction(InputAction.CallbackContext context)
     {
         Debug.Log("Interact");
@@ -390,38 +396,105 @@ public class Sina : MonoBehaviour
         shrink.Enable();
         moveLock = false;
     }
-
     private void Punch(InputAction.CallbackContext context)
     {
         //SFX Punch
-        Debug.Log("Punch");
-        //if player has hulk power-up ... use hulk smash
-        // hpunch.Disable();
-        // animator.Play("Sina_HPunchF");
+        //Debug.Log("Punch");
 
-        // Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange + 20, enemyLayers);
-        // foreach(Collider2D enemy in hitEnemies)
-        // {
-        //     enemy.GetComponent<enemy>().TakeDamage(attackDamage+15);
-        //     Debug.Log("hulk smask " + enemy.name);
-        // }
-
-        // StartCoroutine(Punching());
-
-        //else
         punch.Disable();
-        animator.Play("Sina_PunchF");
+        //moveLock = true;
         animator.SetBool("Punching", true);
 
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D[] personalSpace = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach (Collider2D enemy in hitEnemies)
+        //foreach(Collider2D enemy in hitEnemies)
+        foreach (Collider2D thing in personalSpace)
         {
-            enemy.GetComponent<enemy>().TakeDamage(attackDamage);
-            Debug.Log("We hit " + enemy.name);
+            if ( thing.GetComponent<enemy>() != null)
+            {
+                //if (punchPower = false)
+                //{
+                    GameObject kapow = Instantiate<GameObject>(punchfab, transform.position, Quaternion.identity);
+                    thing.GetComponent<enemy>().TakeDamage(attackDamage);
+
+                    switch (faceDirection) //punch appears in faced direction
+                    {
+                        case 0:
+                            animator.Play("Sina_DefaultR", 0, 0.0f); //firing animation
+                            Debug.Log("punch r");
+                            kapow.transform.position = kapow.transform.position + new Vector3(-.8f, 0, 0); //start bullet in direction
+                            kapow.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
+                            break; //break
+                        case 1: 
+                            animator.Play("Sina_DefaultB", 0, 0.0f);
+                            Debug.Log("punch b");
+                            kapow.transform.position = kapow.transform.position + new Vector3(0, 1f, 0);
+                            break;
+                        case 2:
+                            animator.Play("Sina_DefaultR", 0, 0.0f);
+                            Debug.Log("punch r 2");
+                            kapow.transform.position = kapow.transform.position + new Vector3(.8f, 0, 0);
+                            kapow.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
+                            break;
+                        case 3:
+                            animator.Play("Sina_DefaultF", 0, 0.0f);
+                            Debug.Log("punch f");
+                            kapow.transform.position = kapow.transform.position + new Vector3(0, -1f, 0);
+                            kapow.transform.Rotate(0.0f, 0.0f, 0.0f, 0f); /////not facing the right direction
+                            break;
+                            //
+                    }
+                    StartCoroutine(Punching());
+                    //moveLock = false;
+                //}
+
+                /*else
+                {
+                    GameObject kapow = Instantiate<GameObject>(punchfab, transform.position, Quaternion.identity);
+                    thing.GetComponent<enemy>().TakeDamage(attackDamage+15);
+                    switch (faceDirection) //punch appears in faced direction
+                    {
+                        case 0:
+                            animator.Play("Sina_DefaultR", 0, 0.0f); //firing animation
+                            Debug.Log("punch r");
+                            kapow.transform.position = kapow.transform.position + new Vector3(-.8f, 0, 0); //start bullet in direction
+                            kapow.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
+                            break; //break
+                        case 1: 
+                            animator.Play("Sina_DefaultB", 0, 0.0f);
+                            Debug.Log("punch b");
+                            kapow.transform.position = kapow.transform.position + new Vector3(0, 1f, 0);
+                            break;
+                        case 2:
+                            animator.Play("Sina_DefaultR", 0, 0.0f);
+                            Debug.Log("punch r 2");
+                            kapow.transform.position = kapow.transform.position + new Vector3(.8f, 0, 0);
+                            kapow.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
+                            break;
+                        case 3:
+                            animator.Play("Sina_DefaultF", 0, 0.0f);
+                            Debug.Log("punch f");
+                            kapow.transform.position = kapow.transform.position + new Vector3(0, -1f, 0);
+                            kapow.transform.Rotate(0.0f, 0.0f, 0.0f, 0f); /////not facing the right direction
+                            break;
+                            //
+                    }
+                    StartCoroutine(Punching());
+                    //moveLock = false;
+                }*/
+
+            }
+
+            else if (thing.GetComponent<npc>() != null)
+            {
+                thing.GetComponent<npc>().Interact();
+                Debug.Log("im speaking");
+            }
+            
+            Debug.Log("We hit " + thing.name);
+            
         }
 
-        StartCoroutine(Punching());
     }
 
     void OnDrawGizmosSelected()
@@ -443,6 +516,7 @@ public class Sina : MonoBehaviour
         }
         animator.SetBool("Punching", false);
         punch.Enable(); //enable punching again
+        //moveLock = false;
 
     }
 
