@@ -17,7 +17,7 @@ public class npc : MonoBehaviour
     // Update is called once per frame
     public void Interact()
     {
-        Debug.Log("Interact");
+     /*   Debug.Log("Interact");
         if (TextBox.activeSelf == true)
         {
             trigger.NextDialogue();
@@ -34,5 +34,6 @@ public class npc : MonoBehaviour
             //moveLock = true;
             Debug.Log("line one of text");
         }
+     */
     }
 }

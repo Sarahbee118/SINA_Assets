@@ -999,7 +999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 778539279}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: interactPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1080,6 +1080,7 @@ MonoBehaviour:
     - how are you
     - nice weather we're having
     - have a nice day
+  textbox: {fileID: 0}
 --- !u!114 &797486025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1874,7 +1875,8 @@ GameObject:
   - component: {fileID: 1274462864}
   - component: {fileID: 1274462861}
   - component: {fileID: 1274462865}
-  m_Layer: 0
+  - component: {fileID: 1274462866}
+  m_Layer: 7
   m_Name: npc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1899,6 +1901,7 @@ MonoBehaviour:
     - gibberish
     - mutterings
     - mumblings
+  textbox: {fileID: 1149024783}
 --- !u!212 &1274462862
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2008,6 +2011,41 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &1274462866
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274462860}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1 &1476109444
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,6 +2274,7 @@ MonoBehaviour:
     - Hello, I am designated SI N.4
     - But you can call me Sina!
     - Or else.
+  textbox: {fileID: 0}
 --- !u!114 &1531830636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2550,7 +2589,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   attackDamage: 20
-  punchfab: {fileID: 9166503291212845507, guid: f310dcb1c79c34676b3da67b40bf16c6, type: 3}
+  punchfab: {fileID: 4113679410747939344, guid: dba4996180df7a74bbefb5e71203cc9a, type: 3}
+  intFab: {fileID: 4257955091891843060, guid: f58be5b80fd20d54babc714cef666460, type: 3}
   punchPower: 0
   shoot: {fileID: 8300000, guid: c8954cc0275c44c1da685bd29e883340, type: 3}
   reload: {fileID: 8300000, guid: 5bdd352ca26c64423aca71e849b34cdf, type: 3}
@@ -2624,6 +2664,7 @@ MonoBehaviour:
     - But please, call me Sina!
     - Or else.
     - Please look forward to my game!
+  textbox: {fileID: 0}
 --- !u!1 &2026636128
 GameObject:
   m_ObjectHideFlags: 0

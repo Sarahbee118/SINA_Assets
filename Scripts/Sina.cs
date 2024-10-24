@@ -45,6 +45,7 @@ public class Sina : MonoBehaviour
     public LayerMask enemyLayers;
     public int attackDamage = 10;
     public GameObject punchfab;
+    public GameObject intFab;
     public bool punchPower = false;
     //
     public AudioClip shoot; //shoot sfx
@@ -264,10 +265,32 @@ public class Sina : MonoBehaviour
         }
         else
         {
-            moveLock = true;
-            TextBox.SetActive(true);
-            trigger.TriggerDialogue();
-            
+            //moveLock = true;
+            //TextBox.SetActive(true);
+            //trigger.TriggerDialogue();
+            GameObject heyo = Instantiate<GameObject>(intFab, transform.position, Quaternion.identity);
+            switch (faceDirection) //punch appears in faced direction
+            {
+                case 0:
+                    heyo.transform.position = heyo.transform.position + new Vector3(-.8f, 0, 0); //start bullet in direction
+                   // heyo.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
+                    break; //break
+                case 1:
+                    heyo.transform.position = heyo.transform.position + new Vector3(0, 1f, 0);
+                    break;
+                case 2:
+                    heyo.transform.position = heyo.transform.position + new Vector3(.8f, 0, 0);
+                    //heyo.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
+                    Debug.Log("DownInt");                  
+                    break;
+                case 3:
+
+                    heyo.transform.position = heyo.transform.position + new Vector3(0, -1f, 0);
+                   // heyo.transform.Rotate(0.0f, 0.0f, 180f, 0f); /////not facing the right direction
+                    break;
+                    //
+            }
+
         }
         
     }
@@ -347,6 +370,7 @@ public class Sina : MonoBehaviour
         
     }
 
+
     private void Shrink(InputAction.CallbackContext context)
     {
         //SFX Dash
@@ -403,99 +427,111 @@ public class Sina : MonoBehaviour
 
         punch.Disable();
         //moveLock = true;
+        StartCoroutine(Punching());
         animator.SetBool("Punching", true);
 
-        Collider2D[] personalSpace = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-        //foreach(Collider2D enemy in hitEnemies)
-        foreach (Collider2D thing in personalSpace)
+        //Collider2D[] personalSpace = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        /*GameObject kapow = Instantiate<GameObject>(punchfab, transform.position, Quaternion.identity);
+        switch (faceDirection) //punch appears in faced direction
         {
-            if ( thing.GetComponent<enemy>() != null)
+            case 0:
+                animator.Play("Sina_DefaultR", 0, 0.0f); //firing animation
+                Debug.Log("punch r");
+                kapow.transform.position = kapow.transform.position + new Vector3(-.8f, 0, 0); //start bullet in direction
+                kapow.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
+                break; //break
+            case 1:
+                animator.Play("Sina_DefaultB", 0, 0.0f);
+                Debug.Log("punch b");
+                kapow.transform.position = kapow.transform.position + new Vector3(0, 1f, 0);
+                break;
+            case 2:
+                animator.Play("Sina_DefaultR", 0, 0.0f);
+                Debug.Log("punch l");
+                kapow.transform.position = kapow.transform.position + new Vector3(.8f, 0, 0);
+                kapow.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
+                break;
+            case 3:
+                animator.Play("Sina_DefaultF", 0, 0.0f);
+                Debug.Log("punch f");
+                kapow.transform.position = kapow.transform.position + new Vector3(0, -1f, 0);
+                kapow.transform.Rotate(0.0f, 0.0f, 180f, 0f); /////not facing the right direction
+                break;
+                //
+        } */
+
+        /*
+        //foreach(Collider2D enemy in hitEnemies)
+        // foreach (Collider2D thing in personalSpace)
+        {
+            if (thing.GetComponent<enemy>() != null)
             {
+
                 //if (punchPower = false)
                 //{
-                    GameObject kapow = Instantiate<GameObject>(punchfab, transform.position, Quaternion.identity);
-                    thing.GetComponent<enemy>().TakeDamage(attackDamage);
 
-                    switch (faceDirection) //punch appears in faced direction
-                    {
-                        case 0:
-                            animator.Play("Sina_DefaultR", 0, 0.0f); //firing animation
-                            Debug.Log("punch r");
-                            kapow.transform.position = kapow.transform.position + new Vector3(-.8f, 0, 0); //start bullet in direction
-                            kapow.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
-                            break; //break
-                        case 1: 
-                            animator.Play("Sina_DefaultB", 0, 0.0f);
-                            Debug.Log("punch b");
-                            kapow.transform.position = kapow.transform.position + new Vector3(0, 1f, 0);
-                            break;
-                        case 2:
-                            animator.Play("Sina_DefaultR", 0, 0.0f);
-                            Debug.Log("punch r 2");
-                            kapow.transform.position = kapow.transform.position + new Vector3(.8f, 0, 0);
-                            kapow.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
-                            break;
-                        case 3:
-                            animator.Play("Sina_DefaultF", 0, 0.0f);
-                            Debug.Log("punch f");
-                            kapow.transform.position = kapow.transform.position + new Vector3(0, -1f, 0);
-                            kapow.transform.Rotate(0.0f, 0.0f, 0.0f, 0f); /////not facing the right direction
-                            break;
-                            //
-                    }
-                    StartCoroutine(Punching());
-                    //moveLock = false;
-                //}
+                thing.GetComponent<enemy>().TakeDamage(attackDamage);
 
-                /*else
-                {
-                    GameObject kapow = Instantiate<GameObject>(punchfab, transform.position, Quaternion.identity);
-                    thing.GetComponent<enemy>().TakeDamage(attackDamage+15);
-                    switch (faceDirection) //punch appears in faced direction
-                    {
-                        case 0:
-                            animator.Play("Sina_DefaultR", 0, 0.0f); //firing animation
-                            Debug.Log("punch r");
-                            kapow.transform.position = kapow.transform.position + new Vector3(-.8f, 0, 0); //start bullet in direction
-                            kapow.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
-                            break; //break
-                        case 1: 
-                            animator.Play("Sina_DefaultB", 0, 0.0f);
-                            Debug.Log("punch b");
-                            kapow.transform.position = kapow.transform.position + new Vector3(0, 1f, 0);
-                            break;
-                        case 2:
-                            animator.Play("Sina_DefaultR", 0, 0.0f);
-                            Debug.Log("punch r 2");
-                            kapow.transform.position = kapow.transform.position + new Vector3(.8f, 0, 0);
-                            kapow.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
-                            break;
-                        case 3:
-                            animator.Play("Sina_DefaultF", 0, 0.0f);
-                            Debug.Log("punch f");
-                            kapow.transform.position = kapow.transform.position + new Vector3(0, -1f, 0);
-                            kapow.transform.Rotate(0.0f, 0.0f, 0.0f, 0f); /////not facing the right direction
-                            break;
-                            //
-                    }
-                    StartCoroutine(Punching());
-                    //moveLock = false;
-                }*/
 
+
+                //moveLock = false;
             }
-
             else if (thing.GetComponent<npc>() != null)
             {
                 thing.GetComponent<npc>().Interact();
                 Debug.Log("im speaking");
             }
-            
-            Debug.Log("We hit " + thing.name);
-            
-        }
+            /*else
+            {
+                GameObject kapow = Instantiate<GameObject>(punchfab, transform.position, Quaternion.identity);
+                thing.GetComponent<enemy>().TakeDamage(attackDamage+15);
+                switch (faceDirection) //punch appears in faced direction
+                {
+                    case 0:
+                        animator.Play("Sina_DefaultR", 0, 0.0f); //firing animation
+                        Debug.Log("punch r");
+                        kapow.transform.position = kapow.transform.position + new Vector3(-.8f, 0, 0); //start bullet in direction
+                        kapow.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
+                        break; //break
+                    case 1: 
+                        animator.Play("Sina_DefaultB", 0, 0.0f);
+                        Debug.Log("punch b");
+                        kapow.transform.position = kapow.transform.position + new Vector3(0, 1f, 0);
+                        break;
+                    case 2:
+                        animator.Play("Sina_DefaultR", 0, 0.0f);
+                        Debug.Log("punch r 2");
+                        kapow.transform.position = kapow.transform.position + new Vector3(.8f, 0, 0);
+                        kapow.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
+                        break;
+                    case 3:
+                        animator.Play("Sina_DefaultF", 0, 0.0f);
+                        Debug.Log("punch f");
+                        kapow.transform.position = kapow.transform.position + new Vector3(0, -1f, 0);
+                        kapow.transform.Rotate(0.0f, 0.0f, 0.0f, 0f); /////not facing the right direction
+                        break;
+                        //
+                }
+
+                //moveLock = false;
+            }
+        
+         
+         
+         }*/
+
+
+
+
+
+        
+
+
+
+        
 
     }
+    
 
     void OnDrawGizmosSelected()
     {
@@ -507,7 +543,55 @@ public class Sina : MonoBehaviour
 
     IEnumerator Punching() //while punching
     {
-        for (int punchingtime = 0; punchingtime <= 25; punchingtime++) //gives 25 frames of relaoad time 
+        switch (faceDirection) //punch appears in faced direction
+        {
+            case 0:
+                animator.Play("Sina_PunchR", 0, 0.0f); //firing animation
+                Debug.Log("punch r");
+                break; //break
+            case 1:
+                animator.Play("Sina_PunchB", 0, 0.0f);
+                Debug.Log("punch b");
+                break;
+            case 2:
+                animator.Play("Sina_PunchR", 0, 0.0f);
+                Debug.Log("punch l");
+                break;
+            case 3:
+                animator.Play("Sina_PunchF", 0, 0.0f);
+                Debug.Log("punch f");
+                break;
+                //
+        }
+        for (int punchingtime = 0; punchingtime <= 12; punchingtime++) //gives 25 frames of relaoad time 
+        {
+            Rigidbody.velocity = new Vector2(0f, 0f); //stop movment
+            animator.SetInteger("XSpeed", 0);
+            animator.SetInteger("YSpeed", 0);
+            yield return null; //next frame
+        }
+        GameObject kapow = Instantiate<GameObject>(punchfab, transform.position, Quaternion.identity);
+        switch (faceDirection) //punch appears in faced direction
+        {
+            case 0:
+                kapow.transform.position = kapow.transform.position + new Vector3(-.8f, 0, 0); //start bullet in direction
+                kapow.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
+                break; //break
+            case 1:
+                kapow.transform.position = kapow.transform.position + new Vector3(0, 1f, 0);
+                break;
+            case 2:
+                kapow.transform.position = kapow.transform.position + new Vector3(.8f, 0, 0);
+                kapow.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
+                break;
+            case 3:
+               
+                kapow.transform.position = kapow.transform.position + new Vector3(0, -1f, 0);
+                kapow.transform.Rotate(0.0f, 0.0f, 180f, 0f); /////not facing the right direction
+                break;
+                //
+        }
+        for (int punchingtime = 0; punchingtime <= 15; punchingtime++) //gives 25 frames of relaoad time 
         {
             Rigidbody.velocity = new Vector2(0f, 0f); //stop movment
             animator.SetInteger("XSpeed", 0);

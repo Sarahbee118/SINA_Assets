@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class txt_trigger : MonoBehaviour
 {
     public txt dialogue;
+    public GameObject textbox;
     //public GameObject nextBtn;
 
     void Start()
@@ -14,6 +15,8 @@ public class txt_trigger : MonoBehaviour
     }
     public void TriggerDialogue()
     {
+        Debug.Log("TriggerDial");
+        textbox.SetActive(true);
         FindObjectOfType<txtmanager>().StartDialogue(dialogue);
     }
 
