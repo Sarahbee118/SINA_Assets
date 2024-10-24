@@ -21,6 +21,7 @@ public class Sina : MonoBehaviour
     private InputAction interact; //interact
     private InputAction dash; // dash action
     private InputAction shrink; // shrink action
+    private InputAction shield; // shield action
     //text
     public txt_trigger trigger; //trigger text box
     public GameObject TextBox; //the textbox itself
@@ -249,6 +250,13 @@ public class Sina : MonoBehaviour
         }
         */
     }
+    private void Shield(InputAction.CallbackContext context)
+
+    {
+        Debug.Log("Shield");
+    }
+
+
 
     private void Interaction(InputAction.CallbackContext context)
     {
@@ -626,6 +634,9 @@ public class Sina : MonoBehaviour
         punch = playerControls.Player.Punch;
         punch.Enable();
         punch.performed += Punch;
+        shield = playerControls.Player.Shield; //same but for shield
+        shield.Enable();
+        shield.performed += Shield; //when pressed, do 
 
     }
 
@@ -639,5 +650,6 @@ public class Sina : MonoBehaviour
         dash.Disable();
         shrink.Disable();
         punch.Disable();
+        shield.Disable();
     }
 }

@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Shield",
+                    "type": "Button",
+                    "id": "fab6aa24-5811-4cfd-812d-e9c826dab91e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -303,17 +312,6 @@
                 },
                 {
                     "name": "",
-                    "id": "ff5dde4f-0e4e-4302-9052-0da47369a61a",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "19ad6276-67b2-4bcb-ae1e-b39e02023385",
                     "path": "<Keyboard>/x",
                     "interactions": "",
@@ -397,6 +395,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Punch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e629d5e-42fe-4571-b306-937389456312",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shield",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d5e2d202-1af3-4504-8a6a-0e47601a2468",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shield",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
