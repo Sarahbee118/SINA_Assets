@@ -254,6 +254,7 @@ public class Sina : MonoBehaviour
 
     {
         Debug.Log("Shield");
+        
     }
 
 
