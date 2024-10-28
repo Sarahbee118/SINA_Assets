@@ -29,10 +29,11 @@ public class Sina : MonoBehaviour
     //animation
     public Animator animator; //Sina's animatior
     public SpriteRenderer srend; //sprite renderer, her own
-    public int faceDirection; // Left = 0, Up = 1, Right = 2, Down = 3
+    private int faceDirection = SinaManager.Instance.SinaDirection; // Left = 0, Up = 1, Right = 2, Down = 3
     //gun
     public GameObject bulletfab; //bullet prefab
-    public int ammo; //ammo count
+    private int ammo = SinaManager.Instance.SinaAmmo; //ammo count
+    public int health = SinaManager.Instance.SinaHealth;
     public TMP_Text healthText; //text in health bar
     public TMP_Text ammoText; //text in ammo count
     //shrink
@@ -50,6 +51,12 @@ public class Sina : MonoBehaviour
     //
     public AudioClip shoot; //shoot sfx
     public AudioClip reload; //reload sfx
+    private bool hasGun;
+    private bool hasDash;
+    private bool hasPunch2;
+    private bool hasShield;
+    private bool hasShrink;
+    private string screenExit;
 
     //SFX Shield Up
     //SFX Shield Down
@@ -59,7 +66,26 @@ public class Sina : MonoBehaviour
 
     void Start()
     {
-        
+        switch (faceDirection)
+        {
+            case 0:
+                srend.flipX = true;
+                animator.Play("Sina_DefaultR", 0, 0.0f);
+                break;
+            case 1:
+                animator.Play("Sina_DefaultB", 0, 0.0f);
+                break;
+            case 2:
+                srend.flipX = false;
+                animator.Play("Sina_DefaultR", 0, 0.0f);
+                break;
+            case 3:
+                animator.Play("Sina_Default", 0, 0.0f);
+                break;
+            default:
+                animator.Play("Sina_DefaultF", 0, 0.0f);
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -91,8 +117,15 @@ public class Sina : MonoBehaviour
     private void Awake() //On game load
     {
         playerControls = new PlayerInputs(); //Required for new input system. Idek just have it
+        hasGun = SinaManager.Instance.hasGun;
+        hasDash = SinaManager.Instance.hasDash;
+        hasPunch2 = SinaManager.Instance.hasPunch2;
+        hasShield = SinaManager.Instance.hasShield;
+        hasShrink = SinaManager.Instance.hasShrink;
+        ammo = SinaManager.Instance.SinaAmmo;
+        health = SinaManager.Instance.SinaHealth;
+        ammoText.text = "Ammo x" + ammo;
     }
-
     void ProcessInputs()
     {
 
@@ -129,7 +162,7 @@ public class Sina : MonoBehaviour
                     break;
             }
         }
-            
+        SinaManager.Instance.SinaDirection = faceDirection;
        // Debug.Log(faceDirection);
     }
 
@@ -166,51 +199,56 @@ public class Sina : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
-        if (ammo > 0)
+        if (hasGun)
         {
-            fire.Disable();
-            moveLock = true;
-            AudioSource.PlayClipAtPoint(shoot, transform.position);
-            ammo--;
-            ammoText.text = "Ammo x" + ammo;
-            Debug.Log(ammo);
-            // StopCoroutine(Firing());
-            //SFX Gun Shot
-            animator.SetBool("Firing", true);
-            GameObject bullet = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);
-
-            switch (faceDirection) //shoots bulet in faced direction
+            if (ammo > 0)
             {
-                case 0:
-                    animator.Play("Sina_FireR", 0, 0.0f); //firing animation
-                    bullet.transform.position = bullet.transform.position + new Vector3(-.6f, 0, 0); //start bullet in direction
-                    bullet.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
-                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(-15, 0); //fires it
-                    break; //break
-                case 1: 
-                    animator.Play("Sina_FireB", 0, 0.0f);
-                    bullet.transform.position = bullet.transform.position + new Vector3(0, .3f, 0);
-                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 15);
-                    break;
-                case 2:
-                    animator.Play("Sina_FireR", 0, 0.0f);
-                    bullet.transform.position = bullet.transform.position + new Vector3(.6f, 0, 0);
-                    bullet.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
-                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(15, 0);
-                    break;
-                case 3:
-                    animator.Play("Sina_FireF", 0, 0.0f);
-                    bullet.transform.position = bullet.transform.position + new Vector3(0, -.3f, 0);
-                    bullet.transform.Rotate(00.0f, 0.0f, 90.0f, 0f);
-                    bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -15);
-                    break;
-                    //
-            }
-            //animator.Play("Sina_GunFire");
-            //Debug.Log("Bang!"); //Bang Bang Banki Banki!
+                fire.Disable();
+                moveLock = true;
+                AudioSource.PlayClipAtPoint(shoot, transform.position);
+                ammo--;
+                SinaManager.Instance.SinaAmmo = ammo;
+                ammoText.text = "Ammo x" + ammo;
+                Debug.Log(ammo);
+                // StopCoroutine(Firing());
+                //SFX Gun Shot
+                animator.SetBool("Firing", true);
+                GameObject bullet = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);
 
-            StartCoroutine(Firing());
+                switch (faceDirection) //shoots bulet in faced direction
+                {
+                    case 0:
+                        animator.Play("Sina_FireR", 0, 0.0f); //firing animation
+                        bullet.transform.position = bullet.transform.position + new Vector3(-.6f, 0, 0); //start bullet in direction
+                        bullet.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
+                        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(-15, 0); //fires it
+                        break; //break
+                    case 1:
+                        animator.Play("Sina_FireB", 0, 0.0f);
+                        bullet.transform.position = bullet.transform.position + new Vector3(0, .3f, 0);
+                        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 15);
+                        break;
+                    case 2:
+                        animator.Play("Sina_FireR", 0, 0.0f);
+                        bullet.transform.position = bullet.transform.position + new Vector3(.6f, 0, 0);
+                        bullet.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
+                        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(15, 0);
+                        break;
+                    case 3:
+                        animator.Play("Sina_FireF", 0, 0.0f);
+                        bullet.transform.position = bullet.transform.position + new Vector3(0, -.3f, 0);
+                        bullet.transform.Rotate(00.0f, 0.0f, 90.0f, 0f);
+                        bullet.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -15);
+                        break;
+                        //
+                }
+                //animator.Play("Sina_GunFire");
+                //Debug.Log("Bang!"); //Bang Bang Banki Banki!
+
+                StartCoroutine(Firing());
+            }
         }
+        
     }
 
 
@@ -296,18 +334,23 @@ public class Sina : MonoBehaviour
     }
     private void Dash(InputAction.CallbackContext context)
     {
-        if (Rigidbody.velocity.x != 0 | Rigidbody.velocity.y != 0 )
+        if (hasDash)
         {
-            moveLock = true;
-            dash.Disable();
-            StartCoroutine(Dashing());
-            //Debug.Log("Dash");
+            if (Rigidbody.velocity.x != 0 | Rigidbody.velocity.y != 0)
+            {
+                moveLock = true;
+                dash.Disable();
+                StartCoroutine(Dashing());
+                //Debug.Log("Dash");
+            }
         }
+        
 
     }
 
     IEnumerator Dashing()
     {
+        
         //SFX Dash
        // Rigidbody.velocity.x = Mathf.Round(TimeTaken * 100)) / 100.0
         switch (Mathf.Round(Rigidbody.velocity.x * 100f) / 100.0f)
@@ -373,7 +416,9 @@ public class Sina : MonoBehaviour
 
     private void Shrink(InputAction.CallbackContext context)
     {
-        //SFX Dash
+        if (hasShrink)
+        {
+             //SFX Dash
         shrink.Disable();
         moveLock = true;
         Debug.Log("Shrink");
@@ -382,6 +427,8 @@ public class Sina : MonoBehaviour
         //  faceDirection = 3;
         // animator.Play("Sina_DeafaultF", 0, 0.0f);
         // transform.localScale = new Vector2(3f, 3f);
+        }
+       
     }
 
     IEnumerator Shrinking()

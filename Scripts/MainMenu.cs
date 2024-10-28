@@ -5,12 +5,13 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 public class MainMenu : MonoBehaviour
+    
 {
-   
+    public GameObject skipText;
     public void PlayGame()
     {
         //SFX Confirmation Beep
-        SceneManager.LoadScene("TestRoom");
+        SceneManager.LoadScene(SinaManager.Instance.currScreen);
     }
 
     public void QuitGame()
@@ -47,5 +48,17 @@ public class MainMenu : MonoBehaviour
     public void FourK()
     {
         Screen.SetResolution(3840, 2160, Screen.fullScreen);
+    }
+
+    public void skip()
+    {
+        if (skipText.activeSelf == false)
+        {
+            skipText.SetActive(true);
+        }
+        else
+        {
+           SceneManager.LoadScene("AlphaMainMenu");
+        }
     }
 }
