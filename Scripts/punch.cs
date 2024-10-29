@@ -7,7 +7,7 @@ public class punch : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.7f;
     public LayerMask enemyLayers;
-    public int attackDamage = 10;
+    public int attackDamage = 20;
     private int killTimer = 0;
     // Start is called before the first frame update
     void Start()

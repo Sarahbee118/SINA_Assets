@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class npc : MonoBehaviour
 {
-    public txt_trigger trigger; //trigger text box
-    public GameObject TextBox; //the textbox itself
+   
     //public bool moveLock = false;
 
     // Start is called before the first frame update

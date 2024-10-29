@@ -5,7 +5,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private int killTimer = 0; // Auto Despawn the bullet
-    // Start is called before the first frame update
+                               // Start is called before the first frame update
+    public Transform attackPoint;
+    public float attackRange;
+    public LayerMask enemyLayers;
+    public int attackDamage = 20;
     void Start()
     {
         
@@ -20,5 +24,32 @@ public class Bullet : MonoBehaviour
             //gameObject.SetActive(false);
             Destroy(gameObject);
        }
+        else
+        {
+            Collider2D[] personalSpace = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+            foreach (Collider2D thing in personalSpace)
+            {
+                if (thing.GetComponent<enemy>() != null)
+                {
+
+                    //if (punchPower = false)
+                    //{
+
+                    thing.GetComponent<enemy>().TakeDamage(attackDamage);
+                    Debug.Log("BulletWorked");
+                    Destroy(gameObject);
+
+
+                    //moveLock = false;
+                }
+            }
+        }
+    }
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4251356869845967391}
   - component: {fileID: 7592839304333575438}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: InteractTransform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactPoint: {fileID: 4251356869845967391}
-  interactRange: 0.005
+  interactRange: 0.33
   npcLayers:
     serializedVersion: 2
     m_Bits: 128
+  itemToGive: 0

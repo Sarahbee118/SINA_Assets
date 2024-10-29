@@ -51,12 +51,13 @@ public class Sina : MonoBehaviour
     //
     public AudioClip shoot; //shoot sfx
     public AudioClip reload; //reload sfx
-    private bool hasGun;
-    private bool hasDash;
-    private bool hasPunch2;
-    private bool hasShield;
-    private bool hasShrink;
-    private string screenExit;
+    public static bool hasGun;
+    public static bool hasDash;
+    public static bool hasPunch2;
+    public static bool hasShield;
+    public static bool hasShrink;
+    public static string screenExit;
+    public GameObject feetCollision;
 
     //SFX Shield Up
     //SFX Shield Down
@@ -199,6 +200,7 @@ public class Sina : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
+        Debug.Log(hasGun);
         if (hasGun)
         {
             if (ammo > 0)
@@ -310,20 +312,20 @@ public class Sina : MonoBehaviour
             switch (faceDirection) //punch appears in faced direction
             {
                 case 0:
-                    heyo.transform.position = heyo.transform.position + new Vector3(-.8f, 0, 0); //start bullet in direction
+                    heyo.transform.position = heyo.transform.position + new Vector3(-.2f, 0, 0); //start bullet in direction
                    // heyo.transform.Rotate(0.0f, 0.0f, 90.0f, 0f); //rotates it acordingly
                     break; //break
                 case 1:
-                    heyo.transform.position = heyo.transform.position + new Vector3(0, 1f, 0);
+                    heyo.transform.position = heyo.transform.position + new Vector3(0, .2f, 0);
                     break;
                 case 2:
-                    heyo.transform.position = heyo.transform.position + new Vector3(.8f, 0, 0);
+                    heyo.transform.position = heyo.transform.position + new Vector3(.2f, 0, 0);
                     //heyo.transform.Rotate(0.0f, 0.0f, 270.0f, 0f);
                     Debug.Log("DownInt");                  
                     break;
                 case 3:
 
-                    heyo.transform.position = heyo.transform.position + new Vector3(0, -1f, 0);
+                    heyo.transform.position = heyo.transform.position + new Vector3(0, -.2f, 0);
                    // heyo.transform.Rotate(0.0f, 0.0f, 180f, 0f); /////not facing the right direction
                     break;
                     //
@@ -350,6 +352,7 @@ public class Sina : MonoBehaviour
 
     IEnumerator Dashing()
     {
+        feetCollision.SetActive(false);
         
         //SFX Dash
        // Rigidbody.velocity.x = Mathf.Round(TimeTaken * 100)) / 100.0
@@ -408,6 +411,7 @@ public class Sina : MonoBehaviour
         {
             yield return null;
         }
+        feetCollision.SetActive(true);
         dash.Enable();
         moveLock = false;
         
@@ -437,7 +441,7 @@ public class Sina : MonoBehaviour
         {
             case 0f:
                 shrunk = 1f;
-                for (float shrinktime = 6; shrinktime >= 3; shrinktime--) //gives 25 frames of relaoad time 
+                for (float shrinktime = 1f; shrinktime >= .5f; shrinktime = shrinktime -.1f) //gives 25 frames of relaoad time 
                 {
                     Rigidbody.velocity = new Vector2(0f, 0f); //stop movment
                     animator.SetInteger("XSpeed", 0);
@@ -451,7 +455,7 @@ public class Sina : MonoBehaviour
 
             case 1f:
                 shrunk = 0f;
-                for (float shrinktime = 3; shrinktime <= 6; shrinktime++) //gives 25 frames of relaoad time 
+                for (float shrinktime = .5f; shrinktime <= 1f; shrinktime=shrinktime+.1f) //gives 25 frames of relaoad time 
                 {
                     Rigidbody.velocity = new Vector2(0f, 0f); //stop movment
                     animator.SetInteger("XSpeed", 0);

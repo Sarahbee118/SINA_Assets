@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class interact : MonoBehaviour
@@ -7,6 +8,7 @@ public class interact : MonoBehaviour
     public Transform interactPoint;
     public float interactRange = 0.7f;
     public LayerMask npcLayers;
+    
     
     private int killTimer = 0;
     // Start is called before the first frame update
@@ -22,6 +24,10 @@ public class interact : MonoBehaviour
                 //{
                 Debug.Log("Interacted");
                 thing.GetComponent<txt_trigger>().TriggerDialogue();
+                if (thing.GetComponent<GiveItem>() != null)
+                {
+                    thing.GetComponent<GiveItem>().ItemGet();
+                }
 
 
 
