@@ -51,6 +51,7 @@ public class Sina : MonoBehaviour
     //
     public AudioClip shoot; //shoot sfx
     public AudioClip reload; //reload sfx
+    public AudioClip punched; //punch sfx
     public static bool hasGun;
     public static bool hasDash;
     public static bool hasPunch2;
@@ -480,6 +481,8 @@ public class Sina : MonoBehaviour
         //moveLock = true;
         StartCoroutine(Punching());
         animator.SetBool("Punching", true);
+        AudioSource.PlayClipAtPoint(punched, transform.position);
+
 
         //Collider2D[] personalSpace = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         /*GameObject kapow = Instantiate<GameObject>(punchfab, transform.position, Quaternion.identity);
