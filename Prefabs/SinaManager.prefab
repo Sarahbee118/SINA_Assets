@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SinaHealth: 12
+  SinaMaxHealth: 12
+  SinaDirection: 0
   SinaAmmo: 10
   hasGun: 0
   hasDash: 0

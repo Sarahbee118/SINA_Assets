@@ -263,8 +263,9 @@ MonoBehaviour:
   punchfab: {fileID: 4113679410747939344, guid: dba4996180df7a74bbefb5e71203cc9a, type: 3}
   intFab: {fileID: 4257955091891843060, guid: f58be5b80fd20d54babc714cef666460, type: 3}
   punchPower: 0
-  shoot: {fileID: 8300000, guid: c8954cc0275c44c1da685bd29e883340, type: 3}
-  reload: {fileID: 8300000, guid: 5bdd352ca26c64423aca71e849b34cdf, type: 3}
+  shoot: {fileID: 8300000, guid: ef805e388bb294b889180f442618b63d, type: 3}
+  reload: {fileID: 8300000, guid: 02cdadd4332274493b4102719995362a, type: 3}
+  punched: {fileID: 8300000, guid: c4ab7820aee4145b8ae7cd86d7a7fd62, type: 3}
   feetCollision: {fileID: 2048862344238278681}
 --- !u!114 &825247317788952617
 MonoBehaviour:

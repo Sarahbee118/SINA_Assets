@@ -29,11 +29,11 @@ public class Sina : MonoBehaviour
     //animation
     public Animator animator; //Sina's animatior
     public SpriteRenderer srend; //sprite renderer, her own
-    private int faceDirection = SinaManager.Instance.SinaDirection; // Left = 0, Up = 1, Right = 2, Down = 3
+    private int faceDirection; // Left = 0, Up = 1, Right = 2, Down = 3
     //gun
     public GameObject bulletfab; //bullet prefab
-    private int ammo = SinaManager.Instance.SinaAmmo; //ammo count
-    public int health = SinaManager.Instance.SinaHealth;
+    private int ammo; //ammo count
+    public int health;
     public TMP_Text healthText; //text in health bar
     public TMP_Text ammoText; //text in ammo count
     //shrink
@@ -68,6 +68,7 @@ public class Sina : MonoBehaviour
 
     void Start()
     {
+        
         switch (faceDirection)
         {
             case 0:
@@ -88,6 +89,7 @@ public class Sina : MonoBehaviour
                 animator.Play("Sina_DefaultF", 0, 0.0f);
                 break;
         }
+
     }
 
     // Update is called once per frame
@@ -119,14 +121,34 @@ public class Sina : MonoBehaviour
     private void Awake() //On game load
     {
         playerControls = new PlayerInputs(); //Required for new input system. Idek just have it
-        hasGun = SinaManager.Instance.hasGun;
-        hasDash = SinaManager.Instance.hasDash;
-        hasPunch2 = SinaManager.Instance.hasPunch2;
-        hasShield = SinaManager.Instance.hasShield;
-        hasShrink = SinaManager.Instance.hasShrink;
-        ammo = SinaManager.Instance.SinaAmmo;
-        health = SinaManager.Instance.SinaHealth;
-        ammoText.text = "Ammo x" + ammo;
+        if (SinaManager.Instance != null)
+        {
+            ammo = SinaManager.Instance.SinaAmmo;
+            faceDirection = SinaManager.Instance.SinaDirection;
+            health = SinaManager.Instance.SinaHealth;
+            hasGun = SinaManager.Instance.hasGun;
+            hasDash = SinaManager.Instance.hasDash;
+            hasPunch2 = SinaManager.Instance.hasPunch2;
+            hasShield = SinaManager.Instance.hasShield;
+            hasShrink = SinaManager.Instance.hasShrink;
+            ammo = SinaManager.Instance.SinaAmmo;
+            health = SinaManager.Instance.SinaHealth;
+            ammoText.text = "Ammo x" + ammo;
+        }
+        else
+        {
+            ammo = 10;
+            faceDirection = 1;
+            ammoText.text = "Ammo x" + ammo;
+            health = 12;
+            hasGun = true;
+            hasDash = true;
+            hasPunch2 = true;
+            hasShield = true;
+            screenExit = "top";
+
+        }
+        
     }
     void ProcessInputs()
     {

@@ -28,6 +28,10 @@ public class interact : MonoBehaviour
                 {
                     thing.GetComponent<GiveItem>().ItemGet();
                 }
+                if (thing.GetComponent<SceneChange>() != null)
+                {
+                    thing.GetComponent<SceneChange>().Change();
+                }
 
 
 

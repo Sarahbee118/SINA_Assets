@@ -58,7 +58,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-           SceneManager.LoadScene("AlphaMainMenu");
+           SceneManager.LoadScene("Title");
         }
     }
 }

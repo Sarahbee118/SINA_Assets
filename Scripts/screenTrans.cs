@@ -7,6 +7,7 @@ public class screenTrans : MonoBehaviour
     public int direction;
     public Rigidbody2D Rigidbody;
     public SpriteRenderer srend;
+    private int killtimer;
     // 0 is Right to Left
     // 1 DtU
     // 2 LtR
@@ -14,7 +15,7 @@ public class screenTrans : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        killtimer = 0;
         switch (direction)
         {
             case 0:
@@ -38,7 +39,11 @@ public class screenTrans : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        killtimer += 1;
+        if (killtimer > 120)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Awake()
