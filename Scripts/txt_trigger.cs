@@ -11,6 +11,7 @@ public class txt_trigger : MonoBehaviour
 
     void Start()
     {
+        
        // TriggerDialogue();
     }
     public void TriggerDialogue()

@@ -24,7 +24,10 @@ public class txtmanager : MonoBehaviour
         sentences = new Queue<string>();
         Debug.Log ("start coversation with " + dialogue.name);
         nameText.text = dialogue.name + ":";
-
+        if (nameText.text == "Game:")
+        {
+            nameText.text = " ";
+        }
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -40,7 +43,7 @@ public class txtmanager : MonoBehaviour
     {
         Debug.Log(sentences);
         Debug.Log(sentences.Count);
-
+       
         if (dialogueText.text == sentence ^ sentence == null)
         {
             if (sentences.Count == 0)
@@ -60,6 +63,10 @@ public class txtmanager : MonoBehaviour
                 {
                     nameText.text = sentence.Substring(8) + ":";
                     sentence = sentences.Dequeue();
+                }
+                if (nameText.text == "Game:")
+                {
+                    nameText.text = " ";
                 }
             }
             StartCoroutine(TypeLine(sentence));

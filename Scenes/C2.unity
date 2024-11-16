@@ -10061,8 +10061,12 @@ PrefabInstance:
       value: left
       objectReference: {fileID: 0}
     - target: {fileID: 554223514237339765, guid: a9900160edc501a48b5c11c5b48ba064, type: 3}
+      propertyPath: trans
+      value: 
+      objectReference: {fileID: 8223569606682337266, guid: 8b00750c6f1ced34ab404a961650a843, type: 3}
+    - target: {fileID: 554223514237339765, guid: a9900160edc501a48b5c11c5b48ba064, type: 3}
       propertyPath: newScene
-      value: A2
+      value: C1
       objectReference: {fileID: 0}
     - target: {fileID: 2112089758755062528, guid: a9900160edc501a48b5c11c5b48ba064, type: 3}
       propertyPath: m_LocalScale.y
@@ -10102,7 +10106,7 @@ PrefabInstance:
       objectReference: {fileID: 601407183}
     - target: {fileID: 4247503582108887046, guid: a9900160edc501a48b5c11c5b48ba064, type: 3}
       propertyPath: newScene
-      value: A3
+      value: D2
       objectReference: {fileID: 0}
     - target: {fileID: 4247503582108887046, guid: a9900160edc501a48b5c11c5b48ba064, type: 3}
       propertyPath: thatOneExit

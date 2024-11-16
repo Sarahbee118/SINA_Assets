@@ -101,8 +101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d866de544c3a74fffa94105ed9c44efa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger: {fileID: 224859792594639527}
-  TextBox: {fileID: 0}
 --- !u!114 &224859792594639527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +201,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6263566854984058175}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
