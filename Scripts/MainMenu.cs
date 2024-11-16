@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("AlphaMainMenu");
     }
 
-    public void fullScreenOn()
+    public void fullScreenOn() //fullscreen
     {
         Screen.fullScreen = true;
     }
@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour
         Screen.fullScreen = false;
     }
 
-    public void SevenTwentyP() {
+    public void SevenTwentyP() { //sets screen resolutions
         Screen.SetResolution(1280, 720, Screen.fullScreen);
     }
 

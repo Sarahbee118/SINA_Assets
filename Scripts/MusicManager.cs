@@ -11,12 +11,13 @@ public class MusicManager : MonoBehaviour
     {
        // Debug.Log(screenMusic.name);
         // start of new code
-        if (Instance != null)
+        if (Instance != null) //if music is already playing
         {
          //   Debug.Log(screenMusic.name);
            // Debug.Log(MusicManager.Instance.screenMusic.name);
-            if (MusicManager.Instance.musicPlayer.clip.name == musicPlayer.clip.name)
+            if (MusicManager.Instance.musicPlayer.clip.name == musicPlayer.clip.name) //if the songs are the same
             {
+                //do nothing (aka keep the music playing)
                 Debug.Log("the same song");
                 //Destroy(gameObject);
 
@@ -24,16 +25,12 @@ public class MusicManager : MonoBehaviour
             }
             else
             {
+                //stops, changes, starts new music
                 Debug.Log("not the same song");
                 MusicManager.Instance.musicPlayer.Stop();
-                // MusicManager.Instance = this;
-                //Destroy(MusicManager.Instance);
-                //Instance = this;
-                //DontDestroyOnLoad(gameObject);
                 MusicManager.Instance.musicPlayer.clip = musicPlayer.clip;
                 MusicManager.Instance.musicPlayer.clip.name = musicPlayer.clip.name;
                 MusicManager.Instance.musicPlayer.Play();
-               // Destroy(gameObject);
                 return;
 
             }
@@ -43,7 +40,7 @@ public class MusicManager : MonoBehaviour
         {
             Instance = this;
             MusicManager.Instance.musicPlayer.Play();
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); //keeps music playing between scenes
         }
         // end of new code
 

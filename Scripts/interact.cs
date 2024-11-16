@@ -23,7 +23,7 @@ public class interact : MonoBehaviour
                 //if (punchPower = false)
                 //{
                 Debug.Log("Interacted");
-                thing.GetComponent<txt_trigger>().TriggerDialogue();
+                thing.GetComponent<txt_trigger>().TriggerDialogue(); //extra things it can do
                 if (thing.GetComponent<GiveItem>() != null)
                 {
                     thing.GetComponent<GiveItem>().ItemGet();

@@ -10,11 +10,11 @@ public class screnEnter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SinaManager.Instance.screenExit != null)
+        if (SinaManager.Instance.screenExit != null) //so it doesn't error
         {
-            exitLocation = SinaManager.Instance.screenExit;
-            Sina = GameObject.Find("Sina (Player)");
-            if (enterLocation == "left" && exitLocation == "right")
+            exitLocation = SinaManager.Instance.screenExit; //checks what direction you exited the last screen from
+            Sina = GameObject.Find("Sina (Player)"); //find player
+            if (enterLocation == "left" && exitLocation == "right") //so only the correct combo of entrace and where exited moves Sina
             {
                 Debug.Log("A");
                 Sina.transform.position = transform.position;

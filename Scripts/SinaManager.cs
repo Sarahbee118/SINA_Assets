@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SinaManager : MonoBehaviour
-   // 
+   // A constant manager for Sina. Keeps track of her between framesS
 {
     public static SinaManager Instance;
     public int SinaHealth;

@@ -12,16 +12,16 @@ public class Intro : MonoBehaviour
     //public TMP_Text TheStruggle;
     //public TMP_Text names;
     //public TMP_Text controllerRec;
-    public TMP_Text screenText;
-    public string[] allText;
-    public Image[] allImages;
-    public Image introImage;
-    private int textInt = 0;
+    public TMP_Text screenText; //the text that is currently on the screen
+    public string[] allText; //all the text in the intro
+    public Image[] allImages; //all the images
+    public Image introImage; //text that is currently on the screen
+    private int textInt = 0; //how far along in intro
     private int imageInt = 0;
     // Start is called before the first frame update
     void Start()
     {
-        screenText.color = new Color32(255, 255, 255, 0);
+        screenText.color = new Color32(255, 255, 255, 0); //by setting the alpha to 0 makes them invisible 
         introImage.color = new Color32(255, 255, 255, 0);
         screenText.text = allText[0];
         introImage = allImages[0];
@@ -34,6 +34,7 @@ public class Intro : MonoBehaviour
     {
         
     }
+    //corrutines run once a frame in the background, fading text in is literally the example on the unity api page for it. Check it out
 
     IEnumerator fadeIn(TMP_Text currText) //fade in, passes in current text mesh pro
     {

@@ -6495,7 +6495,7 @@ PrefabInstance:
       objectReference: {fileID: 8223569606682337266, guid: 8b00750c6f1ced34ab404a961650a843, type: 3}
     - target: {fileID: 32002064598170808, guid: a9900160edc501a48b5c11c5b48ba064, type: 3}
       propertyPath: newScene
-      value: A1
+      value: A2
       objectReference: {fileID: 0}
     - target: {fileID: 32002064598170808, guid: a9900160edc501a48b5c11c5b48ba064, type: 3}
       propertyPath: exitDirection

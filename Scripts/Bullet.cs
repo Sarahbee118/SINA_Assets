@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
        }
         else
         {
+            //copied from punch
             Collider2D[] personalSpace = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
             foreach (Collider2D thing in personalSpace)
             {

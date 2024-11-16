@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class screenTrans : MonoBehaviour
+public class screenTrans : MonoBehaviour //Yeets an arrow across the screen
 {
     public int direction;
     public Rigidbody2D Rigidbody;
     public SpriteRenderer srend;
     private int killtimer;
+
     // 0 is Right to Left
     // 1 DtU
     // 2 LtR
@@ -15,8 +16,8 @@ public class screenTrans : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        killtimer = 0;
-        switch (direction)
+        killtimer = 0; //so it doesn't stay loaded forever
+        switch (direction) //which direction it flies
         {
             case 0:
                 srend.flipX = false;
@@ -40,7 +41,7 @@ public class screenTrans : MonoBehaviour
     void Update()
     {
         killtimer += 1;
-        if (killtimer > 120)
+        if (killtimer > 120) //dies after 2 seconds
         {
             Destroy(gameObject);
         }
@@ -48,7 +49,7 @@ public class screenTrans : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject); //so it stays 
     }
 
     IEnumerator horTrans ()
