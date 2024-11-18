@@ -8,6 +8,7 @@ public class screenExit : MonoBehaviour
     public string exitDirection;
     public string newScene;
     public GameObject trans;
+    public bool thatOneFeckingEntrance =false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,25 +26,17 @@ public class screenExit : MonoBehaviour
         if (collision.gameObject.GetComponent<Sina>() != null)
         {
             GameObject transition = Instantiate < GameObject >(trans, transform.position, Quaternion.identity);
+            transition.GetComponent<screenTrans>().newScene = newScene;
+            transition.GetComponent<screenTrans>().exitDirection = exitDirection;
+            transition.GetComponent<screenTrans>().thatOneFeckingEntrance = thatOneFeckingEntrance;
+
+            if (exitDirection == "apt")
+            {
+                transition.GetComponent<screenTrans>().direction = 4;
+            }
             
-            if (exitDirection == "left")
-            {
-                transition.transform.position = new Vector3(27f,0f,0f);
-            }
-            else if (exitDirection == "right")
-            {
-                transition.transform.position = new Vector3(-27f, 0f, 0f);
-            }
-            else if (exitDirection == "up")
-            {
-
-            }
-            else if (exitDirection == "down")
-            {
-
-            }
             // trans.SetActive(true);
-            StartCoroutine(loadBuffer());
+            //StartCoroutine(loadBuffer());
 
         }
     }
@@ -56,6 +49,6 @@ public class screenExit : MonoBehaviour
         }
         SinaManager.Instance.currScreen = newScene;
         SinaManager.Instance.screenExit = exitDirection;
-        SceneManager.LoadScene(newScene);
+        //SceneManager.LoadScene(newScene);
     }
 }

@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitDirection: up
   newScene: 
-  trans: {fileID: 0}
+  trans: {fileID: 1046265574408151911, guid: 46ec7b3af17c3d14d93dcb241e36b172, type: 3}
 --- !u!1 &3264637333250612559
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   exitDirection: down
   newScene: 
-  trans: {fileID: 0}
+  trans: {fileID: 4227164178860787190, guid: 0b28930ac348d7c4d976fe9d9f7208c3, type: 3}
 --- !u!1 &4253938366493498284
 GameObject:
   m_ObjectHideFlags: 0

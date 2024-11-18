@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class interact : MonoBehaviour
@@ -15,9 +16,11 @@ public class interact : MonoBehaviour
     void Start()
     {
         Collider2D[] personalSpace = Physics2D.OverlapCircleAll(interactPoint.position, interactRange, npcLayers);
-        foreach (Collider2D thing in personalSpace)
+        if (personalSpace.Length > 0)
         {
-            if (thing.GetComponent<npc>() != null & thing.GetComponent<txt_trigger>() != null) 
+            Collider2D thing = personalSpace[0];
+
+            if (thing.GetComponent<npc>() != null & thing.GetComponent<txt_trigger>() != null)
             {
 
                 //if (punchPower = false)

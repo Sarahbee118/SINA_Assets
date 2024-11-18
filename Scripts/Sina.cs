@@ -89,7 +89,7 @@ public class Sina : MonoBehaviour
                 animator.Play("Sina_DefaultF", 0, 0.0f);
                 break;
         }
-
+        StartCoroutine(BootUp());
     }
 
     // Update is called once per frame
@@ -188,6 +188,41 @@ public class Sina : MonoBehaviour
         }
         SinaManager.Instance.SinaDirection = faceDirection;
        // Debug.Log(faceDirection);
+    }
+
+    IEnumerator BootUp()
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            yield return null;
+        }
+        if (SinaManager.Instance != null)
+        {
+            ammo = SinaManager.Instance.SinaAmmo;
+            faceDirection = SinaManager.Instance.SinaDirection;
+            health = SinaManager.Instance.SinaHealth;
+            hasGun = SinaManager.Instance.hasGun;
+            hasDash = SinaManager.Instance.hasDash;
+            hasPunch2 = SinaManager.Instance.hasPunch2;
+            hasShield = SinaManager.Instance.hasShield;
+            hasShrink = SinaManager.Instance.hasShrink;
+            ammo = SinaManager.Instance.SinaAmmo;
+            health = SinaManager.Instance.SinaHealth;
+            ammoText.text = "Ammo x" + ammo;
+        }
+        else
+        {
+            ammo = 10;
+            faceDirection = 1;
+            ammoText.text = "Ammo x" + ammo;
+            health = 12;
+            hasGun = true;
+            hasDash = true;
+            hasPunch2 = true;
+            hasShield = true;
+            screenExit = "top";
+
+        }
     }
 
     private void Move()  ////Tutorial used to help write this code www.youtube.com/watch?v=u8tot-X_RBI
@@ -361,6 +396,8 @@ public class Sina : MonoBehaviour
     {
         if (hasDash)
         {
+            Debug.Log("Dash");
+            Debug.Log(Rigidbody.velocity.x);
             if (Rigidbody.velocity.x != 0 | Rigidbody.velocity.y != 0)
             {
                 moveLock = true;
@@ -384,6 +421,12 @@ public class Sina : MonoBehaviour
             case 4f:
                 Rigidbody.velocity = new Vector2(20f, 0f);
                 break;
+            case 3.5f:
+                Rigidbody.velocity = new Vector2(20f, 0f);
+                break;
+            case -3.5f:
+                Rigidbody.velocity = new Vector2(-20f, 0f);
+                break;
             case -4f:
                 Rigidbody.velocity = new Vector2(-20f, 0f);
                 break;
@@ -402,6 +445,21 @@ public class Sina : MonoBehaviour
 
                 }
                 break;
+            case 2.47f:
+                Debug.Log("AAAAAAA");
+                switch (Mathf.Round(Rigidbody.velocity.y * 100f) / 100.0f)
+                {
+                    case 2.47f:
+                        Rigidbody.velocity = new Vector2(14.14f, 14.14f);
+                        Debug.Log("A");
+                        break;
+                    case -2.47f:
+                        Rigidbody.velocity = new Vector2(14.14f, -14.14f);
+                        Debug.Log("A");
+                        break;
+
+                }
+                break;
             case -2.83f:
                 switch (Mathf.Round(Rigidbody.velocity.y * 100f) / 100.0f)
                 {
@@ -409,6 +467,18 @@ public class Sina : MonoBehaviour
                         Rigidbody.velocity = new Vector2(-14.14f, 14.14f);
                         break;
                     case -2.83f:
+                        Rigidbody.velocity = new Vector2(-14.14f, -14.14f);
+                        break;
+
+                }
+                break;
+            case -2.47f:
+                switch (Mathf.Round(Rigidbody.velocity.y * 100f) / 100.0f)
+                {
+                    case 2.47f:
+                        Rigidbody.velocity = new Vector2(-14.14f, 14.14f);
+                        break;
+                    case -2.47f:
                         Rigidbody.velocity = new Vector2(-14.14f, -14.14f);
                         break;
 
@@ -422,6 +492,12 @@ public class Sina : MonoBehaviour
                         break;
                     case -4f:
                         Rigidbody.velocity = new Vector2(0f,-20f);
+                        break;
+                    case 3.5f:
+                        Rigidbody.velocity = new Vector2(0f, 20f);
+                        break;
+                    case -3.5f:
+                        Rigidbody.velocity = new Vector2(0f, -20f);
                         break;
                     default:
                         break;
@@ -454,6 +530,11 @@ public class Sina : MonoBehaviour
         //  faceDirection = 3;
         // animator.Play("Sina_DeafaultF", 0, 0.0f);
         // transform.localScale = new Vector2(3f, 3f);
+        }
+        else
+        {
+            Debug.Log(SinaManager.Instance.hasShrink);
+            Debug.Log("Not Shrink");
         }
        
     }

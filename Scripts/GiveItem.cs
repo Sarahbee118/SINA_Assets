@@ -44,12 +44,20 @@ public class GiveItem : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case 3:
+                Destroy(gameObject);
                 break;
             case 4:
                 Sina.hasDash = true;
                 SinaManager.Instance.hasDash = true;
                 Destroy(gameObject);
                 break;
+            case 5:
+                Destroy(gameObject);
+                break;
+            case 6:
+                Destroy(gameObject);
+                break;
+
         }
     }
 }
