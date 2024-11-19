@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SinaManager : MonoBehaviour
+public class SinaManagerSaved : MonoBehaviour
    // A constant manager for Sina. Keeps track of her between framesS
 {
-    public static SinaManager Instance;
+    public static SinaManagerSaved Instance;
     public int SinaHealth;
     public int SinaMaxHealth;
     public int SinaDirection;
@@ -30,7 +30,7 @@ public class SinaManager : MonoBehaviour
 
         Instance = this;
       
-       // SavedInstance.currScreen = "C2";
+        
         DontDestroyOnLoad(gameObject);
     }
 }

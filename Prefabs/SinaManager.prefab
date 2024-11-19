@@ -44,14 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18fb4bd9318bf0d47a885cb317e127b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SinaHealth: 12
-  SinaMaxHealth: 12
+  SinaHealth: 0
+  SinaMaxHealth: 0
   SinaDirection: 0
-  SinaAmmo: 10
+  SinaAmmo: 0
   hasGun: 0
   hasDash: 0
   hasPunch2: 0
   hasShield: 0
   hasShrink: 0
-  screenExit: left
+  screenExit: top
   currScreen: 

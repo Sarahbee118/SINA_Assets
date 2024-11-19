@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -10}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4880503744703968979
@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'SINA: The Game'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3eab8252584e3854caf7b3fcf56eeb65, type: 2}
-  m_sharedMaterial: {fileID: -1504095308015823293, guid: 3eab8252584e3854caf7b3fcf56eeb65, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 183906f708ba6f144a995e444eb1c8b7, type: 2}
+  m_sharedMaterial: {fileID: 395586898820222389, guid: 183906f708ba6f144a995e444eb1c8b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 2818072973839343405}
   - component: {fileID: 5802953405809329366}
   - component: {fileID: 7528242612828533008}
+  - component: {fileID: 6668771489327072300}
   m_Layer: 5
   m_Name: TitleBar
   m_TagString: Untagged
@@ -169,8 +170,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 517}
-  m_SizeDelta: {x: 1920, y: 45}
+  m_AnchoredPosition: {x: 22, y: 517}
+  m_SizeDelta: {x: 1956, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5802953405809329366
 CanvasRenderer:
@@ -210,3 +211,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6668771489327072300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079327090429660211}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b9c2ea479b79947968897b2bdabe3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: {fileID: 3839812074230801218}

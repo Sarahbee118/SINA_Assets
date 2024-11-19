@@ -111,6 +111,19 @@ public class Sina : MonoBehaviour
             animator.SetInteger("YSpeed", 0); //on both axes
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       if(collision.otherCollider.name == "MainCollision" && dash.enabled == false)
+        {
+            Rigidbody.velocity = new Vector2(0f, 0f);
+            StopCoroutine(Dashing());
+            feetCollision.SetActive(true);
+            dash.Enable();
+            moveLock = false;
+            Rigidbody.velocity = new Vector2(0f, 0f);
+        }
+       
+    }
 
     void FixedUpdate() //fixed
     {
@@ -508,7 +521,13 @@ public class Sina : MonoBehaviour
         }
         for (int dashTime  = 0; dashTime <= 6; dashTime++)
         {
+           /* if (Mathf.Abs(Rigidbody.velocity.x) != 20f || Mathf.Abs(Rigidbody.velocity.x) != 14f | Mathf.Abs(Rigidbody.velocity.y) != 20f || Mathf.Abs(Rigidbody.velocity.y) != 14f)
+            {
+                Rigidbody.velocity = new Vector2(0f, 0f);
+                dashTime = 7;
+            } */
             yield return null;
+           
         }
         feetCollision.SetActive(true);
         dash.Enable();

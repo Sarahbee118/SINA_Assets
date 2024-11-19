@@ -35,6 +35,10 @@ public class interact : MonoBehaviour
                 {
                     thing.GetComponent<SceneChange>().Change();
                 }
+                if (thing.GetComponent<saveload>() != null)
+                {
+                    thing.GetComponent<saveload>().Save();
+                }
 
 
 

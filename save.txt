@@ -1,0 +1,1 @@
+{"SinaHealth":12,"SinaMaxHealth":0,"SinaDirection":1,"SinaAmmo":10,"hasGun":false,"hasDash":true,"hasPunch2":false,"hasShield":false,"hasShrink":false,"screenExit":"right","currScreen":"C1"}

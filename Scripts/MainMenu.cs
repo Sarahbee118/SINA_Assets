@@ -3,15 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+using System.IO;
 public class MainMenu : MonoBehaviour
     
 {
     public GameObject skipText;
-    public void PlayGame()
+    
+    public void NewGame()
     {
-        //SFX Confirmation Beep
+        SinaManager.Instance.SinaHealth = 10;
+        SinaManager.Instance.SinaMaxHealth = 10;
+        SinaManager.Instance.SinaDirection = 3;
+        SinaManager.Instance.SinaAmmo = 0;
+        SinaManager.Instance.hasGun = false;
+        SinaManager.Instance.hasDash = false;
+        SinaManager.Instance.hasPunch2 = false;
+        SinaManager.Instance.hasShield = false;
+        SinaManager.Instance.hasShrink = false;
+        SinaManager.Instance.screenExit = "top";
+        SinaManager.Instance.currScreen = "C1";
         SceneManager.LoadScene(SinaManager.Instance.currScreen);
+    }
+    public void LoadGame()
+    {
+        if (File.Exists(Application.dataPath + "/Sina.si"))
+        {
+            string saveFiletxt = File.ReadAllText(Application.dataPath + "/Sina.si");
+            Debug.Log(File.ReadAllText(Application.dataPath + "/Sina.si"));
+            Debug.Log(saveFiletxt);
+            JsonUtility.FromJsonOverwrite(saveFiletxt, SinaManager.Instance);
+            SinaManager.Instance.SinaDirection = 3;
+            SceneManager.LoadScene(SinaManager.Instance.currScreen);
+
+        }
+        //SFX Confirmation Beep
+        
     }
 
     public void QuitGame()
