@@ -39,6 +39,11 @@ public class interact : MonoBehaviour
                 {
                     thing.GetComponent<saveload>().Save();
                 }
+                if (thing.GetComponent<remove>() != null)
+                {
+                    thing.GetComponent<remove>().Reveal();
+                }
+
 
 
 
