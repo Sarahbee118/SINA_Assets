@@ -1462,6 +1462,14 @@ PrefabInstance:
       propertyPath: screenExit
       value: down
       objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: SinaMaxAmmo
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: SinaMaxHealth
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8326943480865036647, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.790357
@@ -3868,6 +3876,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6263566854984058175, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5628,6 +5640,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 666486923714528616, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 439
+      objectReference: {fileID: 0}
     - target: {fileID: 666486923714528616, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: m_IncludeLayers.m_Bits
       value: 64

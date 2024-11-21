@@ -34,8 +34,10 @@ public class Sina : MonoBehaviour
     private int faceDirection; // Left = 0, Up = 1, Right = 2, Down = 3
     //gun
     public GameObject bulletfab; //bullet prefab
-    private int ammo; //ammo count
+    public int ammo; //ammo count
     public int health;
+    public static int maxHealth;
+    public static int maxAmmo;
     public TMP_Text healthText; //text in health bar
     public string hearts = "<3<3<3<3<3<3<3";
     public TMP_Text ammoText; //text in ammo count
@@ -117,7 +119,8 @@ public class Sina : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-       if(collision.otherCollider.name == "MainCollision" && dash.enabled == false)
+        Debug.Log(collision.otherCollider.name);
+       if (collision.otherCollider.name == "MainCollision" && dash.enabled == false)
         {
             Rigidbody.velocity = new Vector2(0f, 0f);
             StopCoroutine(Dashing());
@@ -150,6 +153,21 @@ public class Sina : MonoBehaviour
             StartCoroutine(TakeDamage());
         }
        
+    }
+
+    public void HealthRefill()
+    {
+        SinaManager.Instance.SinaHealth = maxHealth;
+        health = maxHealth;
+        healthText.text = hearts.Substring(0, health);
+
+    }
+
+    public void AmmoRefill()
+    {
+        SinaManager.Instance.SinaAmmo = maxAmmo;
+        ammo = maxAmmo;
+        ammoText.text = "Ammo x" + ammo;
     }
     IEnumerator TakeDamage()
     {
@@ -246,6 +264,8 @@ public class Sina : MonoBehaviour
             ammo = SinaManager.Instance.SinaAmmo;
             health = SinaManager.Instance.SinaHealth;
             ammoText.text = "Ammo x" + ammo;
+            maxAmmo = SinaManager.Instance.SinaMaxAmmo;
+            maxHealth = SinaManager.Instance.SinaMaxHealth;
         }
         else
         {
@@ -321,6 +341,7 @@ public class Sina : MonoBehaviour
             ammo = SinaManager.Instance.SinaAmmo;
             health = SinaManager.Instance.SinaHealth;
             ammoText.text = "Ammo x" + ammo;
+            healthText.text = hearts.Substring(0, health);
         }
         else
         {

@@ -11,8 +11,9 @@ public class MainMenu : MonoBehaviour
     
     public void NewGame()
     {
-        SinaManager.Instance.SinaHealth = 10;
-        SinaManager.Instance.SinaMaxHealth = 10;
+        SinaManager.Instance.SinaHealth = 6;
+        SinaManager.Instance.SinaMaxHealth = 6;
+        SinaManager.Instance.SinaMaxAmmo = 0;
         SinaManager.Instance.SinaDirection = 3;
         SinaManager.Instance.SinaAmmo = 0;
         SinaManager.Instance.hasGun = false;
@@ -21,7 +22,7 @@ public class MainMenu : MonoBehaviour
         SinaManager.Instance.hasShield = false;
         SinaManager.Instance.hasShrink = false;
         SinaManager.Instance.screenExit = "top";
-        SinaManager.Instance.currScreen = "C1";
+        SinaManager.Instance.currScreen = "SemiFinalPres";
         SceneManager.LoadScene(SinaManager.Instance.currScreen);
     }
     public void LoadGame()

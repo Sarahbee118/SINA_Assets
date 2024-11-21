@@ -7,6 +7,7 @@ public class enemybullet : MonoBehaviour
     private GameObject player;
     private Rigidbody2D rb;
     public float force;
+    private int killtimer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +23,20 @@ public class enemybullet : MonoBehaviour
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        Destroy(gameObject);
+    }
+
+
+
+        // Update is called once per frame
+        void Update()
+    {
+        killtimer++;
+        if (killtimer > 120)
+        {
+            Destroy(gameObject);
+        }  
     }
 }

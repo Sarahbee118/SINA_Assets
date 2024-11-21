@@ -10,6 +10,7 @@ public class SinaManager : MonoBehaviour
     public int SinaMaxHealth;
     public int SinaDirection;
     public int SinaAmmo;
+    public int SinaMaxAmmo;
     public bool hasGun;
     public bool hasDash;
     public bool hasPunch2;

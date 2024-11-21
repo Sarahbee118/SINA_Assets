@@ -9,7 +9,17 @@ public class SceneChange : MonoBehaviour
     // Start is called before the first frame update
     public void Change() //basic scene change script
     {
-        SceneManager.LoadScene(scene);
+        StartCoroutine(ChangeWait());
 
+    }
+    IEnumerator ChangeWait()
+    {
+        yield return null;
+        GameObject textbox = GameObject.Find("txtbox");
+        while (textbox.activeSelf)
+        {
+            yield return null;
+        }
+        SceneManager.LoadScene(scene);
     }
 }

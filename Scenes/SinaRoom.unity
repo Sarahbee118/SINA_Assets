@@ -439,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
@@ -462,6 +462,14 @@ PrefabInstance:
     - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
       propertyPath: dialogue.sentences.Array.data[4]
       value: "P.S. I included a little something to help you out. \nXOXOXOXOXOXOXOXOXO"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[5]
+      value: Lilith sent you a HEART DRIVE!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
+      propertyPath: dialogue.sentences.Array.data[6]
+      value: What an extremely platonic number of Xs and Os!
       objectReference: {fileID: 0}
     - target: {fileID: 6841716821770018673, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -510,8 +518,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8291464267484790893, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 928921607}
   m_SourcePrefab: {fileID: 100100000, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
+--- !u!1 &185732454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8291464267484790893, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
+  m_PrefabInstance: {fileID: 185732453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &226600378
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,6 +2268,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6841716821770018673, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
   m_PrefabInstance: {fileID: 185732453}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &928921607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185732454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9422d698ec714b54081afe95a520d85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sina: {fileID: 5368399891621373877}
+  sinaObject: {fileID: 0}
+  whichItem: 5
+  isChest: 0
+  animator: {fileID: 0}
 --- !u!4 &949668375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7391143558805749270, guid: a9900160edc501a48b5c11c5b48ba064, type: 3}
@@ -6391,6 +6424,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+--- !u!114 &5368399891621373877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+  m_PrefabInstance: {fileID: 5368399891621373876}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068803987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8615da4081b61dc408b5f27d9445dae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7582829797472356621
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4500022609657086714}
   m_Layer: 8
   m_Name: Sina (Player)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -251,6 +251,8 @@ MonoBehaviour:
   srend: {fileID: 7737618570949778744}
   bulletfab: {fileID: 6800801736353295811, guid: 7827b6350ec88664e93976000bdb61e8, type: 3}
   health: 12
+  maxHealth: 0
+  maxAmmo: 0
   healthText: {fileID: 0}
   hearts: <3<3<3<3<3<3<3
   ammoText: {fileID: 0}
@@ -428,10 +430,10 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 576
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 951
+    m_Bits: 439
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

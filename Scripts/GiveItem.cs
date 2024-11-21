@@ -6,13 +6,14 @@ using UnityEngine;
 public class GiveItem : MonoBehaviour
 {
     public Sina sina;
+    public GameObject sinaObject;
     public int whichItem;
     public bool isChest = false;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
-        
+        sinaObject = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -50,6 +51,9 @@ public class GiveItem : MonoBehaviour
 
             case 0:
                 Sina.hasGun = true;
+                SinaManager.Instance.SinaMaxAmmo = SinaManager.Instance.SinaMaxAmmo +10;
+                Sina.maxAmmo = SinaManager.Instance.SinaMaxAmmo;
+                sinaObject.GetComponent<Sina>().AmmoRefill();
                 SinaManager.Instance.hasGun = true;
                 Destroy(gameObject);
                 break;
@@ -69,10 +73,18 @@ public class GiveItem : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case 5:
-                Destroy(gameObject);
                 UnityEngine.Debug.Log("Heart Drive Get");
+                SinaManager.Instance.SinaMaxHealth = SinaManager.Instance.SinaMaxHealth + 2;
+                Sina.maxHealth = SinaManager.Instance.SinaMaxHealth;
+                UnityEngine.Debug.Log(SinaManager.Instance.SinaMaxHealth);
+                sinaObject.GetComponent<Sina>().HealthRefill();
+                Destroy(gameObject);
+                
                 break;
             case 6:
+                SinaManager.Instance.SinaMaxAmmo = SinaManager.Instance.SinaMaxAmmo + 2;
+                Sina.maxAmmo = SinaManager.Instance.SinaMaxAmmo;
+                sinaObject.GetComponent<Sina>().AmmoRefill();
                 Destroy(gameObject);
                 UnityEngine.Debug.Log("AmmoClip Get");
                 break;

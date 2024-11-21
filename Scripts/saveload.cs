@@ -6,6 +6,7 @@ using System.IO;
 
 public class saveload : MonoBehaviour
 {
+    private GameObject Sina;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +28,10 @@ public class saveload : MonoBehaviour
     }
     public void Save() 
     {
-        
-        
+
+        Sina = GameObject.FindGameObjectWithTag("Player");
+        Sina.GetComponent<Sina>().AmmoRefill();
+        Sina.GetComponent<Sina>().HealthRefill();
         string savefile = JsonUtility.ToJson(SinaManager.Instance);
         Debug.Log(Application.dataPath);
         File.WriteAllText(Application.dataPath + "/Sina.si", savefile);
