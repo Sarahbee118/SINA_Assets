@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -490}
+  m_AnchoredPosition: {x: 0, y: -421.40002}
   m_SizeDelta: {x: 750, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &530227534
@@ -181,8 +181,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Controller Highly Recommended
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3eab8252584e3854caf7b3fcf56eeb65, type: 2}
-  m_sharedMaterial: {fileID: -1504095308015823293, guid: 3eab8252584e3854caf7b3fcf56eeb65, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 183906f708ba6f144a995e444eb1c8b7, type: 2}
+  m_sharedMaterial: {fileID: 395586898820222389, guid: 183906f708ba6f144a995e444eb1c8b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -358,7 +358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 260}
+  m_AnchoredPosition: {x: 0, y: 328.59998}
   m_SizeDelta: {x: 600, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &792898807
@@ -383,8 +383,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '"The Struggle"'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3eab8252584e3854caf7b3fcf56eeb65, type: 2}
-  m_sharedMaterial: {fileID: -1504095308015823293, guid: 3eab8252584e3854caf7b3fcf56eeb65, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 183906f708ba6f144a995e444eb1c8b7, type: 2}
+  m_sharedMaterial: {fileID: 395586898820222389, guid: 183906f708ba6f144a995e444eb1c8b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -496,7 +496,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.048494093, g: 0.101543, b: 0.18490559, a: 0}
+  m_BackGroundColor: {r: 0.22352941, g: 0.21568628, b: 0.3647059, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -620,7 +620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 332.8}
+  m_AnchoredPosition: {x: 0, y: 401.39996}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &885262859
@@ -645,8 +645,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'A Game By:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3eab8252584e3854caf7b3fcf56eeb65, type: 2}
-  m_sharedMaterial: {fileID: -1504095308015823293, guid: 3eab8252584e3854caf7b3fcf56eeb65, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 183906f708ba6f144a995e444eb1c8b7, type: 2}
+  m_sharedMaterial: {fileID: 395586898820222389, guid: 183906f708ba6f144a995e444eb1c8b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -811,7 +811,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 80}
+  m_AnchoredPosition: {x: 0, y: 148.59998}
   m_SizeDelta: {x: 695.7, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1529819602
@@ -836,8 +836,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "aka \nSarah Rigg,\nBella Donatelli,\nand Liana Bourdon"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 3eab8252584e3854caf7b3fcf56eeb65, type: 2}
-  m_sharedMaterial: {fileID: -1504095308015823293, guid: 3eab8252584e3854caf7b3fcf56eeb65, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 183906f708ba6f144a995e444eb1c8b7, type: 2}
+  m_sharedMaterial: {fileID: 395586898820222389, guid: 183906f708ba6f144a995e444eb1c8b7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1154,7 +1154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 145.4}
+  m_AnchoredPosition: {x: 0, y: 214}
   m_SizeDelta: {x: 400, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1822211078

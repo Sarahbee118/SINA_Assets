@@ -76,6 +76,11 @@ public class MainMenu : MonoBehaviour
         Screen.SetResolution(3840, 2160, Screen.fullScreen);
     }
 
+    public void ToTitle()
+    {
+        SceneManager.LoadScene("Title");
+    }
+
     public void skip()
     {
         if (skipText.activeSelf == false)

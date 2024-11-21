@@ -913,7 +913,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.5, y: 0}
+  m_AnchoredPosition: {x: 18, y: 0}
   m_SizeDelta: {x: 245, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &987457715
@@ -936,7 +936,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <3 <3 <3 <3 <3 <3
+  m_text: <3<3<3<3<3<3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 68d177e9d9e5ab049863e42de0356b92, type: 2}
   m_sharedMaterial: {fileID: 3740180752848757627, guid: 68d177e9d9e5ab049863e42de0356b92, type: 2}
@@ -1451,6 +1451,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: SinaHealth
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: currScreen
       value: C1
       objectReference: {fileID: 0}
@@ -1753,7 +1757,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4e34cc8d9d0886d41aca013901c6c314, type: 2}
+  - {fileID: 2100000, guid: 6afbde6fddfc2144a844e496ad701da2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3848,6 +3852,67 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1825301749
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6263566854984058175, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_Name
+      value: IntroSign
+      objectReference: {fileID: 0}
+    - target: {fileID: 6263566854984058175, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526541737350847808, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
 --- !u!1 &1917583942
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,7 +3969,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6afbde6fddfc2144a844e496ad701da2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5563,6 +5628,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 666486923714528616, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: m_IncludeLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 2428602806970434632, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: m_Name
       value: Sina (Player)
@@ -5878,6 +5947,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SaveStation
       objectReference: {fileID: 0}
+    - target: {fileID: 7605042140764241645, guid: b8fc4dcc4cf39f241a8d698729562039, type: 3}
+      propertyPath: textbox
+      value: 
+      objectReference: {fileID: 1149024783}
     - target: {fileID: 7961106343136195781, guid: b8fc4dcc4cf39f241a8d698729562039, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.316
@@ -5944,3 +6017,4 @@ SceneRoots:
   - {fileID: 5368399891621373876}
   - {fileID: 1345318450}
   - {fileID: 8456478126175688768}
+  - {fileID: 1825301749}

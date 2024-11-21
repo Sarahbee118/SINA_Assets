@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using Transform = UnityEngine.Transform;
 using TMPro;
 using static UnityEngine.RuleTile.TilingRuleOutput;
+using UnityEngine.SceneManagement;
 
 public class Sina : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Sina : MonoBehaviour
     private InputAction dash; // dash action
     private InputAction shrink; // shrink action
     //text
+    private bool iframes = false;
     public txt_trigger trigger; //trigger text box
     public GameObject TextBox; //the textbox itself
     public Transform interactPoint; //npc sphere
@@ -35,6 +37,7 @@ public class Sina : MonoBehaviour
     private int ammo; //ammo count
     public int health;
     public TMP_Text healthText; //text in health bar
+    public string hearts = "<3<3<3<3<3<3<3";
     public TMP_Text ammoText; //text in ammo count
     //shrink
     private float shrunk = 0f;
@@ -106,6 +109,7 @@ public class Sina : MonoBehaviour
         }
         else
         {
+            
             Rigidbody.velocity = new Vector2(0f, 0f); //stop movment when textbox is open
             animator.SetInteger("XSpeed",0); //stop walking anim 
             animator.SetInteger("YSpeed", 0); //on both axes
@@ -122,10 +126,105 @@ public class Sina : MonoBehaviour
             moveLock = false;
             Rigidbody.velocity = new Vector2(0f, 0f);
         }
+       if (collision.otherCollider.name == "Hurtbox")
+        {
+
+            moveLock = true;
+            switch (faceDirection)
+            {
+                case 0: //facing up
+                    Rigidbody.velocity = new Vector2(5f, 0f);
+                    break;
+                case 1: //facing down
+                    Rigidbody.velocity = new Vector2(0f, -5f);
+                    break;
+                case 2: //facing up
+                    Rigidbody.velocity = new Vector2(-5f, 0f);
+                    break;
+                case 3: //facing down
+                    Rigidbody.velocity = new Vector2(0f, 5f);
+                    break;
+                default:
+                    break;
+            }
+            StartCoroutine(TakeDamage());
+        }
        
     }
+    IEnumerator TakeDamage()
+    {
+        if (!iframes)
+        {
+            iframes = true;
+            health -= 1;
+            SinaManager.Instance.SinaHealth -= 1;
+            healthText.text = hearts.Substring(0, health);
+        }
+        
+       
+        if (health <= 0)
+        {
+            StartCoroutine(GameOver());
+            StopCoroutine(TakeDamage());
+        }
+        else
+        {
+            
+            for (int i = 0; i < 90; i++)
+            {
+                if (i % 10 == 0)
+                {
+                    if (srend.enabled)
+                    {
+                        srend.enabled = false;
+                    }
+                    else
+                    {
+                        srend.enabled = true;
+                    }
+                }
+                if (i == 15 && health != 0)
+                {
+                    moveLock = false;
+                }
+                yield return null;
+            }
+            srend.enabled = true;
+            iframes = false;
+        }
+        
+        
 
-    void FixedUpdate() //fixed
+    }
+
+    IEnumerator GameOver()
+    {
+        moveLock = true;
+        shrink.Disable();
+        fire.Disable();
+        dash.Disable();
+        punch.Disable();
+        interact.Disable();
+        animator.Play("Sina_Die", 0, 0.0f);
+        for (int i = 0; i < 60; i++)
+        {
+            Rigidbody.velocity = new Vector2 (0f,0f);
+            yield return null;
+        }
+        srend.enabled = false;
+        for (int i = 0; i < 20; i++)
+        {
+            Rigidbody.velocity = new Vector2(0f, 0f);
+            yield return null;
+        }
+        SceneManager.LoadScene("GameOver");
+
+
+
+    }
+
+
+        void FixedUpdate() //fixed
     {
         //Debug.Log(Rigidbody.velocity);
        
@@ -816,4 +915,6 @@ public class Sina : MonoBehaviour
         shrink.Disable();
         punch.Disable();
     }
+
+    
 }

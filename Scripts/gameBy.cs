@@ -20,14 +20,14 @@ public class gameBy : MonoBehaviour
         names.color = new Color32(255, 255, 255, 0);
         controllerRec.color = new Color32(255, 255, 255, 0);
         // gameBy.faceColor = new Color32(255, 255, 255, 0);
-        int nameOrder = Random.Range(0, 3);
+        int nameOrder = Random.Range(0, 2);
         switch (nameOrder) //for fairness
         {
             case 0:
                 names.text = "aka<br>Sarah Rigg,<br>Bella Donatelli,<br>and Liana Bourdon"; //<br> is line break
                 break;
             case 1:
-                names.text = "aka<br>Bella Donatelli,<br>Liana Bourdon,<br>and Sarah Rigg";
+                names.text = "aka<br>Bella Donatelli,<br>Sarah Rigg,<br>and Liana Bourdon";
                 break;
             case 2:
                 names.text = "aka<br>Liana Bourdon,<br>Sarah Rigg,<br>and Bella Donatelli";
