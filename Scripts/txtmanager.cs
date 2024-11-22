@@ -68,6 +68,11 @@ public class txtmanager : MonoBehaviour
                 {
                     nameText.text = " ";
                 }
+                if (sentence.Substring(0, 7) == "You got" || sentence.Substring(0, 8) =="Lilith s")
+                {
+                    Debug.Log("Dudududahhhhh");
+                    //audioclip
+                }
             }
             StartCoroutine(TypeLine(sentence));
         }

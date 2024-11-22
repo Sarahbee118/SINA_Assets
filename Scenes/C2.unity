@@ -9348,7 +9348,7 @@ PrefabInstance:
       objectReference: {fileID: 1149024783}
     - target: {fileID: 4168574968645806636, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: dialogue.sentences.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4168574968645806636, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: dialogue.sentences.Array.data[0]
@@ -9356,10 +9356,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4168574968645806636, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: dialogue.sentences.Array.data[1]
-      value: Someone must have forgotten it here.
+      value: Press the Right Trigger (or Space) to fire bullets and take out enemies
+        from afar!
       objectReference: {fileID: 0}
     - target: {fileID: 4168574968645806636, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: dialogue.sentences.Array.data[2]
+      value: But why was it just sitting here? Did someone just forget it here?
+      objectReference: {fileID: 0}
+    - target: {fileID: 4168574968645806636, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
+      propertyPath: dialogue.sentences.Array.data[3]
       value: Alarming!
       objectReference: {fileID: 0}
     - target: {fileID: 5186642401095576324, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}

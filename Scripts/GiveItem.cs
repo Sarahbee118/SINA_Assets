@@ -58,6 +58,9 @@ public class GiveItem : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case 1:
+                Sina.hasPunch2 = true;
+                SinaManager.Instance.hasPunch2 = true;
+                Destroy(gameObject);
                 break;
             case 2:
                 Sina.hasShrink = true;

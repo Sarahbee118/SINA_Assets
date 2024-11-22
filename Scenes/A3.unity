@@ -1466,12 +1466,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5186642401095576324, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6929446889405193823, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: sina
       value: 
       objectReference: {fileID: 2068803992}
+    - target: {fileID: 6929446889405193823, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
+      propertyPath: isChest
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6929446889405193823, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: whichItem
       value: 2
