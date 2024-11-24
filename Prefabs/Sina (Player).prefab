@@ -260,7 +260,7 @@ MonoBehaviour:
   attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   attackDamage: -120
   punchfab: {fileID: 4113679410747939344, guid: dba4996180df7a74bbefb5e71203cc9a, type: 3}
   intFab: {fileID: 4257955091891843060, guid: f58be5b80fd20d54babc714cef666460, type: 3}
