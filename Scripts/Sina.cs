@@ -64,6 +64,7 @@ public class Sina : MonoBehaviour
     public static bool hasShrink;
     public static string screenExit;
     public GameObject feetCollision;
+    public GameObject hurtCollision; 
 
     //SFX Shield Up
     //SFX Shield Down
@@ -136,16 +137,16 @@ public class Sina : MonoBehaviour
             switch (faceDirection)
             {
                 case 0: //facing up
-                    Rigidbody.velocity = new Vector2(5f, 0f);
+                  //  Rigidbody.velocity = new Vector2(5f, 0f);
                     break;
                 case 1: //facing down
-                    Rigidbody.velocity = new Vector2(0f, -5f);
+                 //   Rigidbody.velocity = new Vector2(0f, -5f);
                     break;
                 case 2: //facing up
-                    Rigidbody.velocity = new Vector2(-5f, 0f);
+                  //  Rigidbody.velocity = new Vector2(-5f, 0f);
                     break;
                 case 3: //facing down
-                    Rigidbody.velocity = new Vector2(0f, 5f);
+                  //  Rigidbody.velocity = new Vector2(0f, 5f);
                     break;
                 default:
                     break;
@@ -546,6 +547,7 @@ public class Sina : MonoBehaviour
     IEnumerator Dashing()
     {
         feetCollision.SetActive(false);
+        hurtCollision.SetActive(false);
         
         //SFX Dash
        // Rigidbody.velocity.x = Mathf.Round(TimeTaken * 100)) / 100.0
@@ -650,6 +652,7 @@ public class Sina : MonoBehaviour
            
         }
         feetCollision.SetActive(true);
+        hurtCollision.SetActive(true);
         dash.Enable();
         moveLock = false;
         

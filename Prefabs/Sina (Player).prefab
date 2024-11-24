@@ -250,9 +250,8 @@ MonoBehaviour:
   animator: {fileID: 6849237522115681332}
   srend: {fileID: 7737618570949778744}
   bulletfab: {fileID: 6800801736353295811, guid: 7827b6350ec88664e93976000bdb61e8, type: 3}
+  ammo: 0
   health: 12
-  maxHealth: 0
-  maxAmmo: 0
   healthText: {fileID: 0}
   hearts: <3<3<3<3<3<3<3
   ammoText: {fileID: 0}
@@ -270,6 +269,7 @@ MonoBehaviour:
   reload: {fileID: 8300000, guid: 02cdadd4332274493b4102719995362a, type: 3}
   punched: {fileID: 8300000, guid: c4ab7820aee4145b8ae7cd86d7a7fd62, type: 3}
   feetCollision: {fileID: 2048862344238278681}
+  hurtCollision: {fileID: 4867759830093287781}
 --- !u!114 &825247317788952617
 MonoBehaviour:
   m_ObjectHideFlags: 0
