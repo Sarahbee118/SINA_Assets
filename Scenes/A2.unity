@@ -3001,7 +3001,7 @@ PrefabInstance:
     - target: {fileID: 4168574968645806636, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: textbox
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1149024783}
     - target: {fileID: 4168574968645806636, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: dialogue.sentences.Array.size
       value: 2
@@ -3021,7 +3021,7 @@ PrefabInstance:
     - target: {fileID: 6929446889405193823, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: sina
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5368399891621373877}
     - target: {fileID: 6929446889405193823, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: isChest
       value: 1
@@ -3053,6 +3053,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: hasPunch2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: hasShield
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8326943480865036647, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
