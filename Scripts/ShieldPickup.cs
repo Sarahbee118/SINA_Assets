@@ -19,7 +19,7 @@ public class ShieldPickup : MonoBehaviour
 
     void Update()
     {
-        // Press X to pick up or drop the shield
+        // Press G to pick up or drop the shield
         if (Input.GetKeyDown(KeyCode.G))
         {
             if (shieldPickedUp)
