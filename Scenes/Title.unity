@@ -641,6 +641,7 @@ GameObject:
   - component: {fileID: 503683168}
   - component: {fileID: 503683170}
   - component: {fileID: 503683169}
+  - component: {fileID: 503683171}
   m_Layer: 5
   m_Name: Press Start
   m_TagString: Untagged
@@ -664,7 +665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 41.4, y: -484.96}
+  m_AnchoredPosition: {x: 41.4, y: -403.25}
   m_SizeDelta: {x: 310, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &503683169
@@ -696,8 +697,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4280531791
+  m_fontColor: {r: 0.30980393, g: 0.73333335, b: 0.13725491, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -722,7 +723,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -764,6 +765,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503683167}
   m_CullTransparentMesh: 1
+--- !u!114 &503683171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503683167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d74a6cbe68bb7d44a39e6f2fa27c99a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pressStart: {fileID: 503683169}
 --- !u!1 &556374705
 GameObject:
   m_ObjectHideFlags: 0

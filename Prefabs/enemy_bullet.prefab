@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 181399202514307058}
   - component: {fileID: 3390217037200292581}
   - component: {fileID: 4238252826402646140}
-  m_Layer: 6
+  m_Layer: 12
   m_Name: enemy_bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5324096614818371736}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

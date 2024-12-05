@@ -67,7 +67,7 @@ public class Intro : MonoBehaviour
             yield return null;
         }
 
-        for (int buffer = 0; buffer < 60; buffer++)
+        for (int buffer = 0; buffer < 90; buffer++)
         {
             yield return null;
         }

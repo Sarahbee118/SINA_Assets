@@ -22,11 +22,18 @@ public class punch : MonoBehaviour
                 //{
 
                 thing.GetComponent<enemy>().TakeDamage(attackDamage);
+              //  Destroy(gameObject);
                 Debug.Log("PunchWorked");
 
 
 
                 //moveLock = false;
+            }
+            if (thing.GetComponent<BossHeader>() != null)
+            {
+                thing.GetComponent<BossHeader>().TakeDamage(attackDamage);
+                
+                //Destroy(gameObject);
             }
         }
     }

@@ -93,6 +93,9 @@ public class GiveItem : MonoBehaviour
                 break;
 
         }
+        GameObject hud = GameObject.Find("HUD");
+        hud.GetComponent<HUD>().Refresh();
+
         yield return null;
     }
 }

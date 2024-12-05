@@ -12,7 +12,7 @@ public class BossAttack1 : MonoBehaviour
     void Start()
     {
         
-       // StartCoroutine(Attack());
+        //StartCoroutine(Attack());
     }
 
     // Update is called once per frame
@@ -22,6 +22,8 @@ public class BossAttack1 : MonoBehaviour
     }
     public void AttackTrigger()
     {
+        BossStateMachine stateMachine = GetComponent<BossStateMachine>();
+        BossHeader bossHeader = GetComponent<BossHeader>();
         Debug.Log("Attack Triggered");
         StartCoroutine(Attack());
     }
@@ -41,22 +43,30 @@ public class BossAttack1 : MonoBehaviour
 
         for (int timesAttack = 0; timesAttack <= 2; timesAttack++)
         {
-            for (int windup = 0; windup < 15; windup++)
+            
+            bossHeader.banimator.Play("Boss_Warpout");
+            for (int windup = 0; windup < 30; windup++)
             {
+                Debug.Log("Loop");
                 yield return null;
             }
+            
             transform.position = teleportLocations[attackOrder[timesAttack]];
+            bossHeader.banimator.Play("Boss_WarpIn");
+
+
             for (int windup = 0; windup < 30; windup++)
             {
                 yield return null;
             }
+            bossHeader.banimator.Play("Boss_Fire");
             GameObject bullet1 = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);
             GameObject bullet2 = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);
             GameObject bullet3 = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);
             GameObject bullet4 = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);
             GameObject bullet5 = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);
 
-            bullet1.transform.Rotate(00.0f, 0.0f, 90.0f, 0f);
+           // bullet1.transform.Rotate(00.0f, 0.0f, 90.0f, 0f);
             bullet1.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sin(30 * Mathf.Deg2Rad) * -20, (Mathf.Cos(-30 * Mathf.Deg2Rad)) * -20);
             bullet2.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sin(30 * Mathf.Deg2Rad) * 20, (Mathf.Cos(-30 * Mathf.Deg2Rad)) * -20);
             bullet3.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sin(15 * Mathf.Deg2Rad) * -20, (Mathf.Cos(-15 * Mathf.Deg2Rad)) * -20);
@@ -64,9 +74,19 @@ public class BossAttack1 : MonoBehaviour
             bullet5.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Sin(0 * Mathf.Deg2Rad) * 20, (Mathf.Cos(0 * Mathf.Deg2Rad)) * -20);
             Debug.Log(bullet3.GetComponent<Rigidbody2D>().velocity);
             Debug.Log(bullet5.GetComponent<Rigidbody2D>().velocity);
+            for (int bulletcoll = 0; bulletcoll < 2; bulletcoll++)
+            {
+                yield return null;
+            }
+            bullet1.GetComponent<CapsuleCollider2D>().enabled = true;
+            bullet2.GetComponent<CapsuleCollider2D>().enabled = true;   
+            bullet3.GetComponent<CapsuleCollider2D>().enabled = true;  
+            bullet4.GetComponent<CapsuleCollider2D>().enabled = true;
+            bullet5.GetComponent<CapsuleCollider2D>().enabled = true;
+
 
         }
-        transform.position = bossHeader.home;
+        
         stateMachine.attackFrame = 0;
         stateMachine.state = 0;
 

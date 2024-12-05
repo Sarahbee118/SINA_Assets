@@ -120,6 +120,7 @@ public class Sina : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         Debug.Log(collision.otherCollider.name);
        if (collision.otherCollider.name == "MainCollision" && dash.enabled == false)
         {
@@ -133,7 +134,7 @@ public class Sina : MonoBehaviour
        if (collision.otherCollider.name == "Hurtbox")
         {
 
-            moveLock = true;
+            //moveLock = true;
             switch (faceDirection)
             {
                 case 0: //facing up
@@ -151,7 +152,11 @@ public class Sina : MonoBehaviour
                 default:
                     break;
             }
-            StartCoroutine(TakeDamage());
+            if (!iframes)
+            {
+                StartCoroutine(TakeDamage());
+            }
+            
         }
        
     }
@@ -188,10 +193,10 @@ public class Sina : MonoBehaviour
         }
         else
         {
-            
-            for (int i = 0; i < 90; i++)
+            Debug.Log("I");
+            for (int iframe = 0; iframe < 90; iframe++)
             {
-                if (i % 10 == 0)
+                if (iframe % 10 == 0)
                 {
                     if (srend.enabled)
                     {
@@ -202,7 +207,7 @@ public class Sina : MonoBehaviour
                         srend.enabled = true;
                     }
                 }
-                if (i == 15 && health != 0)
+                if (iframe == 15 && health != 0)
                 {
                     moveLock = false;
                 }
@@ -554,16 +559,16 @@ public class Sina : MonoBehaviour
         switch (Mathf.Round(Rigidbody.velocity.x * 100f) / 100.0f)
         {
             case 4f:
-                Rigidbody.velocity = new Vector2(20f, 0f);
+                Rigidbody.velocity = new Vector2(25f, 0f);
                 break;
             case 3.5f:
-                Rigidbody.velocity = new Vector2(20f, 0f);
+                Rigidbody.velocity = new Vector2(25f, 0f);
                 break;
             case -3.5f:
-                Rigidbody.velocity = new Vector2(-20f, 0f);
+                Rigidbody.velocity = new Vector2(-25f, 0f);
                 break;
             case -4f:
-                Rigidbody.velocity = new Vector2(-20f, 0f);
+                Rigidbody.velocity = new Vector2(-25f, 0f);
                 break;
             case 2.83f:
                 Debug.Log("AAAAAAA");

@@ -4,11 +4,43 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System.IO;
+using UnityEngine.InputSystem;
 public class MainMenu : MonoBehaviour
     
 {
+    private InputAction back;
     public GameObject skipText;
-    
+    public PlayerInputs menuControls;
+
+    private void Awake() //On game load
+    {
+        menuControls = new PlayerInputs();
+
+    }
+
+   
+
+    private void OnEnable()
+    {
+        back = menuControls.UI.Cancel;
+        back.Enable();
+        back.performed += BackToTitle;
+        Debug.Log("A");
+    }
+
+    private void OnDisable()
+    {
+        back.Disable();
+    }
+
+    private void BackToTitle(InputAction.CallbackContext context)
+    {
+        SceneManager.LoadScene("Title");
+
+    }
+
+
+
     public void NewGame()
     {
         SinaManager.Instance.SinaHealth = 6;
