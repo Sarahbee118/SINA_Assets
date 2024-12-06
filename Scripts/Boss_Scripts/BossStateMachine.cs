@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossStateMachine : MonoBehaviour
 {
+    public GameObject textBox;
     public BossHeader bossHeader;
     public int state;
     public int attackFrame = 61;
@@ -31,6 +32,11 @@ public class BossStateMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!textBox.activeSelf)
+        {
+
+       
+
        // state = 1;
         //Debug.Log(attackFrame);
         attackFrame++;
@@ -99,6 +105,7 @@ public class BossStateMachine : MonoBehaviour
                 break;
 
 
+        }
         }
     }
 }

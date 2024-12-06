@@ -18,6 +18,7 @@ public class SinaManager : MonoBehaviour
     public bool hasShrink;
     public string screenExit;
     public string currScreen;
+    public bool introComplete;
     // Start is called before the first frame update
     private void Awake()
     {

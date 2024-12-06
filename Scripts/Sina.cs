@@ -133,7 +133,7 @@ public class Sina : MonoBehaviour
         }
        if (collision.otherCollider.name == "Hurtbox")
         {
-
+            
             //moveLock = true;
             switch (faceDirection)
             {
@@ -241,7 +241,17 @@ public class Sina : MonoBehaviour
             Rigidbody.velocity = new Vector2(0f, 0f);
             yield return null;
         }
-        SceneManager.LoadScene("GameOver");
+        if (SinaManager.Instance.introComplete)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+        else
+        {
+            SinaManager.Instance.SinaDirection = 3;
+            SinaManager.Instance.SinaHealth = SinaManager.Instance.SinaMaxHealth;
+            SceneManager.LoadScene("C1");
+        }
+       
 
 
 

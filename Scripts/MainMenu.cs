@@ -46,7 +46,7 @@ public class MainMenu : MonoBehaviour
         SinaManager.Instance.SinaHealth = 6;
         SinaManager.Instance.SinaMaxHealth = 6;
         SinaManager.Instance.SinaMaxAmmo = 0;
-        SinaManager.Instance.SinaDirection = 3;
+        SinaManager.Instance.SinaDirection = 1;
         SinaManager.Instance.SinaAmmo = 0;
         SinaManager.Instance.hasGun = false;
         SinaManager.Instance.hasDash = false;
@@ -54,8 +54,9 @@ public class MainMenu : MonoBehaviour
         SinaManager.Instance.hasShield = false;
         SinaManager.Instance.hasShrink = false;
         SinaManager.Instance.screenExit = "top";
-        SinaManager.Instance.currScreen = "SemiFinalPres";
-        SceneManager.LoadScene(SinaManager.Instance.currScreen);
+        SinaManager.Instance.currScreen = "C1";
+        SinaManager.Instance.introComplete = false;
+        SceneManager.LoadScene("Cutscene1");
     }
     public void LoadGame()
     {
@@ -66,7 +67,7 @@ public class MainMenu : MonoBehaviour
             Debug.Log(saveFiletxt);
             JsonUtility.FromJsonOverwrite(saveFiletxt, SinaManager.Instance);
             SinaManager.Instance.SinaDirection = 3;
-            SceneManager.LoadScene(SinaManager.Instance.currScreen);
+            SceneManager.LoadScene("SinaManager.Instance.currScreen");
 
         }
         //SFX Confirmation Beep
