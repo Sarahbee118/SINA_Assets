@@ -331,6 +331,10 @@ PrefabInstance:
       value: 1.31
       objectReference: {fileID: 0}
     - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
+      propertyPath: hi
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ecdd27e0597846caa003a8d08efc7bc, type: 3}
+    - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
       propertyPath: textbox
       value: 
       objectReference: {fileID: 1149024783}
@@ -2166,9 +2170,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5791255334278411630, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
+      propertyPath: m_Volume
+      value: 0.178
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791255334278411630, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: c135c11da87094d418f8031659611ccc, type: 3}
+      objectReference: {fileID: 8300000, guid: 46ba18d60012443e79ebdd76645ad435, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4303,6 +4311,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1.31
       objectReference: {fileID: 0}
+    - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
+      propertyPath: hi
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ecdd27e0597846caa003a8d08efc7bc, type: 3}
     - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
       propertyPath: textbox
       value: 
@@ -6622,9 +6634,37 @@ PrefabInstance:
       value: Sina (Player)
       objectReference: {fileID: 0}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: ow
+      value: 
+      objectReference: {fileID: 8300000, guid: b33a30a8b73ee44468d5f250fc4d8677, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: die
+      value: 
+      objectReference: {fileID: 8300000, guid: 619af1fd4de7449b8950956160072ac0, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: grow
+      value: 
+      objectReference: {fileID: 8300000, guid: 2029a3e42bfb64ce6a56f1603fd2c4d2, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: zoom
+      value: 
+      objectReference: {fileID: 8300000, guid: ebcc7e4ba447d49febc3dba651c316ac, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: small
+      value: 
+      objectReference: {fileID: 8300000, guid: 7602eb76e45854386b1d5b31d055fc1c, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: reload
+      value: 
+      objectReference: {fileID: 8300000, guid: 5000b8272746d4461af32aa173c59727, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: TextBox
       value: 
       objectReference: {fileID: 1149024783}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: protect
+      value: 
+      objectReference: {fileID: 8300000, guid: 851b178c70c224c66864e63e29ef1f58, type: 3}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: ammoText
       value: 
@@ -6633,6 +6673,10 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 987457715}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: shielddown
+      value: 
+      objectReference: {fileID: 8300000, guid: 94c8f9afe22984fb399c115ef9b38fbd, type: 3}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: interactPoint
       value: 

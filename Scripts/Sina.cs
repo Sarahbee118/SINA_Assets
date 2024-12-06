@@ -57,13 +57,22 @@ public class Sina : MonoBehaviour
     public AudioClip shoot; //shoot sfx
     public AudioClip reload; //reload sfx
     public AudioClip punched; //punch sfx
+    public AudioClip zoom; // dash sfx
+    public AudioClip grow; // grow sfx
+    public AudioClip small; // shrink sfx
+    public AudioClip ow; //hurt sfx
+    public AudioClip protect; //shield down sfx
+    public AudioClip shielddown; //shield up sfx
+    public AudioClip die; //game over sfx
     public static bool hasGun;
     public static bool hasDash;
     public static bool hasPunch2;
     public static bool hasShield;
     public static bool hasShrink;
+
     public static string screenExit;
     public GameObject feetCollision;
+    private float timer;
 
     //SFX Shield Up
     //SFX Shield Down
@@ -111,7 +120,6 @@ public class Sina : MonoBehaviour
         }
         else
         {
-            
             Rigidbody.velocity = new Vector2(0f, 0f); //stop movment when textbox is open
             animator.SetInteger("XSpeed",0); //stop walking anim 
             animator.SetInteger("YSpeed", 0); //on both axes
@@ -120,7 +128,7 @@ public class Sina : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.otherCollider.name);
-       if (collision.otherCollider.name == "MainCollision" && dash.enabled == false)
+        if (collision.otherCollider.name == "MainCollision" && dash.enabled == false)
         {
             Rigidbody.velocity = new Vector2(0f, 0f);
             StopCoroutine(Dashing());
@@ -129,28 +137,35 @@ public class Sina : MonoBehaviour
             moveLock = false;
             Rigidbody.velocity = new Vector2(0f, 0f);
         }
-       if (collision.otherCollider.name == "Hurtbox")
+        if (collision.otherCollider.name == "Hurtbox")
         {
-
-            moveLock = true;
-            switch (faceDirection)
+            /*if (collision.gameObject.GetComponent<enemy>().damage == false)
             {
-                case 0: //facing up
-                    Rigidbody.velocity = new Vector2(5f, 0f);
-                    break;
-                case 1: //facing down
-                    Rigidbody.velocity = new Vector2(0f, -5f);
-                    break;
-                case 2: //facing up
-                    Rigidbody.velocity = new Vector2(-5f, 0f);
-                    break;
-                case 3: //facing down
-                    Rigidbody.velocity = new Vector2(0f, 5f);
-                    break;
-                default:
-                    break;
+                Debug.Log("do nothing");
+            }*/
+            //else if (collision.gameObject.GetComponent<enemy>().damage == true)
+            if (collision.gameObject.GetComponent<enemy>().damage == true)
+            {
+                moveLock = true;
+                switch (faceDirection)
+                {
+                    case 0: //facing up
+                        Rigidbody.velocity = new Vector2(5f, 0f);
+                        break;
+                    case 1: //facing down
+                        Rigidbody.velocity = new Vector2(0f, -5f);
+                        break;
+                    case 2: //facing up
+                        Rigidbody.velocity = new Vector2(-5f, 0f);
+                        break;
+                    case 3: //facing down
+                        Rigidbody.velocity = new Vector2(0f, 5f);
+                        break;
+                    default:
+                        break;
+                }
+                StartCoroutine(TakeDamage());
             }
-            StartCoroutine(TakeDamage());
         }
        
     }
@@ -175,6 +190,7 @@ public class Sina : MonoBehaviour
         {
             iframes = true;
             health -= 1;
+            AudioSource.PlayClipAtPoint(ow, transform.position);
             SinaManager.Instance.SinaHealth -= 1;
             healthText.text = hearts.Substring(0, health);
         }
@@ -182,6 +198,7 @@ public class Sina : MonoBehaviour
        
         if (health <= 0)
         {
+            AudioSource.PlayClipAtPoint(die, transform.position);
             StartCoroutine(GameOver());
             StopCoroutine(TakeDamage());
         }
@@ -440,6 +457,24 @@ public class Sina : MonoBehaviour
 
                 StartCoroutine(Firing());
             }
+
+            /*if (ammo == 0)
+            {
+                fire.Disable();                
+                if (ammo != maxAmmo)
+                {
+                    timer += Time.deltaTime;
+
+                    while (timer !=7)
+                    {
+                        ammo += 1;
+                        Debug.Log(ammo);
+                    }
+
+                    timer = 0;
+                }
+
+            }*/
         }
         
     }
@@ -531,6 +566,7 @@ public class Sina : MonoBehaviour
         {
             Debug.Log("Dash");
             Debug.Log(Rigidbody.velocity.x);
+            AudioSource.PlayClipAtPoint(zoom, transform.position);
             if (Rigidbody.velocity.x != 0 | Rigidbody.velocity.y != 0)
             {
                 moveLock = true;
@@ -684,6 +720,7 @@ public class Sina : MonoBehaviour
         {
             case 0f:
                 shrunk = 1f;
+                AudioSource.PlayClipAtPoint(small, transform.position);
                 for (float shrinktime = 1f; shrinktime >= .5f; shrinktime = shrinktime -.1f) //gives 25 frames of relaoad time 
                 {
                     Rigidbody.velocity = new Vector2(0f, 0f); //stop movment
@@ -698,6 +735,7 @@ public class Sina : MonoBehaviour
 
             case 1f:
                 shrunk = 0f;
+                AudioSource.PlayClipAtPoint(grow, transform.position);
                 for (float shrinktime = .5f; shrinktime <= 1f; shrinktime=shrinktime+.1f) //gives 25 frames of relaoad time 
                 {
                     Rigidbody.velocity = new Vector2(0f, 0f); //stop movment

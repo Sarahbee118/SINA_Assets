@@ -728,6 +728,8 @@ MonoBehaviour:
   maxHealth: 50
   thing: {fileID: 1342023681}
   reveal: {fileID: 0}
+  damage: 0
+  death: {fileID: 0}
 --- !u!50 &637601019
 Rigidbody2D:
   serializedVersion: 4
@@ -1086,6 +1088,7 @@ MonoBehaviour:
     - nice weather we're having
     - have a nice day
   textbox: {fileID: 0}
+  hi: {fileID: 0}
 --- !u!114 &797486025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1576,6 +1579,8 @@ MonoBehaviour:
   maxHealth: 50
   thing: {fileID: 681681098}
   reveal: {fileID: 0}
+  damage: 0
+  death: {fileID: 0}
 --- !u!4 &949668375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7391143558805749270, guid: a9900160edc501a48b5c11c5b48ba064, type: 3}
@@ -2230,21 +2235,11 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -7, y: -3, z: 0}
+  - first: {x: -7, y: -2, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
       m_TileSpriteIndex: 2
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 8
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: -7, y: -2, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 9
-      m_TileSpriteIndex: 11
       m_TileMatrixIndex: 0
       m_TileColorIndex: 8
       m_TileObjectToInstantiateIndex: 65535
@@ -2453,8 +2448,8 @@ Tilemap:
   - first: {x: 4, y: 2, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 9
-      m_TileSpriteIndex: 11
+      m_TileIndex: 10
+      m_TileSpriteIndex: 4
       m_TileMatrixIndex: 0
       m_TileColorIndex: 8
       m_TileObjectToInstantiateIndex: 65535
@@ -2500,20 +2495,10 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 4, y: 3, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 10
-      m_TileSpriteIndex: 4
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 8
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: eb8e3eb05f1a92f43b57ac7224329514, type: 2}
+    m_Data: {fileID: 11400000, guid: 02805f2f01f0746a4bf6ebabd60cd1d6, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 4a49407e52126430597e97439edefb3e, type: 2}
   - m_RefCount: 1
@@ -2530,10 +2515,10 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 66564549e91214d279154b83d9b70019, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: 4945f524633054732bdb2f5532c741b9, type: 2}
-  - m_RefCount: 8
+  - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 8dc0d2b1d50fe4fc5a3b87842873f912, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 5afb11ec37e6de348bb33e04d46effa5, type: 2}
+    m_Data: {fileID: 11400000, guid: d07f49aee134e40b185652951bad1207, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -2557,10 +2542,10 @@ Tilemap:
     m_Data: {fileID: 1805652573, guid: 9037f0b3040e743fc9ad7c4c73b0ea84, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 1697451698, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
-  - m_RefCount: 8
+  - m_RefCount: 6
     m_Data: {fileID: -536982488, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 33
+  - m_RefCount: 31
     m_Data:
       e00: 1
       e01: 0
@@ -2595,7 +2580,7 @@ Tilemap:
     m_Data: {r: 4.2605e-41, g: 4.2605e-41, b: 4.2605e-41, a: 4.2605e-41}
   - m_RefCount: 0
     m_Data: {r: 4.2605e-41, g: 4.2605e-41, b: 4.2605e-41, a: 4.2605e-41}
-  - m_RefCount: 33
+  - m_RefCount: 31
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -2660,6 +2645,7 @@ MonoBehaviour:
   whichItem: 1
   isChest: 0
   animator: {fileID: 0}
+  item: {fileID: 0}
 --- !u!114 &1304055517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2681,6 +2667,7 @@ MonoBehaviour:
     - Use it with the West Face Button! (Or V!)
     - I wonder what will happen when you punch those trees ;)
   textbox: {fileID: 1149024783}
+  hi: {fileID: 0}
 --- !u!114 &1304055518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2937,8 +2924,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: SinaAmmo
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: hasPunch2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: hasShield
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: hasShrink
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: SinaHealth
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: SinaMaxAmmo
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: SinaMaxHealth
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8326943480865036647, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3067,6 +3078,8 @@ MonoBehaviour:
   maxHealth: 5
   thing: {fileID: 2088547653}
   reveal: {fileID: 0}
+  damage: 0
+  death: {fileID: 0}
 --- !u!212 &1433336791
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3435,6 +3448,7 @@ MonoBehaviour:
     - But you can call me Sina!
     - Or else.
   textbox: {fileID: 0}
+  hi: {fileID: 0}
 --- !u!114 &1531830636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3513,7 +3527,7 @@ PrefabInstance:
     - target: {fileID: 5791255334278411630, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: c135c11da87094d418f8031659611ccc, type: 3}
+      objectReference: {fileID: 8300000, guid: c89186f00f4a940ea830a59874b634ad, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3532,6 +3546,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 224859792594639527, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
+      propertyPath: hi
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ecdd27e0597846caa003a8d08efc7bc, type: 3}
     - target: {fileID: 224859792594639527, guid: b2d413a32115a88439e560ded6148f8d, type: 3}
       propertyPath: click
       value: 
@@ -5744,6 +5762,8 @@ MonoBehaviour:
   maxHealth: 50
   thing: {fileID: 1878608319}
   reveal: {fileID: 0}
+  damage: 0
+  death: {fileID: 0}
 --- !u!50 &1806025142
 Rigidbody2D:
   serializedVersion: 4
@@ -6782,7 +6802,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 7028183aa55df7145bb9c94af4322830, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 5afb11ec37e6de348bb33e04d46effa5, type: 2}
+    m_Data: {fileID: 11400000, guid: ae522bc29d2e948e48cdb2fd2a9e3832, type: 2}
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: dbd5944809768b340b7248023f837754, type: 2}
   - m_RefCount: 2
@@ -6829,7 +6849,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 414436427, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 1537088875, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
+    m_Data: {fileID: 668531469, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 68
     m_Data:
@@ -7469,6 +7489,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6929446889405193823, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 8300000, guid: 253127a3c5020411096101b0e2442a19, type: 3}
+    - target: {fileID: 6929446889405193823, guid: c219934b54be66e41b0f685a5cee94a2, type: 3}
       propertyPath: sina
       value: 
       objectReference: {fileID: 2068803988}
@@ -7515,6 +7539,7 @@ MonoBehaviour:
     - Use it with the West Face Button! (Or V!)
     - I wonder what will happen when you punch those trees ;)
   textbox: {fileID: 1149024783}
+  hi: {fileID: 8300000, guid: 0ecdd27e0597846caa003a8d08efc7bc, type: 3}
 --- !u!1 &2119864809
 GameObject:
   m_ObjectHideFlags: 0
@@ -7825,9 +7850,25 @@ PrefabInstance:
       value: Sina (Player)
       objectReference: {fileID: 0}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: hi
+      value: 
+      objectReference: {fileID: 8300000, guid: 0ecdd27e0597846caa003a8d08efc7bc, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: ow
+      value: 
+      objectReference: {fileID: 8300000, guid: b33a30a8b73ee44468d5f250fc4d8677, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: die
+      value: 
+      objectReference: {fileID: 8300000, guid: 619af1fd4de7449b8950956160072ac0, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: grow
       value: 
-      objectReference: {fileID: 8300000, guid: 7fac5bd0e2f1443879c8d0fec97e8f01, type: 3}
+      objectReference: {fileID: 8300000, guid: 2029a3e42bfb64ce6a56f1603fd2c4d2, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: zoom
+      value: 
+      objectReference: {fileID: 8300000, guid: ebcc7e4ba447d49febc3dba651c316ac, type: 3}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: click
       value: 
@@ -7837,9 +7878,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: f3f0aee18bdc649e49f3a53c3aee818e, type: 3}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: small
+      value: 
+      objectReference: {fileID: 8300000, guid: 7602eb76e45854386b1d5b31d055fc1c, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: reload
+      value: 
+      objectReference: {fileID: 8300000, guid: 5000b8272746d4461af32aa173c59727, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: TextBox
       value: 
       objectReference: {fileID: 1149024783}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: protect
+      value: 
+      objectReference: {fileID: 8300000, guid: 851b178c70c224c66864e63e29ef1f58, type: 3}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: ammoText
       value: 
@@ -7856,6 +7909,10 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 987457715}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: shielddown
+      value: 
+      objectReference: {fileID: 8300000, guid: 94c8f9afe22984fb399c115ef9b38fbd, type: 3}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: attackDamage
       value: -120

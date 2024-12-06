@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
         SinaManager.Instance.hasShield = false;
         SinaManager.Instance.hasShrink = false;
         SinaManager.Instance.screenExit = "top";
-        SinaManager.Instance.currScreen = "SemiFinalPres";
+        SinaManager.Instance.currScreen = "C1";
         SceneManager.LoadScene(SinaManager.Instance.currScreen);
     }
     public void LoadGame()
