@@ -1575,6 +1575,10 @@ PrefabInstance:
       propertyPath: SinaMaxHealth
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: introComplete
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8326943480865036647, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.790357
