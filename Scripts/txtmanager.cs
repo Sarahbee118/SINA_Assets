@@ -11,6 +11,7 @@ public class txtmanager : MonoBehaviour
     public Queue<string> sentences;
     public float textSpeed;
     private string sentence; 
+    //public AudioClip hi;
 
     // Start is called before the first frame update
     void Start()
@@ -71,7 +72,7 @@ public class txtmanager : MonoBehaviour
                 if (sentence.Substring(0, 7) == "You got" || sentence.Substring(0, 8) =="Lilith s")
                 {
                     Debug.Log("Dudududahhhhh");
-                    //audioclip
+                    //AudioSource.PlayClipAtPoint(hi, transform.position); //audioclip
                 }
             }
             StartCoroutine(TypeLine(sentence));

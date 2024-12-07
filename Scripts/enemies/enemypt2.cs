@@ -8,23 +8,28 @@ public class enemypt2 : MonoBehaviour
     public GameObject bullet;
     public Transform bulletpos;
 
+
+
     private float timer;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+        //if sina is 8f or less away from the enemy - enemy follows her
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        Debug.Log(distance);
+        //Debug.Log(distance);
 
-        if(distance < 5)
+        // if sina is 6f or less away from enemy they start shooting
+        if(distance < 6)
         {
             timer += Time.deltaTime;
 

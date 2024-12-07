@@ -849,6 +849,7 @@ MonoBehaviour:
     - secret entrance reveal
     - ta daaaaaaa
   textbox: {fileID: 1149024783}
+  hi: {fileID: 8300000, guid: 0ecdd27e0597846caa003a8d08efc7bc, type: 3}
 --- !u!61 &483956209
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1325,6 +1326,7 @@ MonoBehaviour:
     - nice weather we're having
     - have a nice day
   textbox: {fileID: 0}
+  hi: {fileID: 0}
 --- !u!114 &797486025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3012,6 +3014,7 @@ MonoBehaviour:
     - But you can call me Sina!
     - Or else.
   textbox: {fileID: 0}
+  hi: {fileID: 0}
 --- !u!114 &1531830636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3135,6 +3138,7 @@ MonoBehaviour:
     - interact w shrub to reveal secret entrance behind trees
     - oooooooooooooooo
   textbox: {fileID: 1149024783}
+  hi: {fileID: 8300000, guid: 0ecdd27e0597846caa003a8d08efc7bc, type: 3}
 --- !u!50 &1535152516
 Rigidbody2D:
   serializedVersion: 4
@@ -3276,9 +3280,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5791255334278411630, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
+      propertyPath: m_Volume
+      value: 0.184
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791255334278411630, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: c135c11da87094d418f8031659611ccc, type: 3}
+      objectReference: {fileID: 8300000, guid: c89186f00f4a940ea830a59874b634ad, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5743,7 +5751,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 11
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 8
       m_TileObjectToInstantiateIndex: 65535
@@ -5793,7 +5801,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 10
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 8
       m_TileObjectToInstantiateIndex: 65535
@@ -6442,10 +6450,10 @@ Tilemap:
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 9109711d938e78c45bba644c1227a475, type: 2}
   m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: -1194425620, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 599448345, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 501802139, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
   - m_RefCount: 9
@@ -6454,8 +6462,8 @@ Tilemap:
     m_Data: {fileID: -1524306511, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
   - m_RefCount: 9
     m_Data: {fileID: -920211915, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 599448345, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1806408969, guid: f3e3bbc91f9be4496b4be6c1ea562f94, type: 3}
   - m_RefCount: 4
@@ -7464,9 +7472,37 @@ PrefabInstance:
       value: Sina (Player)
       objectReference: {fileID: 0}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: ow
+      value: 
+      objectReference: {fileID: 8300000, guid: b33a30a8b73ee44468d5f250fc4d8677, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: die
+      value: 
+      objectReference: {fileID: 8300000, guid: 619af1fd4de7449b8950956160072ac0, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: grow
+      value: 
+      objectReference: {fileID: 8300000, guid: 2029a3e42bfb64ce6a56f1603fd2c4d2, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: zoom
+      value: 
+      objectReference: {fileID: 8300000, guid: ebcc7e4ba447d49febc3dba651c316ac, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: small
+      value: 
+      objectReference: {fileID: 8300000, guid: 7602eb76e45854386b1d5b31d055fc1c, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: reload
+      value: 
+      objectReference: {fileID: 8300000, guid: 5000b8272746d4461af32aa173c59727, type: 3}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: TextBox
       value: 
       objectReference: {fileID: 1149024783}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: protect
+      value: 
+      objectReference: {fileID: 8300000, guid: 851b178c70c224c66864e63e29ef1f58, type: 3}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: ammoText
       value: 
@@ -7475,6 +7511,10 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 987457715}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: shielddown
+      value: 
+      objectReference: {fileID: 8300000, guid: 94c8f9afe22984fb399c115ef9b38fbd, type: 3}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: interactPoint
       value: 

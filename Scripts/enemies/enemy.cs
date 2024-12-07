@@ -9,6 +9,8 @@ public class enemy : MonoBehaviour
     int currentHealth;
     public GameObject thing; 
     public GameObject reveal;
+    public bool damage = false;
+    public AudioClip death;
 
 
 
@@ -27,12 +29,15 @@ public class enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        //AudioSource.PlayClipAtPoint(ouch, transform.position);
         //hurt animation
         if (currentHealth <= 0)
-        {
+        {   
+            AudioSource.PlayClipAtPoint(death, transform.position);
             Die();
         }
     }
+
 
     void Die()
     {

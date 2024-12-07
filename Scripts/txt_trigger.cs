@@ -7,6 +7,7 @@ public class txt_trigger : MonoBehaviour
 {
     public txt dialogue;
     public GameObject textbox;
+    public AudioClip hi;
     //public GameObject nextBtn;
 
     void Start()
@@ -18,6 +19,7 @@ public class txt_trigger : MonoBehaviour
     {
         Debug.Log("TriggerDial");
         textbox.SetActive(true);
+        AudioSource.PlayClipAtPoint(hi, transform.position);
         FindObjectOfType<txtmanager>().StartDialogue(dialogue);
     }
 

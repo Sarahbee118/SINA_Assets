@@ -23,15 +23,14 @@ public class enemybullet : MonoBehaviour
         float rot = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
     }
-
-
-
-        // Update is called once per frame
-        void Update()
+    
+    // Update is called once per frame
+    void Update()
     {
         killtimer++;
         if (killtimer > 120)

@@ -10,6 +10,7 @@ public class GiveItem : MonoBehaviour
     public int whichItem;
     public bool isChest = false;
     public Animator animator;
+    public AudioClip item;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,7 @@ public class GiveItem : MonoBehaviour
             animator.Play("ChestOpen", 0, 0.0f);
         }
      StartCoroutine(giveItemwait());  
+     AudioSource.PlayClipAtPoint(item, transform.position);
     }
     IEnumerator giveItemwait()
     {
