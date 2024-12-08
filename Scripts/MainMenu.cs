@@ -66,8 +66,8 @@ public class MainMenu : MonoBehaviour
             Debug.Log(File.ReadAllText(Application.dataPath + "/Sina.si"));
             Debug.Log(saveFiletxt);
             JsonUtility.FromJsonOverwrite(saveFiletxt, SinaManager.Instance);
-            SinaManager.Instance.SinaDirection = 3;
-            SceneManager.LoadScene("SinaManager.Instance.currScreen");
+            
+            SceneManager.LoadScene(SinaManager.Instance.currScreen);
 
         }
         //SFX Confirmation Beep

@@ -43,7 +43,10 @@ public class BossAttack1 : MonoBehaviour
 
         for (int timesAttack = 0; timesAttack <= 2; timesAttack++)
         {
-            
+            while (Time.timeScale == 0f)
+            {
+                yield return null;
+            }
             bossHeader.banimator.Play("Boss_Warpout");
             for (int windup = 0; windup < 30; windup++)
             {
@@ -56,6 +59,10 @@ public class BossAttack1 : MonoBehaviour
 
 
             for (int windup = 0; windup < 30; windup++)
+            {
+                yield return null;
+            }
+            while (Time.timeScale == 0f)
             {
                 yield return null;
             }

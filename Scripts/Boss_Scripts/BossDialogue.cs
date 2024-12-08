@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossDialogue : MonoBehaviour
 {
@@ -37,5 +38,20 @@ public class BossDialogue : MonoBehaviour
             fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(255 - fadein));
         }
          
+    }
+    public void FadeTrigger()
+    {
+        StartCoroutine(FadeOut());
+    }
+    public IEnumerator FadeOut()
+    {
+        
+        for (int fadein = 0; fadein < 255; fadein = fadein + 3)
+        {
+            Debug.Log("fade");
+            yield return null;
+            fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(fadein));
+        }
+        SceneManager.LoadScene("Cutscene3");
     }
 }

@@ -38,15 +38,24 @@ public class BossAttack3 : MonoBehaviour
         {
             yield return null;
         }
+        while (Time.timeScale == 0f)
+        {
+            yield return null;
+        }
         transform.position = new Vector2(sina.transform.position.x, -4f);
         bossHeader.banimator.Play("Boss_WarpIn");
         for (int windup = 0; windup < 24; windup++)
         {
             yield return null;
         }
+
         bossHeader.banimator.Play("Boss_Fire");
         for ( int windup = 0; windup < 90; windup++)
         {
+            while (Time.timeScale == 0f)
+            {
+                yield return null;
+            }
             transform.position = new Vector2(sina.transform.position.x, -4f);
             // transform.position.y = -3f;
             
@@ -57,6 +66,10 @@ public class BossAttack3 : MonoBehaviour
         //Transform masterSpark = this.transform.Find("MasterSPARK");
         for (int firing = 0; firing < 26; firing++) 
         {
+            while (Time.timeScale == 0f)
+            {
+                yield return null;
+            }
             masterSpark.transform.position = new Vector2(this.transform.position.x,masterSpark.transform.position.y-.5f);
             //sparkCollision.size = new Vector2(sparkCollision.size.x + 1f, 6.75f);
             if (SinaManager.Instance.SinaHealth < startHealth)
@@ -75,6 +88,10 @@ public class BossAttack3 : MonoBehaviour
 
         for (int casting = 0; casting < 300; casting++) 
         {
+            while (Time.timeScale == 0f)
+            {
+                yield return null;
+            }
             Debug.Log(startHealth);
             Debug.Log(SinaManager.Instance.SinaHealth);
             Debug.Log(startHealth < SinaManager.Instance.SinaHealth);

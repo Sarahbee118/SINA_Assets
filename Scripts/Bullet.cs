@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public Transform attackPoint;
     public float attackRange;
     public LayerMask enemyLayers;
-    public int attackDamage = 20;
+    public int attackDamage = 15;
     void Start()
     {
         
@@ -42,6 +42,17 @@ public class Bullet : MonoBehaviour
 
 
                     //moveLock = false;
+                }
+                if (thing.GetComponent<BossHeader>() != null)
+                {
+                    thing.GetComponent<BossHeader>().TakeDamage(attackDamage);
+                    Debug.Log("BulletWorked");
+                    Destroy(gameObject);
+                }
+                if (thing.GetComponent<target>() != null) 
+                {
+                    thing.gameObject.SetActive(false);
+                    Destroy(gameObject);
                 }
             }
         }

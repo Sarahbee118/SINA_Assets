@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5891714565482722640}
   - component: {fileID: 6929446889405193823}
   - component: {fileID: 2448034116868253269}
+  - component: {fileID: 4288332466207674928}
   m_Layer: 7
   m_Name: ZipChest
   m_TagString: Untagged
@@ -120,6 +121,7 @@ MonoBehaviour:
     sentences:
     - 
   textbox: {fileID: 0}
+  hi: {fileID: 0}
 --- !u!50 &7779328907832187118
 Rigidbody2D:
   serializedVersion: 4
@@ -250,9 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sina: {fileID: 0}
+  sinaObject: {fileID: 0}
   whichItem: 0
   isChest: 0
   animator: {fileID: 2448034116868253269}
+  item: {fileID: 0}
+  itemNumber: 0
 --- !u!95 &2448034116868253269
 Animator:
   serializedVersion: 5
@@ -274,3 +279,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4288332466207674928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5186642401095576324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0918eeb731fa984e9390496e0c0ec34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room: 

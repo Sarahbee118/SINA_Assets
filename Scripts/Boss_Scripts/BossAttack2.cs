@@ -29,6 +29,10 @@ public class BossAttack2 : MonoBehaviour
         {
             yield return null;
         }
+        while (Time.timeScale == 0f)
+        {
+            yield return null;
+        }
         this.transform.position = new Vector2(-8.5f, -9.8f);
         bossHeader.banimator.Play("Boss_WarpIn");
 
@@ -39,6 +43,10 @@ public class BossAttack2 : MonoBehaviour
 
         for (int casting = 0; casting <= 599; casting++)
         {
+            while (Time.timeScale == 0f)
+            {
+                yield return null;
+            }
             if ((casting + 20) % 150 == 0)
             {
                 bossHeader.banimator.Play("Boss_Punch", 0, 0.0f);

@@ -10,6 +10,7 @@ public class Cutscene3 : MonoBehaviour
     public txt_trigger text1;
     public txt_trigger text2;
     public GameObject textBox;
+    public Animator sinthamator;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +25,15 @@ public class Cutscene3 : MonoBehaviour
 
     IEnumerator Cutscene()
     {
-
+        sinthamator.Play("Boss_Punch");
         for (int fadein = 0; fadein < 255; fadein = fadein + 3)
         {
             yield return null;
             fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(255 - fadein));
         }
+        sinthamator.Play("Boss_Reveal");
+        yield return new WaitForSeconds(1);
+        sinthamator.Play("Sinthia");
         text1.TriggerDialogue();
 
         while (textBox.activeSelf)

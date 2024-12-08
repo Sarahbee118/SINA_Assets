@@ -41,12 +41,20 @@ public class BossAttack4 : MonoBehaviour
         this.transform.position = bossHeader.warpZone;
         for (int windup = 0; windup < 15; windup++)
         {
+            while (Time.timeScale == 0f)
+            {
+                yield return null;
+            }
             yield return null;
         }
         this.transform.position = bossHeader.home;
         bossHeader.banimator.Play("Boss_WarpIn", 0, 0.0f);
         for (int casting = 0; casting <= 690; casting++)
         {
+            while (Time.timeScale == 0f)
+            {
+                yield return null;
+            }
             if (casting+20 == 690)
             {
                 bossHeader.banimator.Play("Boss_Punch", 0, 0.0f);
