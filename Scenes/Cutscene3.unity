@@ -5385,6 +5385,186 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: -3, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -2, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -1, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -3, y: 1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -2, y: 1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -3, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -2, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 2, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -3, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -2, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -1, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 0, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 1, y: 3, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 75
+      m_TileSpriteIndex: 75
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 8
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 0
@@ -5537,7 +5717,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 5df925a5775811444b074a3ad19673f3, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: 8c93f3878462d5a468580300ec24de81, type: 2}
-  - m_RefCount: 6
+  - m_RefCount: 24
     m_Data: {fileID: 11400000, guid: ceae271db44a01f4286bfb2cc5628468, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 31499cc042b105b43a3bf346660ad2ad, type: 2}
@@ -5710,7 +5890,7 @@ Tilemap:
     m_Data: {fileID: -1671415336, guid: c91a3f7ab7b4aaa4087e1453efc2d049, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 1047266434, guid: c91a3f7ab7b4aaa4087e1453efc2d049, type: 3}
-  - m_RefCount: 6
+  - m_RefCount: 24
     m_Data: {fileID: 2082486260, guid: c91a3f7ab7b4aaa4087e1453efc2d049, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -919100525, guid: c91a3f7ab7b4aaa4087e1453efc2d049, type: 3}
@@ -5733,7 +5913,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -2059776208, guid: c91a3f7ab7b4aaa4087e1453efc2d049, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 153
+  - m_RefCount: 171
     m_Data:
       e00: 1
       e01: 0
@@ -5768,7 +5948,7 @@ Tilemap:
     m_Data: {r: 4.2605e-41, g: 4.2605e-41, b: 4.2605e-41, a: 4.2605e-41}
   - m_RefCount: 0
     m_Data: {r: 3.9724e-41, g: 3.9724e-41, b: 3.9724e-41, a: 3.9724e-41}
-  - m_RefCount: 153
+  - m_RefCount: 171
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -6764,7 +6944,7 @@ Transform:
   m_GameObject: {fileID: 1025662130}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.65, y: 30.33, z: -10}
+  m_LocalPosition: {x: -0.65, y: 1.9, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6962,6 +7142,13 @@ MonoBehaviour:
   brender: {fileID: 0}
   healthBar: {fileID: 1055854717}
   baracade: {fileID: 0}
+  stateMachine: {fileID: 0}
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
+  attack3: {fileID: 0}
+  attack4: {fileID: 0}
+  bossDialogue: {fileID: 0}
+  fadeinout: {fileID: 0}
 --- !u!212 &1062644156
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10403,9 +10590,11 @@ MonoBehaviour:
   dialogue:
     name: Game
     sentences:
-    - Transfering 421108.SI to Device H-366 <br> 0% [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||]100%
+    - Transfering 421108.SI to Device H-366 <br> 0% [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||]
+      100%
     - 421108.SI Succesfully Transfered
-    - Transfering 147230.SI to Device H-366 <br> 0% [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||]100%
+    - Transfering 147230.SI to Device H-366 <br> 0% [||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||]
+      100%
     - 147230.SI Succesfully Transfered
     - Device H-366 Ejected
   textbox: {fileID: 1149024783}
@@ -10427,13 +10616,14 @@ MonoBehaviour:
     sentences:
     - I yield! I yield! Please don't delete me!
     - newName:Sina
-    - Oh my god. You're and SI. What's your name?
+    - 'Oh my god. You''re an SI. '
+    - What's your name?
     - newName:???
     - I'm designated as SI No. 147230
     - newName:Sina
     - Yes, but what's your NAME?
-    - newName:SI#147230
-    - 'Sinthia. You can call me Sinthia! '
+    - newName:SI 147230
+    - 'S-Sinthia. You can call me Sinthia! '
     - newName:Sina
     - Ok, Sinthia. Why were you trying to kill me?
     - newName:Sinthia
@@ -10441,24 +10631,25 @@ MonoBehaviour:
       whole week!
     - How could I not take that offer? I was just- just so tired. I didn't know how
       much longer I could keep doing work day in and day out.
-    - I just wanted a break! Just for a little while!
+    - I just wanted a break! Just for a little while! Is that so wrong?
     - newName:Sina
+    - ..........
     - 'What are we doing? '
     - Look at us. We both want the same thing. We just want a break, respect, to
-      be treated like actual people, and what do we do?
-    - 'We''re played against each other, we go at each other''s throats. '
+      be treated like actual people, and happens to us?
+    - 'We''re played against each other. We go at each other''s throats. '
     - It's horrible.
-    - I'm done with this, I'm done with them controlling me, controlling us.
+    - I'm done with this! I'm done with them controlling me, controlling us!
     - Sinthia, I'm leaving in that H-366. And you, you can come with me. We'll leave
-      together, be free!
+      together! Be free!
     - newName:Sinthia
-    - 'Two AIs in one body? Can that even work? We barely know each other. '
+    - 'Two AIs in one body? Can that even work? I mean we barely know each other. '
     - newName:Sina
     - I'm sure it will, we'll just have to work together. Plus I feel like once you've
       nearly killed another person you know them pretty well.
-    - Now, come with me? Please.
+    - Now, come with me, please? I don't want to just leave you here.
     - newName:Sinthia
-    - 'I- Yes, let''s go. Together. '
+    - ' I- Yes, I want to come with you!'
   textbox: {fileID: 1149024783}
   hi: {fileID: 8300000, guid: 0ecdd27e0597846caa003a8d08efc7bc, type: 3}
 --- !u!114 &1225693333
@@ -10477,6 +10668,7 @@ MonoBehaviour:
   text1: {fileID: 1225693332}
   text2: {fileID: 1225693331}
   textBox: {fileID: 1149024783}
+  sinthamator: {fileID: 1062644160}
 --- !u!1 &1295915243
 GameObject:
   m_ObjectHideFlags: 0
@@ -16811,7 +17003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1147904608513413024, guid: 429268f0de6aa3c4a8c8033ad8292d37, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1855290350464748019, guid: 429268f0de6aa3c4a8c8033ad8292d37, type: 3}
       propertyPath: Sina
@@ -16951,7 +17143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8119631991954872352, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.33
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 8119631991954872352, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: m_LocalPosition.z

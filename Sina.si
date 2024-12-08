@@ -1,1 +1,1 @@
-{"SinaHealth":8,"SinaMaxHealth":8,"SinaDirection":1,"SinaAmmo":12,"SinaMaxAmmo":12,"hasGun":true,"hasDash":true,"hasPunch2":true,"hasShield":false,"hasShrink":false,"screenExit":"down","currScreen":"B3"}
+{"SinaHealth":0,"SinaMaxHealth":12,"SinaDirection":1,"SinaAmmo":0,"SinaMaxAmmo":20,"hasGun":true,"hasDash":true,"hasPunch2":true,"hasShield":true,"hasShrink":true,"screenExit":"down","currScreen":"C1","introComplete":true}

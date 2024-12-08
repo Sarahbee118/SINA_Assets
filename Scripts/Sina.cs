@@ -72,6 +72,7 @@ public class Sina : MonoBehaviour
 
     public static string screenExit;
     public GameObject feetCollision;
+    public GameObject hurtCollision;
     private float timer;
 
     //SFX Shield Up
@@ -144,28 +145,10 @@ public class Sina : MonoBehaviour
                 Debug.Log("do nothing");
             }*/
             //else if (collision.gameObject.GetComponent<enemy>().damage == true)
-            if (collision.gameObject.GetComponent<enemy>().damage == true)
-            {
-                moveLock = true;
-                switch (faceDirection)
-                {
-                    case 0: //facing up
-                        Rigidbody.velocity = new Vector2(5f, 0f);
-                        break;
-                    case 1: //facing down
-                        Rigidbody.velocity = new Vector2(0f, -5f);
-                        break;
-                    case 2: //facing up
-                        Rigidbody.velocity = new Vector2(-5f, 0f);
-                        break;
-                    case 3: //facing down
-                        Rigidbody.velocity = new Vector2(0f, 5f);
-                        break;
-                    default:
-                        break;
-                }
+            //if (collision.gameObject.GetComponent<enemy>().damage == true || collision.gameObject.GetComponent<enemy>() == null)
+           // {
                 StartCoroutine(TakeDamage());
-            }
+            //}
         }
        
     }
@@ -190,45 +173,37 @@ public class Sina : MonoBehaviour
         {
             iframes = true;
             health -= 1;
-            AudioSource.PlayClipAtPoint(ow, transform.position);
             SinaManager.Instance.SinaHealth -= 1;
             healthText.text = hearts.Substring(0, health);
-        }
-        
-       
-        if (health <= 0)
-        {
-            AudioSource.PlayClipAtPoint(die, transform.position);
-            StartCoroutine(GameOver());
-            StopCoroutine(TakeDamage());
-        }
-        else
-        {
-            
-            for (int i = 0; i < 90; i++)
+
+            if (health <= 0)
             {
-                if (i % 10 == 0)
-                {
-                    if (srend.enabled)
-                    {
-                        srend.enabled = false;
-                    }
-                    else
-                    {
-                        srend.enabled = true;
-                    }
-                }
-                if (i == 15 && health != 0)
-                {
-                    moveLock = false;
-                }
-                yield return null;
+                StartCoroutine(GameOver());
+                StopCoroutine(TakeDamage());
             }
-            srend.enabled = true;
-            iframes = false;
+            else
+            {
+                Debug.Log("I");
+                for (int iframe = 0; iframe < 90; iframe++)
+                {
+                    if (iframe % 10 == 0)
+                    {
+                        srend.enabled = !srend.enabled;
+                    }
+                    if (iframe == 15 && health != 0)
+                    {
+                        moveLock = false;
+                    }
+                    yield return null;
+                }
+                srend.enabled = true;
+                iframes = false;
+            }
         }
-        
-        
+
+
+
+
 
     }
 
@@ -243,7 +218,7 @@ public class Sina : MonoBehaviour
         animator.Play("Sina_Die", 0, 0.0f);
         for (int i = 0; i < 60; i++)
         {
-            Rigidbody.velocity = new Vector2 (0f,0f);
+            Rigidbody.velocity = new Vector2(0f, 0f);
             yield return null;
         }
         srend.enabled = false;
@@ -252,14 +227,27 @@ public class Sina : MonoBehaviour
             Rigidbody.velocity = new Vector2(0f, 0f);
             yield return null;
         }
-        SceneManager.LoadScene("GameOver");
+        if (SinaManager.Instance.introComplete)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+        else
+        {
+            BossDialogue bd = GameObject.Find("BossDialogue").GetComponent<BossDialogue>();
+            StartCoroutine(bd.FadeOut());
+            SinaManager.Instance.SinaDirection = 3;
+            SinaManager.Instance.SinaHealth = SinaManager.Instance.SinaMaxHealth;
+            SceneManager.LoadScene("C1");
+        }
+
 
 
 
     }
 
 
-        void FixedUpdate() //fixed
+
+    void FixedUpdate() //fixed
     {
         //Debug.Log(Rigidbody.velocity);
        
@@ -457,7 +445,11 @@ public class Sina : MonoBehaviour
 
                 StartCoroutine(Firing());
             }
-
+            else
+            {
+                ammo = 0;
+                StartCoroutine(Reloading());
+            }
             /*if (ammo == 0)
             {
                 fire.Disable();                
@@ -479,6 +471,23 @@ public class Sina : MonoBehaviour
         
     }
 
+    IEnumerator Reloading()
+    {
+        
+        for (int bullets = 0;  bullets < maxAmmo; bullets++)
+        {
+            fire.Disable();
+            ammo += 1;
+            ammoText.text = "Ammo x" + ammo;
+            float time = 5f / (float)maxAmmo;
+            SinaManager.Instance.SinaAmmo = ammo;
+            yield return new WaitForSeconds(time);
+
+        }
+        fire.Enable();
+        
+    }
+
 
     IEnumerator Firing() //while firing
     {
@@ -496,7 +505,7 @@ public class Sina : MonoBehaviour
         AudioSource.PlayClipAtPoint(reload, transform.position);
 
 
-        /*switch (faceDirection)
+        switch (faceDirection)
         {
             case 0:
                 animator.Play("Sina_DefaultR");
@@ -513,7 +522,7 @@ public class Sina : MonoBehaviour
 
 
         }
-        */
+        
     }
 
     private void Interaction(InputAction.CallbackContext context)
@@ -566,7 +575,6 @@ public class Sina : MonoBehaviour
         {
             Debug.Log("Dash");
             Debug.Log(Rigidbody.velocity.x);
-            AudioSource.PlayClipAtPoint(zoom, transform.position);
             if (Rigidbody.velocity.x != 0 | Rigidbody.velocity.y != 0)
             {
                 moveLock = true;
@@ -575,29 +583,30 @@ public class Sina : MonoBehaviour
                 //Debug.Log("Dash");
             }
         }
-        
+
 
     }
 
     IEnumerator Dashing()
     {
         feetCollision.SetActive(false);
-        
+        hurtCollision.SetActive(false);
+
         //SFX Dash
-       // Rigidbody.velocity.x = Mathf.Round(TimeTaken * 100)) / 100.0
+        // Rigidbody.velocity.x = Mathf.Round(TimeTaken * 100)) / 100.0
         switch (Mathf.Round(Rigidbody.velocity.x * 100f) / 100.0f)
         {
             case 4f:
-                Rigidbody.velocity = new Vector2(20f, 0f);
+                Rigidbody.velocity = new Vector2(25f, 0f);
                 break;
             case 3.5f:
-                Rigidbody.velocity = new Vector2(20f, 0f);
+                Rigidbody.velocity = new Vector2(25f, 0f);
                 break;
             case -3.5f:
-                Rigidbody.velocity = new Vector2(-20f, 0f);
+                Rigidbody.velocity = new Vector2(-25f, 0f);
                 break;
             case -4f:
-                Rigidbody.velocity = new Vector2(-20f, 0f);
+                Rigidbody.velocity = new Vector2(-25f, 0f);
                 break;
             case 2.83f:
                 Debug.Log("AAAAAAA");
@@ -660,7 +669,7 @@ public class Sina : MonoBehaviour
                         Rigidbody.velocity = new Vector2(0f, 20f);
                         break;
                     case -4f:
-                        Rigidbody.velocity = new Vector2(0f,-20f);
+                        Rigidbody.velocity = new Vector2(0f, -20f);
                         break;
                     case 3.5f:
                         Rigidbody.velocity = new Vector2(0f, 20f);
@@ -675,20 +684,21 @@ public class Sina : MonoBehaviour
 
 
         }
-        for (int dashTime  = 0; dashTime <= 6; dashTime++)
+        for (int dashTime = 0; dashTime <= 6; dashTime++)
         {
-           /* if (Mathf.Abs(Rigidbody.velocity.x) != 20f || Mathf.Abs(Rigidbody.velocity.x) != 14f | Mathf.Abs(Rigidbody.velocity.y) != 20f || Mathf.Abs(Rigidbody.velocity.y) != 14f)
-            {
-                Rigidbody.velocity = new Vector2(0f, 0f);
-                dashTime = 7;
-            } */
+            /* if (Mathf.Abs(Rigidbody.velocity.x) != 20f || Mathf.Abs(Rigidbody.velocity.x) != 14f | Mathf.Abs(Rigidbody.velocity.y) != 20f || Mathf.Abs(Rigidbody.velocity.y) != 14f)
+             {
+                 Rigidbody.velocity = new Vector2(0f, 0f);
+                 dashTime = 7;
+             } */
             yield return null;
-           
+
         }
         feetCollision.SetActive(true);
+        hurtCollision.SetActive(true);
         dash.Enable();
         moveLock = false;
-        
+
     }
 
 

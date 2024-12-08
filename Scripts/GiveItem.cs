@@ -11,6 +11,7 @@ public class GiveItem : MonoBehaviour
     public bool isChest = false;
     public Animator animator;
     public AudioClip item;
+    public int itemNumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +58,7 @@ public class GiveItem : MonoBehaviour
                 Sina.maxAmmo = SinaManager.Instance.SinaMaxAmmo;
                 sinaObject.GetComponent<Sina>().AmmoRefill();
                 SinaManager.Instance.hasGun = true;
+               
                 Destroy(gameObject);
                 break;
             case 1:
@@ -83,6 +85,13 @@ public class GiveItem : MonoBehaviour
                 Sina.maxHealth = SinaManager.Instance.SinaMaxHealth;
                 UnityEngine.Debug.Log(SinaManager.Instance.SinaMaxHealth);
                 sinaObject.GetComponent<Sina>().HealthRefill();
+                switch (itemNumber)
+                {
+                    case 1: SinaManager.Instance.heart1 = true; break;
+                    case 2: SinaManager.Instance.heart2 = true; break;
+                    case 3: SinaManager.Instance.heart3 = true; break;
+
+                }
                 Destroy(gameObject);
                 
                 break;
@@ -90,6 +99,15 @@ public class GiveItem : MonoBehaviour
                 SinaManager.Instance.SinaMaxAmmo = SinaManager.Instance.SinaMaxAmmo + 2;
                 Sina.maxAmmo = SinaManager.Instance.SinaMaxAmmo;
                 sinaObject.GetComponent<Sina>().AmmoRefill();
+                switch (itemNumber)
+                {
+                    case 1: SinaManager.Instance.ammo1 = true; break;
+                    case 2: SinaManager.Instance.ammo2 = true; break;
+                    case 3: SinaManager.Instance.ammo3 = true; break;
+                    case 4: SinaManager.Instance.ammo4 = true; break;
+                    case 5: SinaManager.Instance.ammo5 = true; break;
+
+                }
                 Destroy(gameObject);
                 UnityEngine.Debug.Log("AmmoClip Get");
                 break;

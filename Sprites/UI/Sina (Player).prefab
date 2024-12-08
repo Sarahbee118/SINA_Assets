@@ -276,6 +276,7 @@ MonoBehaviour:
   shielddown: {fileID: 8300000, guid: 94c8f9afe22984fb399c115ef9b38fbd, type: 3}
   die: {fileID: 8300000, guid: 619af1fd4de7449b8950956160072ac0, type: 3}
   feetCollision: {fileID: 2048862344238278681}
+  hurtCollision: {fileID: 4867759830093287781}
 --- !u!114 &825247317788952617
 MonoBehaviour:
   m_ObjectHideFlags: 0

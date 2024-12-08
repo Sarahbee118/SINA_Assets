@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossHeader : MonoBehaviour
 {
@@ -14,6 +15,15 @@ public class BossHeader : MonoBehaviour
     public SpriteRenderer brender;
     public Image healthBar; 
     public GameObject baracade;
+    public BossStateMachine stateMachine;
+    public BossAttack1 attack1;
+    public BossAttack2 attack2;
+    public BossAttack3 attack3;
+    public BossAttack4 attack4;
+    public BossDialogue bossDialogue;
+
+    public Image fadeinout;
+ 
    
 
     // Start is called before the first frame update
@@ -50,10 +60,10 @@ public class BossHeader : MonoBehaviour
     {
         Debug.Log("enemy dead");
 
-        
-           
-            baracade.SetActive(true);
-            Destroy(gameObject);
+
+        bossDialogue.FadeTrigger();
+          //  baracade.SetActive(true);
+           Destroy(gameObject);
         
 
         //die animation

@@ -19,7 +19,10 @@ public class txt_trigger : MonoBehaviour
     {
         Debug.Log("TriggerDial");
         textbox.SetActive(true);
-        AudioSource.PlayClipAtPoint(hi, transform.position);
+        if (hi != null)
+        {
+            AudioSource.PlayClipAtPoint(hi, transform.position);
+        }
         FindObjectOfType<txtmanager>().StartDialogue(dialogue);
     }
 

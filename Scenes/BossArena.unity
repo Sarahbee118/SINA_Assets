@@ -3413,7 +3413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &323654407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3427,7 +3427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6554,6 +6554,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &534513852 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4867759830093287781, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+  m_PrefabInstance: {fileID: 5368399891621373876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &601407183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5420720161749532605, guid: a9900160edc501a48b5c11c5b48ba064, type: 3}
@@ -8185,6 +8190,7 @@ GameObject:
   - component: {fileID: 1062644160}
   - component: {fileID: 1062644163}
   - component: {fileID: 1062644162}
+  - component: {fileID: 1062644165}
   m_Layer: 6
   m_Name: Boss
   m_TagString: Untagged
@@ -8207,7 +8213,6 @@ Transform:
   m_Children:
   - {fileID: 1905866596}
   - {fileID: 37468151}
-  - {fileID: 1871593452}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1062644154
@@ -8254,6 +8259,13 @@ MonoBehaviour:
   brender: {fileID: 0}
   healthBar: {fileID: 1055854717}
   baracade: {fileID: 1944253210}
+  stateMachine: {fileID: 0}
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
+  attack3: {fileID: 0}
+  attack4: {fileID: 0}
+  bossDialogue: {fileID: 1871593454}
+  fadeinout: {fileID: 0}
 --- !u!212 &1062644156
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8462,6 +8474,23 @@ MonoBehaviour:
   spikes: {fileID: 189469711}
   spikesWarn: {fileID: 1079536545}
   spikesMaze: {fileID: 1562477884}
+--- !u!114 &1062644165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062644152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72f64bfd50f4d4ce1b19d48f9753a338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100000000
+  thing: {fileID: 0}
+  reveal: {fileID: 0}
+  damage: 0
+  death: {fileID: 0}
 --- !u!1 &1079536545
 GameObject:
   m_ObjectHideFlags: 0
@@ -11765,19 +11794,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: SinaHealth
-      value: 12
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: SinaMaxAmmo
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: SinaDirection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: SinaMaxHealth
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: introComplete
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8326943480865036647, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17629,11 +17662,11 @@ Transform:
   m_GameObject: {fileID: 1871593451}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.334587, y: -0.46268559, z: -1.0329471}
+  m_LocalPosition: {x: -6.984587, y: -8.862685, z: -0.032947063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1062644153}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1871593453
 MonoBehaviour:
@@ -18376,6 +18409,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 987457715}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: hurtCollision
+      value: 
+      objectReference: {fileID: 534513852}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: interactPoint
       value: 
       objectReference: {fileID: 0}
@@ -18705,6 +18742,7 @@ SceneRoots:
   - {fileID: 5368399891621373876}
   - {fileID: 1345318450}
   - {fileID: 698945779}
+  - {fileID: 1871593452}
   - {fileID: 1062644153}
   - {fileID: 623169539182299985}
   - {fileID: 1599112932}

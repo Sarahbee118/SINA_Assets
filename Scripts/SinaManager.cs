@@ -16,6 +16,14 @@ public class SinaManager : MonoBehaviour
     public bool hasPunch2;
     public bool hasShield;
     public bool hasShrink;
+    public bool heart1;
+    public bool heart2;
+    public bool heart3;
+    public bool ammo1;
+    public bool ammo2;
+    public bool ammo3;
+    public bool ammo4;
+    public bool ammo5;
     public string screenExit;
     public string currScreen;
     public bool introComplete;
