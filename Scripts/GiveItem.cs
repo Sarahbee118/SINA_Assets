@@ -72,6 +72,8 @@ public class GiveItem : MonoBehaviour
                 Destroy(gameObject);
                 break;
             case 3:
+                Sina.hasShield = true;
+                SinaManager.Instance.hasShield = true;
                 Destroy(gameObject);
                 break;
             case 4:
@@ -113,6 +115,8 @@ public class GiveItem : MonoBehaviour
                 break;
 
         }
+        GameObject uI = GameObject.Find("UI");
+        uI.transform.Find("HUD").gameObject.GetComponent<HUD>().Refresh();
         yield return null;
     }
 }

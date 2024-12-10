@@ -16,7 +16,7 @@ public class PressStart : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        blinktimer++;
+        
         if (blinktimer > 90)
         {
             blinktimer = 0;
@@ -29,6 +29,7 @@ public class PressStart : MonoBehaviour
                 pressStart.color = new Color(pressStart.color.r, pressStart.color.g, pressStart.color.b, 255f);
             }
         }
+        blinktimer++;
 
     }
 }

@@ -21,7 +21,7 @@ public class txt_trigger : MonoBehaviour
         textbox.SetActive(true);
         if (hi != null)
         {
-            AudioSource.PlayClipAtPoint(hi, transform.position);
+         //   AudioSource.PlayClipAtPoint(hi, transform.position);
         }
         FindObjectOfType<txtmanager>().StartDialogue(dialogue);
     }

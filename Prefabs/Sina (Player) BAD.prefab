@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 6849237522115681332}
   - component: {fileID: 4500022609657086714}
   m_Layer: 8
-  m_Name: Sina (Player)
+  m_Name: Sina (Player) BAD
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,8 +265,8 @@ MonoBehaviour:
   punchfab: {fileID: 4113679410747939344, guid: dba4996180df7a74bbefb5e71203cc9a, type: 3}
   intFab: {fileID: 4257955091891843060, guid: f58be5b80fd20d54babc714cef666460, type: 3}
   punchPower: 0
-  shoot: {fileID: 8300000, guid: ef805e388bb294b889180f442618b63d, type: 3}
-  reload: {fileID: 8300000, guid: 02cdadd4332274493b4102719995362a, type: 3}
+  shoot: {fileID: 8300000, guid: 42407c9b563981a44a2080e6e063d3b8, type: 3}
+  reload: {fileID: 8300000, guid: 5000b8272746d4461af32aa173c59727, type: 3}
   punched: {fileID: 8300000, guid: c4ab7820aee4145b8ae7cd86d7a7fd62, type: 3}
   zoom: {fileID: 8300000, guid: ebcc7e4ba447d49febc3dba651c316ac, type: 3}
   grow: {fileID: 8300000, guid: 2029a3e42bfb64ce6a56f1603fd2c4d2, type: 3}
@@ -458,7 +458,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.41}
+  m_Offset: {x: 0, y: -0.18}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -469,7 +469,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.38, y: 0.46}
+  m_Size: {x: 0.54, y: 0.9}
   m_EdgeRadius: 0
 --- !u!1 &5784999910146470587
 GameObject:
@@ -520,7 +520,7 @@ BoxCollider2D:
     m_Bits: 256
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 7927
+    m_Bits: 512
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

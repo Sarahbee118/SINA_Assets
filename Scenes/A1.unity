@@ -6238,7 +6238,7 @@ PrefabInstance:
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: punch2fab
       value: 
-      objectReference: {fileID: 5901973619411407447, guid: ef64d6c02ddb74128baf06701dcee972, type: 3}
+      objectReference: {fileID: 4113679410747939344, guid: 16ee1fca54b5e1a4e839e1e803b971f8, type: 3}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: healthText
       value: 

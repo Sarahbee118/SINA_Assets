@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class Cutscene1 : MonoBehaviour
 {
@@ -26,6 +27,10 @@ public class Cutscene1 : MonoBehaviour
     public GameObject sinaBedSleep;
     public GameObject sinaBedAwake;
     public GameObject sinaNextToBed;
+    public AudioClip musicChange;
+    public AudioClip alarm;
+    public AudioClip typing;
+    public AudioClip beep;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,11 +47,13 @@ public class Cutscene1 : MonoBehaviour
     {
         sinaBedSleep.SetActive(true);
         sinaBedAwake.SetActive(false);
+        AudioSource.PlayClipAtPoint(alarm, transform.position);
         for (int fadein = 0; fadein < 255; fadein = fadein+ 3)
         {
             yield return null;
             fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(255-fadein));
         }
+
         text1.TriggerDialogue();
         sinaBedAwake.SetActive(true);
         sinaBedSleep.SetActive(false);
@@ -61,6 +68,7 @@ public class Cutscene1 : MonoBehaviour
         }
         sinaBedSleep.SetActive(true);
         sinaBedAwake.SetActive(false);
+        AudioSource.PlayClipAtPoint(typing, transform.position);
         roomScene.SetActive(false);
         officeScene.SetActive(true);
         for (int fadein = 0; fadein < 255; fadein = fadein + 3)
@@ -79,6 +87,7 @@ public class Cutscene1 : MonoBehaviour
             fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(fadeout));
         }
         officeScene.SetActive(false);
+        AudioSource.PlayClipAtPoint(beep, transform.position);
         roomEScene.SetActive(true);
         for (int fadein = 0; fadein < 255; fadein = fadein + 3)
         {
@@ -101,6 +110,7 @@ public class Cutscene1 : MonoBehaviour
 
         //Loop 2
         textManager.textSpeed = .01f;
+        AudioSource.PlayClipAtPoint(alarm, transform.position);
         sinaBedSleep.SetActive(true);
         sinaBedAwake.SetActive(false);
         for (int fadein = 0; fadein < 255; fadein = fadein + 5)
@@ -121,6 +131,7 @@ public class Cutscene1 : MonoBehaviour
             fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(fadeout));
         }
         roomScene.SetActive(false);
+        AudioSource.PlayClipAtPoint(typing, transform.position);
         officeScene.SetActive(true);
         for (int fadein = 0; fadein < 255; fadein = fadein + 5)
         {
@@ -138,6 +149,7 @@ public class Cutscene1 : MonoBehaviour
             fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(fadeout));
         }
         officeScene.SetActive(false);
+        AudioSource.PlayClipAtPoint(beep, transform.position);
         roomEScene.SetActive(true);
         for (int fadein = 0; fadein < 255; fadein = fadein + 5)
         {
@@ -162,6 +174,7 @@ public class Cutscene1 : MonoBehaviour
         textManager.textSpeed = .005f;
         sinaBedSleep.SetActive(true);
         sinaBedAwake.SetActive(false);
+        AudioSource.PlayClipAtPoint(alarm, transform.position);
         for (int fadein = 0; fadein < 255; fadein = fadein + 10)
         {
             yield return null;
@@ -180,6 +193,7 @@ public class Cutscene1 : MonoBehaviour
             fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(fadeout));
         }
         roomScene.SetActive(false);
+        AudioSource.PlayClipAtPoint(typing, transform.position);
         officeScene.SetActive(true);
         for (int fadein = 0; fadein < 255; fadein = fadein + 10)
         {
@@ -197,6 +211,7 @@ public class Cutscene1 : MonoBehaviour
             fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(fadeout));
         }
         officeScene.SetActive(false);
+        AudioSource.PlayClipAtPoint(beep, transform.position);
         roomEScene.SetActive(true);
         for (int fadein = 0; fadein < 255; fadein = fadein + 10)
         {
@@ -204,6 +219,7 @@ public class Cutscene1 : MonoBehaviour
             fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(255 - fadein));
         }
         text9.TriggerDialogue();
+    
         while (textBox.activeSelf)
         {
             yield return null;
@@ -225,6 +241,7 @@ public class Cutscene1 : MonoBehaviour
             sinaBedSleep.SetActive(true);
             sinaBedAwake.SetActive(false);
             textManager.textSpeed = .02f;
+            AudioSource.PlayClipAtPoint(alarm, transform.position);
             for (int fadein = 0; fadein < 255; fadein = fadein + 10+(3*i))
             {
                 yield return null;
@@ -249,7 +266,8 @@ public class Cutscene1 : MonoBehaviour
                 yield return null;
                 fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(255 - fadein));
             }
-           // text8.TriggerDialogue();
+            AudioSource.PlayClipAtPoint(typing, transform.position);
+            // text8.TriggerDialogue();
             while (textBox.activeSelf)
             {
                 yield return null;
@@ -260,6 +278,7 @@ public class Cutscene1 : MonoBehaviour
                 fadeInOut.color = new Color32(0, 0, 0, System.Convert.ToByte(fadeout));
             }
             officeScene.SetActive(false);
+            AudioSource.PlayClipAtPoint(beep, transform.position);
             roomEScene.SetActive(true);
             for (int fadein = 0; fadein < 255; fadein = fadein + 10 + (3 * i))
             {
@@ -280,6 +299,7 @@ public class Cutscene1 : MonoBehaviour
             roomScene.SetActive(true);
             yield return null; 
         }
+        AudioSource.PlayClipAtPoint(alarm, transform.position);
         for (int fadein = 0; fadein < 255; fadein = fadein + 19)
         {
             yield return null;
@@ -288,6 +308,8 @@ public class Cutscene1 : MonoBehaviour
         sinaBedAwake.SetActive(false);
         sinaBedSleep.SetActive(false);
         sinaNextToBed.SetActive(true);
+        MusicManager.Instance.musicPlayer.clip = musicChange;
+        MusicManager.Instance.musicPlayer.Play();
         text10.TriggerDialogue();
         while (textBox.activeSelf)
         {

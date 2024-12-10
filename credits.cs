@@ -18,7 +18,7 @@ public class credits : MonoBehaviour
     void Update()
     {
         //Debug.Log(creditsOb.GetComponent<RectTransform>().anchoredPosition.y);
-        if(creditsOb.GetComponent<RectTransform>().anchoredPosition.y == 2000)
+        if(creditsOb.GetComponent<RectTransform>().anchoredPosition.y > 2699)
         {
             SceneManager.LoadScene("Ending");
         }

@@ -9,6 +9,9 @@ public class BossAttack4 : MonoBehaviour
     public GameObject spikes;
     public GameObject spikesWarn;
     public GameObject spikesMaze;
+    public AudioClip punch;
+    public AudioClip warping;
+    public AudioClip spikesfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +36,7 @@ public class BossAttack4 : MonoBehaviour
     public IEnumerator Attack()
     {
         bossHeader.banimator.Play("Boss_WarpOut", 0, 0.0f);
+        AudioSource.PlayClipAtPoint(warping, transform.position);
 
         for (int i = 0; i < 20; i++)
         {
@@ -49,6 +53,7 @@ public class BossAttack4 : MonoBehaviour
         }
         this.transform.position = bossHeader.home;
         bossHeader.banimator.Play("Boss_WarpIn", 0, 0.0f);
+        AudioSource.PlayClipAtPoint(warping, transform.position);
         for (int casting = 0; casting <= 690; casting++)
         {
             while (Time.timeScale == 0f)
@@ -58,9 +63,11 @@ public class BossAttack4 : MonoBehaviour
             if (casting+20 == 690)
             {
                 bossHeader.banimator.Play("Boss_Punch", 0, 0.0f);
+                AudioSource.PlayClipAtPoint(punch, transform.position);
             }
             if ((casting + 20) % 130 == 0 && casting < 391)
             {
+                AudioSource.PlayClipAtPoint(punch, transform.position);
                 bossHeader.banimator.Play("Boss_Punch", 0, 0.0f);
             }
             if (casting == 130)
@@ -72,13 +79,15 @@ public class BossAttack4 : MonoBehaviour
             {
                 Debug.Log("Spikes");
                 spikesWarn.SetActive(false);
+                AudioSource.PlayClipAtPoint(spikesfx, transform.position);
                 spikes.SetActive(true);
 
             }
             if (casting == 390)
             {
                 Debug.Log("Maze");
-                spikes.SetActive(false);   
+                spikes.SetActive(false);
+                AudioSource.PlayClipAtPoint(spikesfx, transform.position);
                 spikesMaze.SetActive(true);
             }
             yield return null;  

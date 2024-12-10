@@ -33,7 +33,7 @@ public class enemypt2 : MonoBehaviour
         {
             timer += Time.deltaTime;
 
-            if (timer > 3)
+            if (timer > 2)
             {
                 timer = 0;
                 Shooting();

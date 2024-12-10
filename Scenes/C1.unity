@@ -334,7 +334,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &226600380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2221,6 +2221,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
+      propertyPath: SinaAmmo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7021047099909527666, guid: 474652b115e6c2c4b9152633054c08a2, type: 3}
       propertyPath: hasPunch2
       value: 1
       objectReference: {fileID: 0}
@@ -2640,9 +2644,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5791255334278411630, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
+      propertyPath: m_Volume
+      value: 0.175
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791255334278411630, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: c135c11da87094d418f8031659611ccc, type: 3}
+      objectReference: {fileID: 8300000, guid: 8ce4aa9b4fe9243c588ef2b503d01523, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6914,6 +6922,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1019331144117502311, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2428602806970434632, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: m_Name
       value: Sina (Player)
@@ -6933,6 +6945,10 @@ PrefabInstance:
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: interactPoint
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394221552604347934, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8119631991954872352, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: m_LocalPosition.x

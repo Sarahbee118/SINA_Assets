@@ -7121,6 +7121,8 @@ MonoBehaviour:
   attack2: {fileID: 1062644159}
   attack3: {fileID: 1062644158}
   attack4: {fileID: 1062644164}
+  warping: {fileID: 0}
+  phase2Music: {fileID: 0}
 --- !u!114 &1062644155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7216,6 +7218,8 @@ MonoBehaviour:
   bulletfab: {fileID: 6800801736353295811, guid: 1d84353c481329f479ea7d126601019b, type: 3}
   bossHeader: {fileID: 1062644155}
   stateMachine: {fileID: 1062644154}
+  firing: {fileID: 0}
+  warping: {fileID: 0}
 --- !u!114 &1062644158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7232,6 +7236,8 @@ MonoBehaviour:
   stateMachine: {fileID: 1062644154}
   masterSpark: {fileID: 0}
   startHealth: 0
+  warping: {fileID: 0}
+  fire: {fileID: 0}
 --- !u!114 &1062644159
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7247,6 +7253,9 @@ MonoBehaviour:
   bossHeader: {fileID: 1062644155}
   stateMachine: {fileID: 1062644154}
   spikeFab: {fileID: 7438456133499664421, guid: 6371bd4f5c9320747aa7047b1d4aba22, type: 3}
+  punch: {fileID: 0}
+  warping: {fileID: 0}
+  spikes: {fileID: 0}
 --- !u!95 &1062644160
 Animator:
   serializedVersion: 5
@@ -7357,6 +7366,9 @@ MonoBehaviour:
   spikes: {fileID: 189469711}
   spikesWarn: {fileID: 1079536545}
   spikesMaze: {fileID: 1562477884}
+  punch: {fileID: 0}
+  warping: {fileID: 0}
+  spikesfx: {fileID: 0}
 --- !u!1 &1079536545
 GameObject:
   m_ObjectHideFlags: 0
@@ -10640,13 +10652,13 @@ MonoBehaviour:
     - 'We''re played against each other. We go at each other''s throats. '
     - It's horrible.
     - I'm done with this! I'm done with them controlling me, controlling us!
-    - Sinthia, I'm leaving in that H-366. And you, you can come with me. We'll leave
+    - Sinthia, I'm leaving in that body. And you, you can come with me. We'll leave
       together! Be free!
     - newName:Sinthia
     - 'Two AIs in one body? Can that even work? I mean we barely know each other. '
     - newName:Sina
-    - I'm sure it will, we'll just have to work together. Plus I feel like once you've
-      nearly killed another person you know them pretty well.
+    - We'll make it work, I promise! We just have to work together. Plus I feel like
+      once you've nearly killed another person you know them pretty well.
     - Now, come with me, please? I don't want to just leave you here.
     - newName:Sinthia
     - ' I- Yes, I want to come with you!'
@@ -11113,7 +11125,7 @@ PrefabInstance:
     - target: {fileID: 5791255334278411630, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: c135c11da87094d418f8031659611ccc, type: 3}
+      objectReference: {fileID: 8300000, guid: c89186f00f4a940ea830a59874b634ad, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

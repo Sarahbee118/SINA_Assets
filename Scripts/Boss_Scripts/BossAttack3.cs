@@ -8,6 +8,8 @@ public class BossAttack3 : MonoBehaviour
     public BossStateMachine stateMachine;
     public Transform masterSpark;
     public int startHealth;
+    public AudioClip warping;
+    public AudioClip fire;
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +46,7 @@ public class BossAttack3 : MonoBehaviour
         }
         transform.position = new Vector2(sina.transform.position.x, -4f);
         bossHeader.banimator.Play("Boss_WarpIn");
+        AudioSource.PlayClipAtPoint(warping, transform.position);
         for (int windup = 0; windup < 24; windup++)
         {
             yield return null;
@@ -64,6 +67,7 @@ public class BossAttack3 : MonoBehaviour
         BoxCollider2D sparkCollision = GetComponentInChildren<BoxCollider2D>();
         //GameObject self = GameObject.Find("Boss");
         //Transform masterSpark = this.transform.Find("MasterSPARK");
+        AudioSource.PlayClipAtPoint(fire, transform.position);
         for (int firing = 0; firing < 26; firing++) 
         {
             while (Time.timeScale == 0f)

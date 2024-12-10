@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossStateMachine : MonoBehaviour
@@ -15,7 +16,9 @@ public class BossStateMachine : MonoBehaviour
     public BossAttack2 attack2;
     public BossAttack3 attack3;
     public BossAttack4 attack4;
-    
+    public AudioClip warping;
+    public AudioClip phase2Music;
+
 
 
     // Start is called before the first frame update
@@ -50,23 +53,28 @@ public class BossStateMachine : MonoBehaviour
                 {
                     if(bossHeader.HP < (bossHeader.maxHP / 2) && currentLottery != phase2Lottery)
                         {
-                        currentLottery = phase2Lottery;
-                        attackFrame = 0;
-                        state = 3;
+                            MusicManager.Instance.musicPlayer.clip = phase2Music;
+                            MusicManager.Instance.musicPlayer.Play();
+                            currentLottery = phase2Lottery;
+                            attackFrame = 0;
+                            state = 3;
                         }
-                    bossHeader.banimator.Play("Boss_WarpOut");
+                        AudioSource.PlayClipAtPoint(warping, transform.position);
+                        bossHeader.banimator.Play("Boss_WarpOut");
                 }
                 if (attackFrame == 20)
                 {
                     this.transform.position = bossHeader.home;
                     bossHeader.banimator.Play("Boss_WarpIn");
-                }
+                        AudioSource.PlayClipAtPoint(warping, transform.position);
+                    }
                 if (attackFrame > 120) //weighted attack lottery
                 {
                     state = currentLottery[Random.Range(0, currentLottery.Length)];
                     attackFrame = 0;
                     bossHeader.banimator.Play("Boss_WarpOut");
-                }
+                        AudioSource.PlayClipAtPoint(warping, transform.position);
+                    }
                 break;
 
             case 1:
