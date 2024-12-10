@@ -22,6 +22,7 @@ public class Sina : MonoBehaviour
     private InputAction interact; //interact
     private InputAction dash; // dash action
     private InputAction shrink; // shrink action
+    private InputAction shield;
     //text
     private bool iframes = false;
     public txt_trigger trigger; //trigger text box
@@ -51,6 +52,7 @@ public class Sina : MonoBehaviour
     public LayerMask enemyLayers;
     public int attackDamage = 10;
     public GameObject punchfab;
+    public GameObject punch2fab;
     public GameObject intFab;
     public bool punchPower = false;
     //
@@ -74,6 +76,8 @@ public class Sina : MonoBehaviour
     public GameObject feetCollision;
     public GameObject hurtCollision;
     private float timer;
+    public GameObject shieldOb;
+    private Coroutine shieldRoutine = null;
 
     //SFX Shield Up
     //SFX Shield Down
@@ -331,7 +335,7 @@ public class Sina : MonoBehaviour
     {
         for (int i = 0; i < 1; i++)
         {
-            yield return null;
+            yield return  new WaitForEndOfFrame();
         }
         if (SinaManager.Instance != null)
         {
@@ -347,6 +351,8 @@ public class Sina : MonoBehaviour
             health = SinaManager.Instance.SinaHealth;
             ammoText.text = "Ammo x" + ammo;
             healthText.text = hearts.Substring(0, health);
+            maxAmmo = SinaManager.Instance.SinaMaxAmmo;
+            maxHealth = SinaManager.Instance.SinaMaxHealth;
         }
         else
         {
@@ -447,6 +453,7 @@ public class Sina : MonoBehaviour
             }
             else
             {
+                Debug.Log("Reload");
                 ammo = 0;
                 StartCoroutine(Reloading());
             }
@@ -473,15 +480,17 @@ public class Sina : MonoBehaviour
 
     IEnumerator Reloading()
     {
-        
-        for (int bullets = 0;  bullets < maxAmmo; bullets++)
+        int tempMax = maxAmmo;
+        fire.Disable();
+        Debug.Log(maxAmmo);
+        for (int bullets = 0;  bullets < tempMax; bullets++)
         {
-            fire.Disable();
+            Debug.Log("ReloadCount");
             ammo += 1;
             ammoText.text = "Ammo x" + ammo;
-            float time = 5f / (float)maxAmmo;
+            float reloadtime = 5f / (float)maxAmmo;
             SinaManager.Instance.SinaAmmo = ammo;
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(reloadtime);
 
         }
         fire.Enable();
@@ -914,7 +923,21 @@ public class Sina : MonoBehaviour
             animator.SetInteger("YSpeed", 0);
             yield return null; //next frame
         }
-        GameObject kapow = Instantiate<GameObject>(punchfab, transform.position, Quaternion.identity);
+        GameObject kapow;
+        if (hasPunch2)
+        {
+            
+            kapow = Instantiate<GameObject>(punch2fab, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            kapow = Instantiate<GameObject>(punchfab, transform.position, Quaternion.identity);
+        }
+        
+        
+           
+        
+        
         switch (faceDirection) //punch appears in faced direction
         {
             case 0:
@@ -948,7 +971,49 @@ public class Sina : MonoBehaviour
 
     }
 
+    private void Shield(InputAction.CallbackContext context)
+    {
+        if (hasShield)
+        {
+            Debug.Log("Shield");
 
+            if (ammo > 0)
+            {
+                if (!shieldOb.activeSelf)
+                {
+                    punch.Disable();
+                    fire.Disable();
+                    shieldOb.SetActive(true);
+                    shieldRoutine = StartCoroutine(Shielding());
+                }
+                else
+                {
+                    punch.Enable();
+                    fire.Enable();
+                    StopCoroutine(shieldRoutine);
+                    shieldOb.SetActive(false);
+                    hurtCollision.gameObject.SetActive(true);
+                }
+            }
+        }
+
+    }
+
+    IEnumerator Shielding() //while punching
+    {
+        hurtCollision.gameObject.SetActive(false);
+        while (ammo > 0) 
+        {
+            Debug.Log("Decriment");
+            ammo--;
+            ammoText.text = "Ammo x" + ammo;
+            yield return new WaitForSeconds(.25f);
+        }
+        hurtCollision.gameObject.SetActive(true);
+        shieldOb.SetActive(false);
+        fire.Enable();
+        punch.Enable();
+    }
 
     private void OnEnable() //Required for new input system
     {
@@ -970,6 +1035,9 @@ public class Sina : MonoBehaviour
         punch = playerControls.Player.Punch;
         punch.Enable();
         punch.performed += Punch;
+        shield = playerControls.Player.Shield;
+        shield.Enable();
+        shield.performed += Shield;
 
     }
 
@@ -983,6 +1051,7 @@ public class Sina : MonoBehaviour
         dash.Disable();
         shrink.Disable();
         punch.Disable();
+        shield.Disable();
     }
 
     

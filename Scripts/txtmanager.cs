@@ -10,7 +10,9 @@ public class txtmanager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Queue<string> sentences;
     public float textSpeed;
-    private string sentence; 
+    private string sentence;
+    public AudioClip talkingbeep;
+    public AudioClip startClick;
     //public AudioClip hi;
 
     // Start is called before the first frame update
@@ -22,6 +24,7 @@ public class txtmanager : MonoBehaviour
 
     public void StartDialogue (txt dialogue)
     {
+        AudioSource.PlayClipAtPoint(startClick, new Vector3(0f,0f,0f));
         sentences = new Queue<string>();
         Debug.Log ("start coversation with " + dialogue.name);
         nameText.text = dialogue.name + ":";
@@ -102,6 +105,7 @@ public class txtmanager : MonoBehaviour
     {
         foreach (char c in currLine)
         {
+            AudioSource.PlayClipAtPoint(talkingbeep, new Vector3(0f,0f,0f));
             dialogueText.text += c;
             yield return new WaitForSeconds(textSpeed);
         }

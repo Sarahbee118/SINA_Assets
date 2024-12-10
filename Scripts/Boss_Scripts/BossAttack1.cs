@@ -7,6 +7,8 @@ public class BossAttack1 : MonoBehaviour
     public GameObject bulletfab;
     public BossHeader bossHeader;
     public BossStateMachine stateMachine;
+    public AudioClip firing;
+    public AudioClip warping;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +50,7 @@ public class BossAttack1 : MonoBehaviour
                 yield return null;
             }
             bossHeader.banimator.Play("Boss_Warpout");
+            AudioSource.PlayClipAtPoint(warping, transform.position);
             for (int windup = 0; windup < 30; windup++)
             {
                 Debug.Log("Loop");
@@ -56,7 +59,7 @@ public class BossAttack1 : MonoBehaviour
             
             transform.position = teleportLocations[attackOrder[timesAttack]];
             bossHeader.banimator.Play("Boss_WarpIn");
-
+            AudioSource.PlayClipAtPoint(warping, transform.position);
 
             for (int windup = 0; windup < 30; windup++)
             {
@@ -67,6 +70,7 @@ public class BossAttack1 : MonoBehaviour
                 yield return null;
             }
             bossHeader.banimator.Play("Boss_Fire");
+            AudioSource.PlayClipAtPoint(firing, transform.position);
             GameObject bullet1 = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);
             GameObject bullet2 = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);
             GameObject bullet3 = Instantiate<GameObject>(bulletfab, transform.position, Quaternion.identity);

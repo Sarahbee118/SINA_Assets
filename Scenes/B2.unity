@@ -5938,7 +5938,7 @@ PrefabInstance:
       objectReference: {fileID: 1149024783}
     - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4309464728533703489, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
       propertyPath: dialogue.name
@@ -5954,7 +5954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6841716821770018673, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.2944727
+      value: 4.31
       objectReference: {fileID: 0}
     - target: {fileID: 6841716821770018673, guid: 4344e194ef6658b4f96158896fdd9e9c, type: 3}
       propertyPath: m_LocalPosition.y

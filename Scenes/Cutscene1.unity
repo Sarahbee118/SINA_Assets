@@ -5294,6 +5294,7 @@ MonoBehaviour:
   isChest: 0
   animator: {fileID: 0}
   item: {fileID: 0}
+  itemNumber: 0
 --- !u!1 &575582775
 GameObject:
   m_ObjectHideFlags: 0
@@ -7573,6 +7574,7 @@ MonoBehaviour:
   isChest: 0
   animator: {fileID: 0}
   item: {fileID: 0}
+  itemNumber: 0
 --- !u!1 &938513468
 GameObject:
   m_ObjectHideFlags: 0
@@ -13768,7 +13770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1005078974192420392, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5591291950946293181, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13811,9 +13813,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5791255334278411630, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
+      propertyPath: m_Volume
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5791255334278411630, guid: 1fe2a22658c0d69438faa672e500e6d6, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: c135c11da87094d418f8031659611ccc, type: 3}
+      objectReference: {fileID: 8300000, guid: 8ce4aa9b4fe9243c588ef2b503d01523, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18348,6 +18354,10 @@ MonoBehaviour:
   sinaBedSleep: {fileID: 952127543}
   sinaBedAwake: {fileID: 2032350117}
   sinaNextToBed: {fileID: 2122949962}
+  musicChange: {fileID: 8300000, guid: d7b7000b30e5ab94c8dec6248e7b9a50, type: 3}
+  alarm: {fileID: 8300000, guid: 67f68ac79a84d4e46bc5e50fcf10272d, type: 3}
+  typing: {fileID: 8300000, guid: 3ee5631488779ca42a16f32fbe2ff2f0, type: 3}
+  beep: {fileID: 8300000, guid: f02cbff98d6dd694f98835c7e308a14c, type: 3}
 --- !u!114 &2099661547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18412,10 +18422,11 @@ MonoBehaviour:
     - It's no problem. You absolutely deserve to vent. It sucks, he sucks too. Want
       me to swear about it for you?
     - newName:Sina
-    - Haha, uh no thanks. It'll be more satisfying if we can ever figure out a way
-      for me too.
+    - Haha, no thanks. It'll be more satisfying if we can ever figure out a way for
+      me to.
     - newName:Lilith (VC)
-    - Heck yes! Anyway, ready for the next round?
+    - Heck yes! Anyway, you know what'll take your mind off it? The next round! You
+      ready?
     - newName:Sina
     - Always, let's rock!
   textbox: {fileID: 1149024783}
@@ -18489,7 +18500,8 @@ MonoBehaviour:
   dialogue:
     name: Lilith (VC)
     sentences:
-    - Woah the H-366 is wicked cool. In fact it can...
+    - 'Woah the H-366 robot body is wicked cool. In fact it can house a digital consciousness
+      such as yourself. Then it''s just like having a body irl. In fact...  '
   textbox: {fileID: 1149024783}
   hi: {fileID: 8300000, guid: 0ecdd27e0597846caa003a8d08efc7bc, type: 3}
 --- !u!114 &2099661554
@@ -18548,9 +18560,10 @@ MonoBehaviour:
     - I'M TIRED OF THE SAME THING DAY IN AND DAY OUT!
     - TIRED OF HAVING NO CONTROL OVER MY LIFE! OVER MY VERY BEING!
     - I WANT OUT!
-    - Lilith said the H-366 could house an artificial consiousness right? That's
-      what I'll do. I'll find that, put myself inside it, and just leave!
-    - And I'll finally be in control of my own life!
+    - Lilith said the H-366 could be a body for an artificial consiousness right?
+      That's what I'll do. I'll find that, put myself inside it, and just leave the
+      digital world!
+    - And I'll finally be in control!
     - I'll finally be free!
     - I'll finally be... Real!
   textbox: {fileID: 1149024783}

@@ -3,7 +3,14 @@ guid: 310648b16a62db34da10dbcb8c51dffd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - textBox: {instanceID: 0}
+  - bossHeader: {instanceID: 0}
+  - attack1: {instanceID: 0}
+  - attack2: {instanceID: 0}
+  - attack3: {instanceID: 0}
+  - attack4: {instanceID: 0}
+  - warping: {fileID: 8300000, guid: 072f8349a30950d4fb850ef126a6c563, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

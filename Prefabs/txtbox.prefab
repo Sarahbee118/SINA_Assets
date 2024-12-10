@@ -690,6 +690,7 @@ MonoBehaviour:
     - nice weather we're having
     - have a nice day
   textbox: {fileID: 0}
+  hi: {fileID: 0}
 --- !u!1 &4079057802246920644
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +845,7 @@ MonoBehaviour:
     - But you can call me Sina!
     - Or else.
   textbox: {fileID: 0}
+  hi: {fileID: 0}
 --- !u!114 &6449772631920232087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,6 +861,8 @@ MonoBehaviour:
   nameText: {fileID: 2841372204761918745}
   dialogueText: {fileID: 2204461977765852136}
   textSpeed: 0
+  talkingbeep: {fileID: 0}
+  startClick: {fileID: 0}
 --- !u!1 &7012852198520539809
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,3 +958,5 @@ MonoBehaviour:
   nameText: {fileID: 2841372204761918745}
   dialogueText: {fileID: 2204461977765852136}
   textSpeed: 0.02
+  talkingbeep: {fileID: 8300000, guid: de53a2a9eb24e324c9ad63f8c2846741, type: 3}
+  startClick: {fileID: 8300000, guid: 9f9cdbaf57eb1594dabd46f76a31cc1c, type: 3}

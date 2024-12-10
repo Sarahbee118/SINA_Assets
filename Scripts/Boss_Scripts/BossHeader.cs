@@ -21,6 +21,7 @@ public class BossHeader : MonoBehaviour
     public BossAttack3 attack3;
     public BossAttack4 attack4;
     public BossDialogue bossDialogue;
+   
 
     public Image fadeinout;
  
