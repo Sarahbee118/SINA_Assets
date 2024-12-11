@@ -6874,6 +6874,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 851b178c70c224c66864e63e29ef1f58, type: 3}
     - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4705798656397724542, guid: 6c897756c533cc04d8802d9edab3a3ed, type: 3}
       propertyPath: ammoText
       value: 
       objectReference: {fileID: 1699792497}

@@ -11,10 +11,15 @@ public class MainMenu : MonoBehaviour
     private InputAction back;
     public GameObject skipText;
     public PlayerInputs menuControls;
+    public TMP_Text version;
 
     private void Awake() //On game load
     {
         menuControls = new PlayerInputs();
+        if (version != null)
+        {
+            version.text = "Version: " + Application.version.ToString();
+        }
 
     }
 
