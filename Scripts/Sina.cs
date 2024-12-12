@@ -6,6 +6,7 @@ using Transform = UnityEngine.Transform;
 using TMPro;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class Sina : MonoBehaviour
 {
@@ -78,6 +79,7 @@ public class Sina : MonoBehaviour
     private float timer;
     public GameObject shieldOb;
     private Coroutine shieldRoutine = null;
+    public Tilemap tilemap;
 
     //SFX Shield Up
     //SFX Shield Down
@@ -87,7 +89,9 @@ public class Sina : MonoBehaviour
 
     void Start()
     {
-        
+        GameObject tiles = GameObject.Find("Background");
+        tiles = tiles.transform.Find("Grid").gameObject;
+        tilemap = tiles.transform.Find("Gaps").gameObject.GetComponent<Tilemap>();
         switch (faceDirection)
         {
             case 0:
@@ -598,6 +602,7 @@ public class Sina : MonoBehaviour
 
     IEnumerator Dashing()
     {
+        Vector2 startPos = this.transform.position;
         feetCollision.SetActive(false);
         hurtCollision.SetActive(false);
 
@@ -705,6 +710,17 @@ public class Sina : MonoBehaviour
         }
         feetCollision.SetActive(true);
         hurtCollision.SetActive(true);
+        Vector3 postdashpos = transform.position;
+
+        Vector3Int world = tilemap.WorldToCell(postdashpos);
+        Debug.Log(world);
+
+        if (tilemap.HasTile(world))
+        {
+            Debug.Log("gap here");
+            transform.position = startPos;
+            StartCoroutine(TakeDamage());
+        }
         dash.Enable();
         moveLock = false;
 
