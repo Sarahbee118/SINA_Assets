@@ -61,7 +61,15 @@ public class MainMenu : MonoBehaviour
         SinaManager.Instance.screenExit = "top";
         SinaManager.Instance.currScreen = "C1";
         SinaManager.Instance.introComplete = false;
-        SceneManager.LoadScene("Cutscene1");
+    SinaManager.Instance.heart1 = false;
+    SinaManager.Instance.heart2 = false;
+    SinaManager.Instance.heart3 = false;
+    SinaManager.Instance.ammo1 = false;
+    SinaManager.Instance.ammo2 = false;
+    SinaManager.Instance.ammo3 = false;
+    SinaManager.Instance.ammo4 = false;
+    SinaManager.Instance.ammo5 = false;
+    SceneManager.LoadScene("Cutscene1");
     }
     public void LoadGame()
     {
